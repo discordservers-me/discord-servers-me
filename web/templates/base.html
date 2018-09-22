@@ -27,14 +27,13 @@
 				width: 90% !important;
 			}
 		}
-
+	
 		@media only screen and (max-width: 992px) {
 			nav .brand-logo {
-			    left: 100px;
+			left: 100px;
 			}
 		}
 			
-		
 		.active-navitem {
 			background: #e0e0e0;
 	
@@ -55,11 +54,12 @@
 		<div class="navbar-fixed">
 			<nav>
 				<div class="nav-wrapper grey darken-4">
-					
-					<div class="brand-logo" style="display: inline-block; padding-left: 20px; white-space: nowrap;">
-						<img height='64' src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
-						<div style="display: inline-block; position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></div>
-					</div>
+					<a href="{% url 'home' %}">
+						<div class="brand-logo" style="display: inline-block; padding-left: 20px; white-space: nowrap;">
+							<img height='64' src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
+							<div style="display: inline-block; position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></div>
+						</div>
+					</a>
 					<a href="#!" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						{% with request.resolver_match as url_part %}
