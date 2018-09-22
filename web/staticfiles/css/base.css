@@ -75,7 +75,7 @@
     padding: 2px 5px;
     font-size: 0.8rem;
     background-color: #fafafa;
-    color: teal;
+    color: grey;
     border-radius: 5px;
 }
 
@@ -132,26 +132,51 @@
 /* PREMIUM PAYMENT CSS */
 .tier-items {
     cursor: pointer;
+    min-height: 400px;
 }
 
 /* END PREMIUM PAYMENT CSS */
 
 /* PREMIUM CSS */
+.server-card-image.no-highlight {
+    border: 0px solid transparent !important
+}
+
+.server-card-image.premium-highlight-1 {
+    background: #F6CD00;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.server-card-image.premium-highlight-2  {
+    background: #DC4AFF;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.server-card-image.premium-highlight-3 {
+    background: #ff3837;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 
 .no-highlight {
-    border: 4px solid transparent !important;
+    border: 1px solid transparent !important;
 }
 
 .premium-highlight-1 {
-    border: 4px solid #F6CD00 !important;
+    border: 1px solid #F6CD00 !important;
 }
 
 .premium-highlight-2 {
-    border: 4px solid #DC4AFF !important;
+    border: 1px solid #DC4AFF !important;
 }
 
 .premium-highlight-3 {
-    border: 4px solid #ff3837 !important;
+    border: 1px solid #ff3837 !important;
 }
 
 /* END PREMIUM CSS */
