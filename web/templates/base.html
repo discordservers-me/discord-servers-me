@@ -5,12 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		{# <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"> #}
 	<title>{% block title %}Discord Server List{% endblock title %}</title>
-	<!-- Compiled and minified CSS -->
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="{% static 'css/base.css' %}">
-	<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+	
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/dark_logo.png' %}"/>
 	<style>
 		html {
@@ -29,6 +27,13 @@
 				width: 90% !important;
 			}
 		}
+
+		@media only screen and (max-width: 992px) {
+			nav .brand-logo {
+			    left: 100px;
+			}
+		}
+			
 		
 		.active-navitem {
 			background: #e0e0e0;
@@ -37,7 +42,7 @@
 		.active-navitem > a {
 			color: black;
 		}
-
+	
 		.nav-wrapper ul > li {
 			min-width: 70px;
 			text-align: center;
@@ -50,11 +55,12 @@
 		<div class="navbar-fixed">
 			<nav>
 				<div class="nav-wrapper grey darken-4">
-					<a href="{% url 'home' %}" class="brand-logo" style="padding-left: 20px; white-space: nowrap;">
+					
+					<div class="brand-logo" style="display: inline-block; padding-left: 20px; white-space: nowrap;">
 						<img height='64' src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
-						<span style="position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></span>
-					</a>
-					<a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+						<div style="display: inline-block; position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></div>
+					</div>
+					<a href="#!" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						{% with request.resolver_match as url_part %}
 							
@@ -215,9 +221,9 @@
 		</footer>
 		
 	{% endblock body %}
-	<!-- Compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="{% static 'js/materialize.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
 	
 	<script>
 		$(document).ready(function(){
