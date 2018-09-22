@@ -7,7 +7,7 @@
 	<title>{% block title %}Discord Server List{% endblock title %}</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/base.css' %}">
 	
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/dark_logo.png' %}"/>
@@ -68,31 +68,31 @@
 							
 							{% if url_part.url_name == 'home' %}
 								<li class="active-navitem tooltipped" data-tooltip="Home">
-									<a href="#!"><i class="material-icons">home</i></a>
+									<a href="#!"><i class="fas fa-home"></i></a>
 								</li>
 							{% else %}
 								<li class="tooltipped" data-tooltip="Home">
-									<a href="{% url 'home' %}"><i class="material-icons">home</i></a>
+									<a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
 								</li>
 							{% endif %}
 							
 							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
 								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
-									<a href="#!"><i class="fas fa-signal"></i></a>
+									<a href="#!"><i class="fas fa-signal-alt"></i></a>
 								</li>
 							{% else %}
 								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Top 100 Servers">
-									<a href="{% url 'server:list_top_100' %}"><i class="fas fa-signal"></i></a>
+									<a href="{% url 'server:list_top_100' %}"><i class="fas fa-signal-alt"></i></a>
 								</li>
 							{% endif %}
 							
 							{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
 								<li class="active-navitem tooltipped" data-tooltip="Premium">
-									<a href="#!"><i class="material-icons">monetization_on</i></a>
+									<a href="#!"><i class="fas fa-gem"></i></a>
 								</li>
 							{% else %}
 								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Premium">
-									<a href="{% url 'premium:detail' %}"><i class="material-icons">monetization_on</i></a>
+									<a href="{% url 'premium:detail' %}"><i class="fas fa-gem"></i></a>
 								</li>
 							{% endif %}
 							

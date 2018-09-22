@@ -113,6 +113,36 @@
 				</div>
 			</div>
 		</div>
+		<div class="center">
+			<button class="btn-large indigo waves-effect waves-light modal-trigger" data-target="modal-video">
+			Watch Premium Explanation Video
+			<i class="material-icons right">play_circle_filled</i>
+			</button>
+			<div id="modal-video" class="modal">
+				<div class="modal-content">
+					<iframe class="youtube-video" style="width: 100%;" height="400" src="https://www.youtube.com/embed/o4u_fPRE-ys?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	
 {% endblock content %}
+{% block javascript %}
+	<script>
+		$(document).ready(function(){
+			$('.modal').modal({
+				'onCloseStart': function(){
+					$('.youtube-video').each(function(index) {
+						$(this).attr('src', $(this).attr('src'));
+						return false;
+					});
+				},
+				'dismissible': false,
+			});
+		});
+	</script>
+{% endblock javascript %}

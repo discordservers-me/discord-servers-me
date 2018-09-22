@@ -19,7 +19,7 @@ class UserDashboardView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['bot_invite_link'] = settings.DISCORD_BOT_INVITE_LINK
-        context['show_bump_button'] = True
+        context['show_bump_button'] = False
         return context
 
     def post(self, request, *args, **kwargs):
