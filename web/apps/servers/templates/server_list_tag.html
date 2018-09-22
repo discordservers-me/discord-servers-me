@@ -9,7 +9,7 @@
 {% block content %}
 	<div id="server-list">
 		{% if tag_does_not_exist %}
-			<h4 class="center" style="margin-top:0;">Nothing found in tag <button class="btn black waves-effect waves-light">{{ tag }}</button> :(</h4>
+			<h4 class="center" style="margin-top:0;">Nothing found in tag <button class="btn grey darken-4 waves-effect waves-light">{{ tag }}</button> :(</h4>
 			<div class="center">
 				<h5>Available Tags:</h5>
 				{% for tag in tags  %}
@@ -21,7 +21,7 @@
 			
 			<h5 class="center" style="">Please see below some of the top servers!</h5>
 		{% else %}
-			<h4 class="center" style="margin-top: 0;">Servers that have the <button class="btn black waves-effect waves-light">{{ tag }}</button> tag</h4>
+			<h4 class="center" style="margin-top: 0;">Servers that have the <button class="btn grey darken-4 waves-effect waves-light">{{ tag }}</button> tag</h4>
 		{% endif %}
 		<div class="row" style="margin-bottom: 0;">
 			<div class="col s12 center" style="padding: 0.25rem 0;">

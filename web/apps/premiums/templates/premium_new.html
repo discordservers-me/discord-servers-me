@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}
+	Tiers Comparison
+{% endblock title %}
+{% block stylesheet %}
+	<style>
+		.material-tooltip {
+			max-width: 300px;
+		}
+	
+		.tier-card-basic {
+			border: #616161 solid 3px;
+		}
+	
+		.tier-card-premium-1 {
+			border: #aa00ff solid 3px;
+		}
+	
+		.tier-card-premium-1 i {
+			color: #aa00ff;
+		}
+	
+		.tier-card-premium-2 {
+			border: #d50000 solid 3px;
+		}
+	
+		.tier-card-premium-2 i {
+			color: #d50000;
+		}
+	
+		.card-content {
+			min-height: 235px;
+		}
+	
+		.card-content h4 {
+			margin-top: 0;
+		}
+	
+		.card-action {
+			border-radius: 0 !important;
+		}
+	
+		.card-action h4 {
+			margin: 0;
+		}
+	</style>
+{% endblock stylesheet %}
+
+{% block content %}
+	
+	<div>
+		<h4><strong>Tier Comparison</strong></h4>
+		<div class="row">
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-basic card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Basic</strong></h4>
+						<ul>
+							{% for feature in tier0_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="#!">
+						<div class="card-action grey darken-2 grey-text text-lighten-3">
+							<h4 class="center"><strong>STAY BASIC</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-premium-1 card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Premium Tier 1</strong></h4>
+						<ul>
+							{% for feature in tier1_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="{% url 'premium:payment' %}">
+						<div class="card-action purple accent-4 grey-text text-lighten-3">
+							<h4 class="center"><strong>BUY FOR $7.5/mo</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-premium-2 card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Premium Tier 2</strong></h4>
+						<ul>
+							{% for feature in tier2_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="{% url 'premium:payment' %}">
+						<div class="card-action red accent-4 grey-text text-lighten-3">
+							<h4 class="center"><strong>BUY FOR $10/mo</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock content %}

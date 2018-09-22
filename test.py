@@ -20,9 +20,5 @@ def test_func():
     print(None in [1, 2, 3])
 
 
-async def test_async_func():
-    await asyncio.sleep(6)
-
 if __name__ == "__main__":
-    test_async_func()
-    print('async works')
+    test_func()

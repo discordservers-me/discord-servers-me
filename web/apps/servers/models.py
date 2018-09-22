@@ -16,7 +16,7 @@ class ServerTag(models.Model):
 class DiscordServer(models.Model):
 
     PREMIUM_HIGHTLIGHT_CHOICES = (
-        (0, 'Blue Grey - Default'),
+        (0, 'No Highlight'),
         (1, 'Yellow - Premium Tier 1 + 2'),
         (2, 'Pink - Premium Tier 1 + 2'),
         (3, 'Red - Premium Tier 2'),

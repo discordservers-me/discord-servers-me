@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'css/base.css' %}">
 	<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-	
+	<link rel="shortcut icon" type="image/png" href="{% static 'img/dark_logo.png' %}"/>
 	<style>
 		html {
 			height: 100%;
@@ -37,6 +37,11 @@
 		.active-navitem > a {
 			color: black;
 		}
+
+		.nav-wrapper ul > li {
+			min-width: 70px;
+			text-align: center;
+		}
 	</style>
 	{% block stylesheet %}{% endblock %}
 </head>
@@ -45,40 +50,63 @@
 		<div class="navbar-fixed">
 			<nav>
 				<div class="nav-wrapper grey darken-4">
-					<a href="{% url 'home' %}" class="brand-logo" style="padding-left: 20px; white-space: nowrap;">DISCORD SERVERS</a>
+					<a href="{% url 'home' %}" class="brand-logo" style="padding-left: 20px; white-space: nowrap;">
+						<img height='64' src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
+						<span style="position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></span>
+					</a>
 					<a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						{% with request.resolver_match as url_part %}
 							
 							{% if url_part.url_name == 'home' %}
-								<li class="active-navitem"><a href="#!">HOME</a></li>
+								<li class="active-navitem tooltipped" data-tooltip="Home">
+									<a href="#!"><i class="material-icons">home</i></a>
+								</li>
 							{% else %}
-								<li class="hoverable waves-effect waves-light" ><a href="{% url 'home' %}">HOME</a></li>
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Home">
+									<a href="{% url 'home' %}"><i class="material-icons">home</i></a>
+								</li>
 							{% endif %}
 							
 							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
-								<li class="active-navitem"><a href="#!">TOP 100 SERVERS</a></li>
+								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
+									<a href="#!"><i class="material-icons">assistant</i></a>
+								</li>
 							{% else %}
-								<li class="hoverable waves-effect waves-light"><a href="{% url 'server:list_top_100' %}">TOP 100 SERVERS</a></li>
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Top 100 Servers">
+									<a href="{% url 'server:list_top_100' %}"><i class="material-icons">assistant</i></a>
+								</li>
 							{% endif %}
 							
 							{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
-								<li class="active-navitem"><a href="#!">PREMIUM</a></li>
+								<li class="active-navitem tooltipped" data-tooltip="Premium">
+									<a href="#!"><i class="material-icons">monetization_on</i></a>
+								</li>
 							{% else %}
-								<li class="hoverable waves-effect waves-light"><a href="{% url 'premium:detail' %}">PREMIUM</a></li>
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Premium">
+									<a href="{% url 'premium:detail' %}"><i class="material-icons">monetization_on</i></a>
+								</li>
 							{% endif %}
 							
 							{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
-								<li class="active-navitem"><a href="#!">GIVEAWAYS</a></li>
+								<li class="active-navitem tooltipped" data-tooltip="Giveaways">
+									<a href="#!"><i class="material-icons">card_giftcard</i></a>
+								</li>
 							{% else %}
-								<li class="hoverable waves-effect waves-light"><a href="{% url 'giveaway:detail' %}">GIVEAWAYS</a></li>
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Giveaways">
+									<a href="{% url 'giveaway:detail' %}"><i class="material-icons">card_giftcard</i></a>
+								</li>
 							{% endif %}
 							
 							{% if not request.user.is_authenticated %}
 								{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
-									<li class="active-navitem"><a href="#!">LOGIN</a></li>
+									<li class="active-navitem">
+										<a href="#!"><i class="material-icons tooltipped" data-tooltip="Log In">person</i></a>
+									</li>
 								{% else %}
-									<li class="hoverable waves-effect waves-light"><a href="{% url 'auth:login' %}">LOGIN</a></li>
+									<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Log In">
+										<a href="{% url 'auth:login' %}"><i class="material-icons">person</i></a>
+									</li>
 								{% endif %}
 							{% endif %}
 						{% endwith %}

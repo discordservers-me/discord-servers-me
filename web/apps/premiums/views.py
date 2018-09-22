@@ -30,21 +30,23 @@ class CustomPaypalButton(PayPalPaymentsForm):
 
 
 class PremiumView(generic.TemplateView):
-    template_name = 'premium.html'
+    template_name = 'premium_new.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        tier1_features = PremiumFeature.objects.filter(tier__tier=1).order_by('-updated_at')
-        tier2_features = PremiumFeature.objects.filter(tier__tier=2).order_by('-updated_at')
+        tier0_features = PremiumFeature.objects.filter(tier__tier=0).order_by('ordering')
+        tier1_features = PremiumFeature.objects.filter(tier__tier=1).order_by('ordering')
+        tier2_features = PremiumFeature.objects.filter(tier__tier=2).order_by('ordering')
 
+        context['tier0_features'] = tier0_features
         context['tier1_features'] = tier1_features
         context['tier2_features'] = tier2_features
 
-        if tier1_features.count() % 2 != 0:
-            context['tier1_odd'] = True
+        # if tier1_features.count() % 2 != 0:
+        #     context['tier1_odd'] = True
 
-        if tier2_features.count() % 2 != 0:
-            context['tier2_odd'] = True
+        # if tier2_features.count() % 2 != 0:
+        #     context['tier2_odd'] = True
 
         return context
 

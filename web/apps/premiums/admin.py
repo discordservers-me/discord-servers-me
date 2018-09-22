@@ -6,17 +6,19 @@ from .models import PremiumTier, PremiumFeature
 class AdminPremiumFeature(admin.ModelAdmin):
     list_display = (
         'tier',
-        'icon',
-        'icon_color',
-        'background_color',
+        # 'icon',
+        # 'icon_color',
+        # 'background_color',
+        'ordering',
         'short_description',
         'description',
         'updated_at'
     )
     list_editable = (
-        'icon',
-        'icon_color',
-        'background_color',
+        # 'icon',
+        # 'icon_color',
+        # 'background_color',
+        'ordering',
         'short_description',
         'description'
     )
