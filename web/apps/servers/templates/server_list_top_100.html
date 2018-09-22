@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}
+	Top Servers
+	{% if request.GET.page %}
+		| Page  {{ request.GET.page }}
+	{% endif %}
+{% endblock title %}
+{% block content %}
+	<div id="server-list">
+		<h4 class="center" style="margin: 0 0 1rem 0;"><strong>TOP 100 SERVER BY MEMBERS</strong></h4>
+		<div class="row" style="margin-bottom: 0;">
+			<div class="col s12 center" style="padding: 0.25rem 0;">
+				{% include 'includes/paginator_dark.html' %}
+			</div>
+			{% for server in servers %}
+				{% include 'includes/server_card.html' %}
+			{% endfor %}
+			<div class="col s12 center" style="padding: 0.25rem 0;">
+				{% include 'includes/paginator_dark.html' %}
+			</div>
+		</div>
+		
+		
+	</div>
+	
+{% endblock content %}

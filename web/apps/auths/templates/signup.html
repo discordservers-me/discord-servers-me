@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load material_form %}
+{% block title %}
+	Signup
+{% endblock title %}
+{% block content %}
+	
+	<div class="row">
+		
+		<div class="col s12 m8 l6 offset-m2 offset-l3 grey lighten-5" style="padding:1rem;margin-top:3rem;">
+			<h4 class="something">Sign Up Form</h4>
+			<form method="POST">
+				{% csrf_token %}
+				{% form form=form %}
+					{% part form.email prefix %}<i class="material-icons prefix">email</i>{% endpart %}
+					{% part form.password1 prefix %}<i class="material-icons prefix">security</i>{% endpart %}
+					{% part form.password2 prefix %}<i class="material-icons prefix">security</i>{% endpart %}
+					{# {% attr form 'group' class %}cblablabla{% endattr %} #}
+				{% endform %}
+
+					<button class="btn-large waves-effect waves-light right" type="submit">
+					Sign Up<i class="material-icons right">send</i>
+					</button>
+			</form>
+		</div>
+	</div>
+	
+{% endblock content %}

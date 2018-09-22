@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{# <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"> #}
+	<title>{% block title %}Discord Server List{% endblock title %}</title>
+	<!-- Compiled and minified CSS -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+	
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			/*background: white url({% static "img/dust_scratches.png" %});*/
+			height: 100%;
+		}
+		#userinfo-dropdown {
+			top: 100% !important;
+		}
+	
+		@media only screen and (min-width: 993px) {
+			.container {
+				width: 90% !important;
+			}
+		}
+		
+		.active-navitem {
+			background: #e0e0e0;
+	
+		}
+		.active-navitem > a {
+			color: black;
+		}
+	</style>
+	{% block stylesheet %}{% endblock %}
+</head>
+<body class="grey darken-3 grey-text text-lighten-2">
+	{% block body %}
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper grey darken-4">
+					<a href="{% url 'home' %}" class="brand-logo" style="padding-left: 20px; white-space: nowrap;">DISCORD SERVERS</a>
+					<a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						{% with request.resolver_match as url_part %}
+							
+							{% if url_part.url_name == 'home' %}
+								<li class="active-navitem"><a href="#!">HOME</a></li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light" ><a href="{% url 'home' %}">HOME</a></li>
+							{% endif %}
+							
+							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
+								<li class="active-navitem"><a href="#!">TOP 100 SERVERS</a></li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light"><a href="{% url 'server:list_top_100' %}">TOP 100 SERVERS</a></li>
+							{% endif %}
+							
+							{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
+								<li class="active-navitem"><a href="#!">PREMIUM</a></li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light"><a href="{% url 'premium:detail' %}">PREMIUM</a></li>
+							{% endif %}
+							
+							{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
+								<li class="active-navitem"><a href="#!">GIVEAWAYS</a></li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light"><a href="{% url 'giveaway:detail' %}">GIVEAWAYS</a></li>
+							{% endif %}
+							
+							{% if not request.user.is_authenticated %}
+								{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
+									<li class="active-navitem"><a href="#!">LOGIN</a></li>
+								{% else %}
+									<li class="hoverable waves-effect waves-light"><a href="{% url 'auth:login' %}">LOGIN</a></li>
+								{% endif %}
+							{% endif %}
+						{% endwith %}
+						<li><a class="btn grey lighten-3 grey-text text-darken-3 pulse-button" href="{% url 'auth:discord' %}">ADD SERVER <i class="material-icons right">add_box</i></a></li>
+						{% if request.user.is_authenticated %}
+							<li>
+								<a class="nav-dropdown-trigger" data-target='userinfo-dropdown' href="#!"style="max-height: 64px;">
+									<img class="circle responsive-img hoverable" style="margin-top: 4px; max-width: 55px; max-height: 55px;" src="{{ request.user.avatar_url}}" alt="{{ request.user.username }}">
+								</a>
+							</li>
+							
+						{% endif %}
+					</ul>
+				</div>
+			</nav>
+			{% if request.user.is_authenticated %}
+				<ul id="userinfo-dropdown" class="dropdown-content grey lighten-4">
+					<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Dashboard</a></li>
+					<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Your Servers</a></li>
+					<li class="divider"></li>
+					<li><a class="grey-text text-darken-4" href="{% url 'auth:logout' %}">Log Out</a></li>
+				</ul>
+			{% endif %}
+		</div>
+		<ul class="sidenav" id="mobile-sidenav">
+			{% with request.resolver_match as url_part %}
+				
+				{% if url_part.url_name == 'home' %}
+					<li class="active"><a href="#!">HOME</a></li>
+				{% else %}
+					<li class="hoverable" ><a href="{% url 'home' %}">HOME</a></li>
+				{% endif %}
+				
+				{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
+					<li class="active"><a href="#!">TOP 100 SERVERS</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'server:list_top_100' %}">TOP 100 SERVERS</a></li>
+				{% endif %}
+				
+				{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
+					<li class="active"><a href="#!">PREMIUM</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'premium:detail' %}">PREMIUM</a></li>
+				{% endif %}
+				
+				{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
+					<li class="active"><a href="#!">GIVEAWAYS</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'giveaway:detail' %}">GIVEAWAYS</a></li>
+				{% endif %}
+				
+				{% if not request.user.is_authenticated %}
+					{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
+						<li class="active"><a href="#!">LOGIN</a></li>
+					{% else %}
+						<li class="hoverable"><a href="{% url 'auth:login' %}">LOGIN</a></li>
+					{% endif %}
+				{% endif %}
+			{% endwith %}
+			<li><a class="waves-effect waves-light btn" href="{% url 'auth:discord' %}">ADD SERVER</a></li>
+			{% if request.user.is_authenticated %}
+				<li class="divider"></li>
+				<li class="center"><div class="chip" style="margin: 20px 0;">
+					<img src="{{ request.user.avatar_url}}" alt="{{ request.user.username }}">
+					{{ request.user.username }}
+				</div></li>
+				<li class="divider" style="margin-top: 0;"></li>
+				<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Dashboard</a></li>
+				<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Your Servers</a></li>
+				<li><a class="grey-text text-darken-4" href="{% url 'auth:logout' %}">Log Out</a></li>
+			{% endif %}
+			
+		</ul>
+		<div class="container" style="min-height: calc(100% - 64px); padding-bottom: 70px; margin-bottom: -70px;">
+			
+			{% if messages %}
+				<div class="messages teal">
+					{% for message in messages %}
+						{% if 'success' in message.tags %}
+							<div class="green accent-1" style="display: flex; padding: 10px; vertical-align:middle; justify-content:center; align-items:center;">
+								<i class="material-icons small green-text text-accent-3">check</i>
+								<div class="grey-text text-darken-4">{{ message }}</div>
+							</div>
+						{% endif %}
+						
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="content" style="padding: 3rem 0;">
+				{% block content %}
+					
+				{% endblock content %}
+			</div>
+		</div>
+		<footer class="page-footer grey darken-4">
+			<div class="footer-copyright grey darken-4">
+				<div class="container">
+					© Discordserverlist.me is not affiliated with Discord
+					<span class="right">
+						<span style="margin-right: 5px;">Do you need Help?</span>
+						<a class="blue-text text-darken-2 right hoverable" href="{% url 'discord_server' %}" target="_blank">Join our Support Server and ask us there!</a>
+					</span>
+					
+				</div>
+			</div>
+		</footer>
+		
+	{% endblock body %}
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{% static 'js/materialize.min.js' %}"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('select').formSelect();
+			$('.sidenav').sidenav();
+			$('.tooltipped').tooltip();
+			$(".nav-dropdown-trigger").dropdown({
+				'alignment': 'right',
+				'constrainWidth': false,
+			});
+		});
+	</script>
+	{% block javascript %}{% endblock %}
+</body>
+</html>

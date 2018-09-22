@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}
+	Tag: {{ tag }}
+	{% if request.GET.page %}
+		| Page  {{ request.GET.page }}
+	{% endif %}
+{% endblock title %}
+{% block content %}
+	<div id="server-list">
+		{% if tag_does_not_exist %}
+			<h4 class="center" style="margin-top:0;">Nothing found in tag <button class="btn black waves-effect waves-light">{{ tag }}</button> :(</h4>
+			<div class="center">
+				<h5>Available Tags:</h5>
+				{% for tag in tags  %}
+					<a href="{% url 'server:list_tag' tag.name %}" class="btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
+				{% empty %}
+					<a href="#!" class="btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
+				{% endfor %}
+			</div>
+			
+			<h5 class="center" style="">Please see below some of the top servers!</h5>
+		{% else %}
+			<h4 class="center" style="margin-top: 0;">Servers that have the <button class="btn black waves-effect waves-light">{{ tag }}</button> tag</h4>
+		{% endif %}
+		<div class="row" style="margin-bottom: 0;">
+			<div class="col s12 center" style="padding: 0.25rem 0;">
+				{% include 'includes/paginator_dark.html' %}
+			</div>
+			{% for server in servers %}
+				{% include 'includes/server_card.html' %}
+			{% endfor %}
+			<div class="col s12 center" style="padding: 0.25rem 0;">
+				{% include 'includes/paginator_dark.html' %}
+			</div>
+		</div>
+		<div class="center">
+			<h5>Explore with more Tags:</h5>
+			{% for tag in tags  %}
+				<a href="{% url 'server:list_tag' tag.name %}" class="btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
+			{% empty %}
+				<a href="#!" class="btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
+			{% endfor %}
+		</div>
+		
+	</div>
+	
+{% endblock content %}

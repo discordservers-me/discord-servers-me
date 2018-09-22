@@ -1,0 +1,18 @@
+{% if server.premium_tier == 0 %}
+	<li>The server is currently a regular one.</li>
+{% elif server.premium_tier == 1 %}
+	<li>The server currently has <strong>Premium Tier 1</strong> (Expires at: {{ server.premium_1_until }}).</li>
+	<li>• Purchasing Premium Tier 1 will <strong>extend the Expiration date (Tier 1) by 31 days</strong>.</li>
+	<li>• Purchasing Premium Tier 2 will <strong>UPGRADE the server to Tier 2 (After Tier 2 expires, it will become Tier 1 with the remaining time from the date of purchase)</strong>.</li>
+{% elif server.premium_tier == 2 %}	
+	<li>The server currently has <strong>Premium Tier 2</strong> (Expires at: {{ server.premium_2_until }}).</li>
+	{% if server.premium_1_until %}
+		<li>After that, it will become a <strong>Premium Tier 1</strong> server (Expires at: {{ server.premium_1_until }}).</li>
+	{% endif %}
+	<li>• Purchasing Premium Tier 2 will <strong>extend the Expiration date (Tier 2) by 31 days</strong>.</li>
+	{% if server.premium_1_until %}
+		<li>• Purchasing Premium Tier 1 will <strong>extend the Expiration date (Tier 1) by 31 days</strong>.</li>
+	{% else %}
+		<li>• Purchasing Premium Tier 1 will <strong>give the server 31 days of Tier 1 AFTER Tier 2 expires</strong>.</li>
+	{% endif %}
+{% endif %}
