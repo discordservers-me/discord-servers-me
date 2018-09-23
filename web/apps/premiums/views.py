@@ -41,6 +41,7 @@ class PremiumView(generic.TemplateView):
         context['tier0_features'] = tier0_features
         context['tier1_features'] = tier1_features
         context['tier2_features'] = tier2_features
+        context['premium_explanation_video'] = settings.PREMIUM_VIDEO
 
         # if tier1_features.count() % 2 != 0:
         #     context['tier1_odd'] = True

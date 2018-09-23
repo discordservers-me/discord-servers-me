@@ -78,7 +78,12 @@
 		<div class="col s12">
 			<div style="">
 				<h5>Description</h5>
-				<p>{{ server.description }} </p>
+				{% if server.description %}
+					<p>{{ server.description }}</p>
+				{% else %}
+					<div class="grey-text">None</div>
+				{% endif %}
+				
 			</div>
 		</div>
 	</div>

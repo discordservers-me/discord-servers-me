@@ -1,9 +1,14 @@
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
 from django.http import JsonResponse
 from django.conf import settings
 from django.utils import timezone
 from web.apps.servers.models import DiscordServer
+from django.urls import reverse_lazy
+from django.contrib import messages
+
+from .forms import CustomPasswordChangeForm
 
 
 class UserDashboardView(LoginRequiredMixin, generic.ListView):
@@ -42,3 +47,14 @@ class UserDashboardView(LoginRequiredMixin, generic.ListView):
                 return JsonResponse({'error': 'User unauthenticated.'})
         else:
             return JsonResponse({'error': 'Invalid request.'})
+
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'password_change.html'
+    form_class = CustomPasswordChangeForm
+    success_url = reverse_lazy('user:dashboard')
+
+    def form_valid(self, form):
+        form_valid = super().form_valid(form)
+        messages.success(self.request, 'Your password has been changed successfully.')
+        return form_valid

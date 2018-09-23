@@ -155,6 +155,7 @@ DISCORD_BOT_INVITE_LINK = config('DISCORD_BOT_INVITE_LINK')
 # Paypal related settings
 PAYPAL_TEST = config('PAYPAL_TEST', default=False, cast=bool)
 PAYPAL_EMAIL_ACCOUNT = config('PAYPAL_EMAIL_ACCOUNT')
+PREMIUM_VIDEO = config('PREMIUM_VIDEO')
 
 # Discord redirect
 DISCORD_TAIL_URL = config('DISCORD_TAIL_URL', default='dsl')

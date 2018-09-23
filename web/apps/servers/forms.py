@@ -34,10 +34,10 @@ class UpdateServerForm(forms.ModelForm):
 
         self.fields['short_description'].help_text = 'Show what your server is about. This short description will be shown in the server\'s card.'  # noqa e501
         self.fields['description'].help_text = 'Describe in details about your server. Catch the searchers\' interests when they click on your server card!'  # noqa e501
-        self.fields['tags'].help_text = 'Add tags for more server exposure when a user searches for a relevant tag.'  # noqa e501
-        self.fields['invite_link'].label = 'Discord Invite Link (PERMANENT)'
+        self.fields['tags'].help_text = 'Add tags that describe your server. Tags will give your server more exposure.'  # noqa e501
+        self.fields['invite_link'].label = 'Discord Invite Link (PERMANENT).'
         self.fields['shown'].help_text = 'Check this to make the server visible.'  # noqa e501
-        self.fields['website'].help_text = 'We\'d love to visit your server\'s website! And of course users who search this server out would, too!'  # noqa e501
+        # self.fields['website'].help_text = 'We\'d love to visit your server\'s website! And of course users who search this server out would, too!'  # noqa e501
 
     def clean_invite_link(self):
         invite_link = self.cleaned_data.get('invite_link')
