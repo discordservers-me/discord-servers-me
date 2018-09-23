@@ -8,14 +8,15 @@
 		<div class="col s12">
 			<h4>Premium Tier Purchase</h4>
 			<p>Please complete the below steps and hit that PAYPAL CHECKOUT button to complete the order.</p>
-			
-			<blockquote>
-				<code>
-				Use these Credential to test payment on PayPal: <br>
-				email:    discord_server_list_buyer@gmail.com <br>
-				password: 1234qwer
-				</code>
-			</blockquote>
+			{% if paypal_test %}
+				<blockquote>
+					<code>
+					Use these Credential to test payment on PayPal: <br>
+					email:    discord_server_list_buyer@gmail.com <br>
+					password: 1234qwer
+					</code>
+				</blockquote>
+			{% endif %}
 		</div>
 		
 		<div class="col s12">
@@ -39,10 +40,10 @@
 							<i class="material-icons large indigo-text">local_play</i>
 						</div>
 						<h5>PREMIUM TIER 1 <small>($7.5/mo)</small></h5>
-						<p>Featured on Homepage</p>
-						<p>Highlighted Servers (Yellow or Pink)</p>
-						<p>Appears during Search and Top 100 Servers List</p>
-						<p>An awesome badge on server listing!</p>
+						{# <p>Featured on Homepage</p> #}
+						{# <p>Highlighted Servers (Yellow or Pink)</p> #}
+						{# <p>Appears during Search and Top 100 Servers List</p> #}
+						{# <p>An awesome badge on server listing!</p> #}
 					</div>
 				</div>
 				<div class="col s12 m6">
@@ -52,11 +53,11 @@
 							<i class="material-icons large indigo-text">local_play</i>
 						</div>
 						<h5>PREMIUM TIER 2 <small>($10/mo)</small></h5>
-						<p>Featured on <strong>top</strong> & <strong>+75% appear chance</strong> on Homepage</p>
-						<p>Highlighted Servers (Yellow, Pink, or <strong>Red</strong>)</p>
-						<p><strong>+75% appear chance</strong> in Search page and Top 100 Servers List</p>
-						<p><strong>Two awesome badges</strong> on server listing!</p>
-						<p><strong>Eligible for Tier-Two-Only Giveaways</strong></p>
+						{# <p>Featured on <strong>top</strong> & <strong>+75% appear chance</strong> on Homepage</p> #}
+						{# <p>Highlighted Servers (Yellow, Pink, or <strong>Red</strong>)</p> #}
+						{# <p><strong>+75% appear chance</strong> in Search page and Top 100 Servers List</p> #}
+						{# <p><strong>Two awesome badges</strong> on server listing!</p> #}
+						{# <p><strong>Eligible for Tier-Two-Only Giveaways</strong></p> #}
 						
 					</div>
 				</div>

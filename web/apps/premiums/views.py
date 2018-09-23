@@ -75,6 +75,7 @@ class PremiumPaymentView(LoginRequiredMixin, generic.TemplateView):
         # print(dir(server_choice.fields['server']))
         # print(server_choice.fields['server'].choices)
         context['server_choice'] = server_choice
+        context['paypal_test'] = settings.PAYPAL_TEST
         return context
 
     def get(self, request, *args, **kwargs):

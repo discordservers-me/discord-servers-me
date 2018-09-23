@@ -42,10 +42,10 @@ async def on_ready():
     print('------')
     print(f'Logged in as: {bot.user.name} (ID: {bot.user.id})')
     print('------')
-    if not settings.DEBUG:
-        # change this for the 'Playing xxx' status
-        presence = f'Prefix: r!'
-        await bot.change_presence(game=discord.Game(name=presence))
+    # if not settings.DEBUG:
+    #     # change this for the 'Playing xxx' status
+    #     presence = f'Prefix: r!'
+    #     await bot.change_presence(game=discord.Game(name=presence))
 
 
 @bot.event
