@@ -56,7 +56,7 @@
 			
 			<div class="">
 				<h5>Server Emojis</h5>
-				{% if not static_emojis.exists and not static_emojis.exists %}
+				{% if not static_emojis.exists and not animated_emojis.exists %}
 					<div class="grey-text">None</div>
 				{% endif %}
 				{% for emoji in static_emojis %}
@@ -79,7 +79,7 @@
 			<div style="">
 				<h5>Description</h5>
 				{% if server.description %}
-					<p>{{ server.description }}</p>
+					<p>{{ server.description|linebreaks }}</p>
 				{% else %}
 					<div class="grey-text">None</div>
 				{% endif %}
