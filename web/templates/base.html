@@ -29,9 +29,14 @@
 			}
 		}
 	
-		@media only screen and (max-width: 992px) {
+		@media only screen and (max-width: 600px) {
 			nav .brand-logo {
-			left: 100px;
+				padding-left: 160px !important;
+				left: 30%;
+			}
+
+			nav .brand-logo img {
+				height: 56px;
 			}
 		}
 			
@@ -57,9 +62,9 @@
 			<nav>
 				<div class="nav-wrapper grey darken-4">
 					<a href="{% url 'home' %}">
-						<div class="brand-logo" style="display: inline-block; padding-left: 20px; white-space: nowrap;">
-							<img height='64' src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
-							<div style="display: inline-block; position: absolute; font-size: 1.5rem;"><strong>DISCORD SERVER LIST</strong></div>
+						<div class="brand-logo" style="white-space: nowrap;">
+							<img height='64' style="padding: 8px 10px 8px 10px;" src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
+							<div class="hide-on-med-and-down" style="display: inline-block; position: absolute;"><strong>DISCORD SERVERS</strong></div>
 						</div>
 					</a>
 					<a href="#!" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
