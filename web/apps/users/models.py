@@ -17,7 +17,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=32, blank=True)
     discriminator = models.CharField(max_length=4, blank=True)
     avatar = models.CharField(max_length=50, blank=True)
-    discord_email = models.CharField(max_length=100, blank=True, null=True, unique=True)
+    discord_email = models.CharField(max_length=200, blank=True)
 
     access_token = models.CharField(max_length=50, blank=True)
     refresh_token = models.CharField(max_length=50, blank=True)
