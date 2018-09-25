@@ -137,6 +137,23 @@ class DiscordServer(models.Model):
         else:
             return False
 
+    def save(self, *args, **kwargs):
+        if self.tier_2_expired():
+            if self.tier_1_expired():
+                self.premium_tier = 0
+                self.premium_1_from = None
+                self.premium_1_until = None
+                self.premium_2_from = None
+                self.premium_2_until = None
+                self.premium_highlight = 0
+            else:
+                self.premium_tier = 1
+                self.premium_2_from = None
+                self.premium_2_until = None
+                if self.premium_highlight == 3:
+                    self.premium_highlight = 2
+        super().save(*args, **kwargs)
+
 
 class ServerManager(models.Model):
     manager_id = models.CharField(max_length=20)
