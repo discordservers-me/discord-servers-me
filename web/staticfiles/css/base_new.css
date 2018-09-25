@@ -78,6 +78,13 @@
 .server-card-tag-wrapper {
     padding: 5px 1rem;
     min-height: 56px;
+    position: relative;
+}
+
+.server-card-tag-wrapper .inside {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
 }
 .server-card-tag {
     display: inline-block;

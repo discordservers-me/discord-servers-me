@@ -55,9 +55,11 @@
 			</div>
 			
 			<div class="server-card-tag-wrapper">
-				{% for tag in server.tags.all %}
-					<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag">{{ tag.name }}</div></a>
-				{% endfor %}
+				<div class="inside">
+					{% for tag in server.tags.all %}
+						<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag">{{ tag.name }}</div></a>
+					{% endfor %}
+				</div>
 			</div>
 			<div class="card-action">
 				{% if server.invite_link %}
