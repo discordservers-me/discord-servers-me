@@ -97,12 +97,15 @@ class DiscordServer(models.Model):
                 self.premium_1_until = None
                 self.premium_2_from = None
                 self.premium_2_until = None
+                self.premium_highlight = 0
                 self.save()
                 return 0
             else:
                 self.premium_tier = 1
                 self.premium_2_from = None
                 self.premium_2_until = None
+                if self.premium_highlight == 3:
+                    self.premium_highlight = 2
                 self.save()
                 return 1
         else:
