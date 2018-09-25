@@ -18,99 +18,13 @@ if settings.DEBUG:
 User = get_user_model()
 
 
-class SignUpView(generic.FormView):
-    template_name = 'signup.html'
-    form_class = forms.CustomSignUpForm
-
-    def get_initial(self):
-        discord_oauth2_data = self.request.session.get('discord_oauth2_data', None)
-        if discord_oauth2_data:
-            kwargs = {'email': discord_oauth2_data['email']}
-            return kwargs
-        else:
-            return {}
-
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect('user:dashboard')
-
-        discord_oauth2_data = request.session.get('discord_oauth2_data', None)
-        # try to login with discord oauth credential if the credential exists
-        if discord_oauth2_data:
-            user_id = discord_oauth2_data.get('user_id', None)
-            # save user_id to session
-            request.session['discord_user_id'] = user_id
-            # return super().get(request, *args, **kwargs)
-        # or else get from session
-        else:
-            user_id = request.session.get('discord_user_id', None)
-
-        # try to log the user in with the user_id
-        try:
-            user = User.objects.get(user_id=user_id)
-            login(request, user)
-        # not in DB, proceed to sign up, allowing user to create account with password
-        except User.DoesNotExist:
-            if discord_oauth2_data:
-                return super().get(request, *args, **kwargs)
-
-        # # redirects to discord authentication for any other scenarios
-        return redirect('auth:discord')
-
-    def post(self, request, *args, **kwargs):
-        data = request.POST
-        form = forms.CustomSignUpForm(data)
-        if form.is_valid():
-            cleaned_data = form.cleaned_data
-
-            # create the user account
-            user = User.objects.create_user(
-                email=cleaned_data['email'], password=cleaned_data['password2'],
-            )
-
-            # add additional account information into the User instance
-            discord_data = request.session.get('discord_oauth2_data', None)
-            if discord_data:
-                user.user_id = discord_data.get('user_id', '')
-                user.username = discord_data.get('username', '')
-                user.discriminator = discord_data.get('discriminator', '')
-                user.discord_email = discord_data.get('email', '')
-                user.avatar = discord_data.get('avatar', '')
-                user.access_token = discord_data.get('access_token', '')
-                user.refresh_token = discord_data.get('refresh_token', '')
-                user.scope = discord_data.get('scope', '')
-                try:
-                    expiry = datetime.utcfromtimestamp(float(discord_data['expiry']))
-                    if settings.USE_TZ:
-                        expiry = make_aware(expiry)
-                    user.expiry = expiry
-                except (ValueError, KeyError):
-                    pass
-
-                user.save()
-
-                # save discord user_id for easy authentication
-                request.session['discord_user_id'] = discord_data.get('user_id', '')
-
-                # session cleanup
-                del request.session['discord_oauth2_data']
-
-            if user is not None:
-                login(request, user)
-
-            return redirect('user:dashboard')
-        else:
-            response = super().post(request, *args, **kwargs)
-            return response
-
-
-class ModifiedLoginView(LoginView):
-    form_class = forms.LoginForm
-    template_name = 'login.html'
+class ModifiedLoginView(generic.TemplateView):
+    # form_class = forms.LoginForm
+    # template_name = 'login.html'
 
     def get(self, request, *args, **kwargs):
         user_id = request.session.get('discord_user_id', False)
-        response = super().get(request, *args, **kwargs)
+        # response = super().get(request, *args, **kwargs)
 
         if request.user.is_authenticated:
             return redirect('home')
@@ -120,15 +34,9 @@ class ModifiedLoginView(LoginView):
                 login(request, user)
                 return redirect('user:dashboard')
             except User.DoesNotExist:
-                return response
+                return HttpResponseForbidden('User not found.')
         else:
-            return response
-
-    def form_valid(self, form):
-        """Security check complete. Log the user in."""
-        http_response = super().form_valid(form)
-
-        return http_response
+            return redirect('auth:discord')
 
 
 class ModifiedLogoutView(LogoutView):
@@ -187,11 +95,12 @@ class DiscordAuthorizeView(RedirectView):
         return response
 
     def get_redirect_url(self, *args, **kwargs):
+
         discord_oauth2_data = self.request.session.get('discord_oauth2_data', False)
 
         # already authenticated via discord
         if discord_oauth2_data:
-            return reverse('auth:signup')
+            return reverse('auth:discord_callback')
 
         else:
             API_BASE_URL = 'https://discordapp.com/api'
@@ -228,12 +137,44 @@ class DiscordCallbackView(View):
 
             # store information from user and token to a single place
             data = self.decompose_data(user, token)
-            request.session['discord_oauth2_data'] = data
-            request.session['discord_user_id'] = data['user_id']
 
             # state cleanup
             del request.session['discord_oauth2_state']
-            return redirect('auth:signup')
+
+            # log the user in or create new user
+            try:
+                user = User.objects.get(user_id=data['user_id'])
+            except User.DoesNotExist:
+                user = User.objects.create_user(
+                    user_id=data['user_id'], password=data['access_token'],
+                )
+
+            # add additional account information into the User instance
+            user.username = data.get('username', '')
+            user.discriminator = data.get('discriminator', '')
+            user.discord_email = data.get('email', '')
+            user.avatar = data.get('avatar', '')
+            user.access_token = data.get('access_token', '')
+            user.refresh_token = data.get('refresh_token', '')
+            user.scope = data.get('scope', '')
+            try:
+                expiry = datetime.utcfromtimestamp(float(data['expiry']))
+                if settings.USE_TZ:
+                    expiry = make_aware(expiry)
+                user.expiry = expiry
+            except (ValueError, KeyError):
+                pass
+
+            user.save()
+
+            # save discord user_id for easy authentication
+            request.session['discord_user_id'] = data.get('user_id', '')
+
+            if user is not None:
+                login(request, user)
+                return redirect('user:dashboard')
+            else:
+                return HttpResponseForbidden('User not found.')
         else:
             error = request.GET.get('error', None)
             if error == 'access_denied':
@@ -246,7 +187,7 @@ class DiscordCallbackView(View):
             'user_id': user['id'],
             'username': user['username'],
             'discriminator': user['discriminator'],
-            'email': user.get('email', ''),
+            'discord_email': user.get('email', ''),
             'avatar': user.get('avatar', ''),
             'access_token': token['access_token'],
             'refresh_token': token.get('refresh_token', ''),

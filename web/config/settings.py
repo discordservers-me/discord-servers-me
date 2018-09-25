@@ -148,7 +148,7 @@ BOT_ID = config('BOT_ID')
 BOT_SECRET = config('BOT_SECRET')
 
 DISCORD_REDIRECT_URI = 'auth:discord_callback'
-DISCORD_EMAIL_SCOPE = True
+DISCORD_EMAIL_SCOPE = config('DISCORD_EMAIL_SCOPE', default=False, cast=bool)
 DISCORD_EASY_LOGIN = config('DISCORD_EASY_LOGIN', default=False, cast=bool)
 DISCORD_BOT_INVITE_LINK = config('DISCORD_BOT_INVITE_LINK')
 

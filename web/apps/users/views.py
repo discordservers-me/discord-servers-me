@@ -49,12 +49,12 @@ class UserDashboardView(LoginRequiredMixin, generic.ListView):
             return JsonResponse({'error': 'Invalid request.'})
 
 
-class CustomPasswordChangeView(PasswordChangeView):
-    template_name = 'password_change.html'
-    form_class = CustomPasswordChangeForm
-    success_url = reverse_lazy('user:dashboard')
+# class CustomPasswordChangeView(PasswordChangeView):
+#     template_name = 'password_change.html'
+#     form_class = CustomPasswordChangeForm
+#     success_url = reverse_lazy('user:dashboard')
 
-    def form_valid(self, form):
-        form_valid = super().form_valid(form)
-        messages.success(self.request, 'Your password has been changed successfully.')
-        return form_valid
+#     def form_valid(self, form):
+#         form_valid = super().form_valid(form)
+#         messages.success(self.request, 'Your password has been changed successfully.')
+#         return form_valid

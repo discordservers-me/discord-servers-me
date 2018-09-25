@@ -8,12 +8,12 @@ from django.conf import settings
 
 class User(AbstractBaseUser, PermissionsMixin):
 
-    email = models.CharField(max_length=100, unique=True)
+    email = models.CharField(max_length=100, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
-    user_id = models.CharField(max_length=50, blank=True)
+    user_id = models.CharField(max_length=50, unique=True)
     username = models.CharField(max_length=32, blank=True)
     discriminator = models.CharField(max_length=4, blank=True)
     avatar = models.CharField(max_length=50, blank=True)
@@ -26,7 +26,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'user_id'
     REQUIRED_FIELDS = []
 
     class Meta:
