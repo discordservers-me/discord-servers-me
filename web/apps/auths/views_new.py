@@ -34,7 +34,7 @@ class ModifiedLoginView(generic.TemplateView):
                 login(request, user)
                 return redirect('user:dashboard')
             except User.DoesNotExist:
-                return HttpResponseForbidden('User not found.')
+                return redirect('auth:discord')
         else:
             return redirect('auth:discord')
 
