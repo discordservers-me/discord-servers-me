@@ -152,7 +152,7 @@ class DiscordCallbackView(View):
             # add additional account information into the User instance
             user.username = data.get('username', '')
             user.discriminator = data.get('discriminator', '')
-            user.discord_email = data.get('email', '')
+            user.discord_email = data.get('discord_email', '')
             user.avatar = data.get('avatar', '')
             user.access_token = data.get('access_token', '')
             user.refresh_token = data.get('refresh_token', '')
