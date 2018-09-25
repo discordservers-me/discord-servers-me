@@ -5,13 +5,13 @@ from django.conf import settings
 from django.shortcuts import redirect, reverse
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.views.generic import RedirectView, View
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 from django.views.decorators.cache import never_cache
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, login, logout as auth_logout
 from requests_oauthlib import OAuth2Session
 # from django.conf import settings
-from . import forms
+# from . import forms
 import os
 if settings.DEBUG:
     os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'

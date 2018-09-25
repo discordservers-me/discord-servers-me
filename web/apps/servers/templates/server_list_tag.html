@@ -13,9 +13,9 @@
 			<div class="center">
 				<h5>Available Tags:</h5>
 				{% for tag in tags  %}
-					<a href="{% url 'server:list_tag' tag.name %}" class="btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
+					<a href="{% url 'server:list_tag' tag.name %}" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
 				{% empty %}
-					<a href="#!" class="btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
+					<a href="#!" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
 				{% endfor %}
 			</div>
 			
@@ -35,11 +35,11 @@
 			</div>
 		</div>
 		<div class="center">
-			<h5>Explore with more Tags:</h5>
+			<h5>Explore more Tags:</h5>
 			{% for tag in tags  %}
-				<a href="{% url 'server:list_tag' tag.name %}" class="btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
+				<a href="{% url 'server:list_tag' tag.name %}" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
 			{% empty %}
-				<a href="#!" class="btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
+				<a href="#!" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
 			{% endfor %}
 		</div>
 		

@@ -229,9 +229,13 @@ async def bump_premium_servers():
         tier1 = DiscordServer.objects.filter(premium_tier=1).order_by('bumped_at')[:4]
         tier2 = DiscordServer.objects.filter(premium_tier=2).order_by('bumped_at')[:7]
         for server in (list(tier1) + list(tier2)):
-            server.bumped_at = now
-            server.save()
-            print('Bumped')
+            premium_tier = server.check_premium()
+            if premium_tier == 0:
+                pass
+            else:
+                server.bumped_at = now
+                server.save()
+                print('Bumped')
         await asyncio.sleep(settings.BUMP_DURATION)
 
 
