@@ -146,6 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 BOT_TOKEN = config('BOT_TOKEN')
 BOT_ID = config('BOT_ID')
 BOT_SECRET = config('BOT_SECRET')
+BUMP_DURATION = config('BUMP_DURATION', cast=int)
 
 DISCORD_REDIRECT_URI = 'auth:discord_callback'
 DISCORD_EMAIL_SCOPE = config('DISCORD_EMAIL_SCOPE', default=False, cast=bool)

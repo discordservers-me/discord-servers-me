@@ -1,5 +1,4 @@
-import discord
-import settings
+# import discord
 from pytz import timezone
 from django.utils import timezone as django_timezone
 from bot.bot import CoolBot
@@ -9,6 +8,7 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.config.settings')
 django.setup()
 from web.apps.servers.models import DiscordServer, DiscordEmoji, ServerManager
+from django.conf import settings
 
 if settings.DEBUG is True:
     prefix = '.'
@@ -22,12 +22,6 @@ bot.remove_command('help')
 
 # Initialize extension (command) packages
 initial_extensions = (
-
-    # 'bot.commands.admin',
-    # 'bot.commands.help',
-    # 'bot.commands.start',
-    # 'bot.commands.stop',
-    # 'bot.commands.check',
 
 )
 for extension in initial_extensions:
