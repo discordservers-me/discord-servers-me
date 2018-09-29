@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% block meta_description %}
+	The top one hundred discord servers. This page lists the biggest servers on the platform by member count.
+{% endblock meta_description %}
+
 {% block title %}
 	Top Servers
 	{% if request.GET.page %}
 		| Page  {{ request.GET.page }}
 	{% endif %}
 {% endblock title %}
+
 {% block content %}
 	<div id="server-list">
 		<h4 class="center" style="margin: 0 0 1rem 0;"><strong>TOP 100 SERVER BY MEMBERS</strong></h4>
