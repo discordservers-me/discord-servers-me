@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% block meta_description %}
+The most Popular {{ tag }} Discord Servers.
+{% endblock meta_description %}
 {% block title %}
 	Tag: {{ tag }}
 	{% if request.GET.page %}
