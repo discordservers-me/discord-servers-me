@@ -1,16 +1,23 @@
-{% load static %}
+{% load static meta_description %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		{# <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"> #}
+		<meta name="description" content="{% meta_description %}">
 	<title>{% block title %}Discord Servers{% endblock title %}</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/base_new.css' %}">
-	
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/dark_logo.png' %}"/>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126525321-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-126525321-1');
+	</script>
+	
 	<style>
 		html {
 			height: 100%;
@@ -34,7 +41,7 @@
 				padding-left: 160px !important;
 				left: 30%;
 			}
-
+	
 			nav .brand-logo img {
 				height: 56px;
 			}

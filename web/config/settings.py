@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django_summernote',
 
     'web.apps.auths',
+    'web.apps.core',
     'web.apps.giveaways',
     'web.apps.premiums.apps.PremiumsConfig',
     'web.apps.users',
@@ -161,3 +162,6 @@ PREMIUM_VIDEO = config('PREMIUM_VIDEO')
 # Discord redirect
 DISCORD_TAIL_URL = config('DISCORD_TAIL_URL', default='dsl')
 DISCORD_INVITE_LINK = config('DISCORD_INVITE_LINK', default='https://discord.gg/tm6GqP4')
+
+# Website Metas
+META_DESCRIPTION = config('META_DESCRIPTION', default="Oh this is some meta tag!")

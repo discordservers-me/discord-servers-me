@@ -2,11 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
-from web import core
+from web.apps.core.views import HomeView
 from . import settings
 
 urlpatterns = [
-    path('', core.HomeView.as_view(), name='home'),
+    path('', HomeView.as_view(), name='home'),
 
     path('admin/', admin.site.urls),
     path('u/', include('web.apps.users.urls')),
