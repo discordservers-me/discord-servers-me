@@ -16,6 +16,7 @@ urlpatterns = [
     path('premium/', include('web.apps.premiums.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('partners/', include('web.apps.partners.urls')),
     path(settings.DISCORD_TAIL_URL, RedirectView.as_view(url=settings.DISCORD_INVITE_LINK), name='discord_server')
 
 ]
