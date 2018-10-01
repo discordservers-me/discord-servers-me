@@ -10,10 +10,6 @@ class AdminPartnersInformation(admin.ModelAdmin):
         'title',
         'description'
     )
-    list_editable = (
-        'title',
-        'description'
-    )
 
 
 admin.site.register(PartnersInformation, AdminPartnersInformation)
