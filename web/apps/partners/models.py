@@ -15,7 +15,7 @@ class PartnersInformation(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=5000, blank=True)
     url = models.CharField(max_length=256)
-    image = models.ImageField(upload_to=None,
+    image = models.ImageField(upload_to=upload_location,
                               null=True,
                               blank=True,
                               width_field="width_field",
