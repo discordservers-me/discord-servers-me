@@ -16,7 +16,7 @@ def upload_location(instance, filename):
     We add 1 to it, so we get what should be the same id as the the post we are creating.
     """
 
-    return "partners/%s" % (filename)
+    return "%s" % (filename)
 
 
 class PartnersInformation(models.Model):
