@@ -28,8 +28,6 @@ INSTALLED_APPS = [
     'web.apps.premiums.apps.PremiumsConfig',
     'web.apps.users',
     'web.apps.servers',
-    'web.apps.partners',
-    'web.apps.posts',
 
     'django.contrib.admin',
     'django.contrib.auth',
