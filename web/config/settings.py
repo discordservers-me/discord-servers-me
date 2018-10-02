@@ -141,7 +141,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Media (User uploaded) url and root
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Discord Bot settings
