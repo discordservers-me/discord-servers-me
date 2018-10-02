@@ -5,10 +5,10 @@ from .models import PartnersInformation
 
 
 class AdminPartnersInformation(admin.ModelAdmin):
-    list_display = (
-        'title',
-        'description'
-    )
+    list_display = ['title',   'description']
+
+    class Meta:
+        model = PartnersInformation
 
 
 admin.site.register(PartnersInformation, AdminPartnersInformation)
