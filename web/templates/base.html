@@ -189,6 +189,12 @@
 				{% else %}
 					<li class="hoverable"><a href="{% url 'giveaway:detail' %}">GIVEAWAYS</a></li>
 				{% endif %}
+
+                {% if url_part.namespace == 'partners' and url_part.url_name == 'detail' %}
+					<li class="active"><a href="#!">PARTNERS</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'partners:detail' %}">PARTNERS</a></li>
+				{% endif %}
 				
 				{% if not request.user.is_authenticated %}
 					{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
