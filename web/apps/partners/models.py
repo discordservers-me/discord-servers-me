@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 def upload_location(instance, filename):
     filebase, extension = filename.split(".")
-    return "%s/%s.%s" %(instance.id, filebase, extension)
+    return "%s.%s" %(filebase, extension)
 
     # PartnerModel = instance.__class__
     # new_id = PartnerModel.objects.order_by("id").last().id + 1
