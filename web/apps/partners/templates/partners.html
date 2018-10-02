@@ -11,10 +11,13 @@ Enter into Parners. Join a few discord servers for a chance to win money!
         <div class="row">
             {% for ps in partners_infos %}
             <div class="col s12 m8 l6 xl4 offset-m2">
-                <h5 class="partner-title">{{ ps.title|safe }}</h5>
-                <p class="partner-description">{{ ps.description|safe }}</p>
-                <a herf="{{ ps.url|safe }}" target="_blank" class="partner-link">View More</a>
-{#                <div class="card-panel">{{ ps.image|safe }}</div>#}
+                <div class="single-partner">
+                    <h5 class="partner-title">{{ ps.title|safe }}</h5>
+                    <p class="partner-description">{{ ps.description|safe }}</p>
+                    <a herf="{{ ps.url|safe }}" target="_blank" class="partner-link">View More</a>
+    {#                <div class="card-panel">{{ ps.image|safe }}</div>#}
+                </div>
+
             </div>
             {% empty %}
                 <div class="center">Now is testing for Partners</div>
