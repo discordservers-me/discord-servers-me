@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -142,7 +141,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Media (User uploaded) url and root
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media')
 MEDIA_URL = '/static/media/'
 
 # Discord Bot settings
