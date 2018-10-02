@@ -6,8 +6,8 @@ def upload_location(instance, filename):
     # filebase, extension = filename.split(".")
     # return "%s/%s.%s" %(instance.id, instance.id, extension)
 
-    PartnerModel = instance.__class__
-    new_id = PartnerModel.objects.order_by("id").last().id + 1
+    # PartnerModel = instance.__class__
+    # new_id = PartnerModel.objects.order_by("id").last().id + 1
     """
     instance.__class__ gets the model Post. We must use this method because the model is defined below.
     Then create a queryset ordered by the "id"s of each object, 
@@ -15,7 +15,8 @@ def upload_location(instance, filename):
     Which will give us the most recently created Model instance
     We add 1 to it, so we get what should be the same id as the the post we are creating.
     """
-    return "%s/%s" % (new_id, filename)
+
+    return "partners/%s" % (filename)
 
 
 class PartnersInformation(models.Model):

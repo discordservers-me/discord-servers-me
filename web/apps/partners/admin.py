@@ -7,7 +7,8 @@ from .models import PartnersInformation
 class AdminPartnersInformation(admin.ModelAdmin):
     list_display = (
         'title',
-        'description'
+        'description',
+        'url'
     )
 
 

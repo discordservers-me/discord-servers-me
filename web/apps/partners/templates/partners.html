@@ -10,7 +10,10 @@ Enter into Parners. Join a few discord servers for a chance to win money!
 		<div class="col s12 grey lighten-2 grey-text text-darken-4" style="padding: 0 1rem;">
 			<h4 class="center">Partners</h4>
 			{% for ps in partners_infos %}
-				<div class="card-panel">{{ ps.description|safe }}</div>
+				<div class="card-panel">{{ ps.title|safe }}</div>
+                <div class="card-panel">{{ ps.description|safe }}</div>
+                <div class="card-panel">{{ ps.url|safe }}</div>
+                <div class="card-panel">{{ ps.image|safe }}</div>
 			{% empty %}
 				<div class="center">Now is testing for Partners</div>
 			{% endfor %}
