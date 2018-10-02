@@ -143,7 +143,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Media (User uploaded) url and root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media123/'
 
 # Discord Bot settings
 BOT_TOKEN = config('BOT_TOKEN')
