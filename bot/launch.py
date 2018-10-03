@@ -68,16 +68,16 @@ async def on_guild_update(guild_before, guild_after):
     print(f'Guild [{guild_after.name}] updated')
 
 
-@bot.event
-async def on_member_join(member):
-    update_or_create_server(member.guild)
-    print(f'Guild [{member.guild.name}]\'s member count increased.')
+# @bot.event
+# async def on_member_join(member):
+#     update_or_create_server(member.guild)
+#     print(f'Guild [{member.guild.name}]\'s member count increased.')
 
 
-@bot.event
-async def on_member_remove(member):
-    update_or_create_server(member.guild)
-    print(f'Guild [{member.guild.name}]\'s member count decreased.')
+# @bot.event
+# async def on_member_remove(member):
+#     update_or_create_server(member.guild)
+#     print(f'Guild [{member.guild.name}]\'s member count decreased.')
 
 
 @bot.event
@@ -172,23 +172,23 @@ def update_or_create_server(guild):
     # ONE-TIME RUN, when joining the server
     # updating the server managers will be done in a scheduled task
     # to avoid consuming resources
-    # if server_created:
-    #     manager_ids = []
-    #     for member in guild.members:
-    #         if member.guild_permissions.manage_guild and not member.bot:
-    #             manager, manager_created = ServerManager.objects.get_or_create(
-    #                 manager_id=member.id,
-    #                 server=server_obj
-    #             )
-    #             if manager_created:
-    #                 print(f'Manager added: {member.display_name} (ID: {member.id}).')
-    #             manager_ids.append(str(member.id))
+    if server_created:
+        manager_ids = []
+        for member in guild.members:
+            if member.guild_permissions.manage_guild and not member.bot:
+                manager, manager_created = ServerManager.objects.get_or_create(
+                    manager_id=member.id,
+                    server=server_obj
+                )
+                if manager_created:
+                    print(f'Manager added: {member.display_name} (ID: {member.id}).')
+                manager_ids.append(str(member.id))
 
-    #     db_managers = ServerManager.objects.filter(server=server_obj)
-    #     for db_manager in db_managers:
-    #         if db_manager.manager_id not in manager_ids:
-    #             print(f'Manager with ID {db_manager.manager_id} deleted.')
-    #             db_manager.delete()
+        db_managers = ServerManager.objects.filter(server=server_obj)
+        for db_manager in db_managers:
+            if db_manager.manager_id not in manager_ids:
+                print(f'Manager with ID {db_manager.manager_id} deleted.')
+                db_manager.delete()
 
     # ONE-TIME RUN, when joining the server
     if server_created:
