@@ -16,7 +16,7 @@ if settings.DEBUG is True:
 else:
     prefix = '&*'
 
-bot = discord.Client(shard_id=0, shard_count=guilds_count - 30)
+bot = discord.Client()
 # remove the 'help' command
 # bot.remove_command('help')
 
