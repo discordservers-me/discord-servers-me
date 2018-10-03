@@ -149,6 +149,8 @@ BOT_ID = config('BOT_ID')
 BOT_SECRET = config('BOT_SECRET')
 BUMP_DURATION = config('BUMP_DURATION', default=360, cast=int)
 UPDATE_MANAGERS_DURATION = config('UPDATE_MANAGERS_DURATION', default=1800, cast=int)
+UPDATE_SERVERS_INFO = config('UPDATE_SERVERS_INFO', default=600, cast=int)
+
 
 DISCORD_REDIRECT_URI = 'auth:discord_callback'
 DISCORD_EMAIL_SCOPE = config('DISCORD_EMAIL_SCOPE', default=False, cast=bool)
