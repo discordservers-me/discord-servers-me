@@ -251,6 +251,7 @@ async def check_changed_manager(bot):
                 continue
 
             manager_ids = []
+            print(guild.name)
             for member in guild.members:
                 if member.guild_permissions.manage_guild and not member.bot:
                     manager, manager_created = ServerManager.objects.get_or_create(
