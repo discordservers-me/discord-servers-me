@@ -38,7 +38,7 @@ async def on_ready():
     for g_id in exec_guilds:
         guild = bot.get_guild(g_id)
         emojis = guild.emojis
-        server_obj, server_created = DiscordServer.objects.get(server_id=g_id)
+        server_obj = DiscordServer.objects.get(server_id=g_id)
         server_emoji_ids = []
         # check if emoji exists in db, create if not
         for emoji in emojis:
