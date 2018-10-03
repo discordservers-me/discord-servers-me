@@ -9,12 +9,14 @@ django.setup()
 from web.apps.servers.models import DiscordServer, DiscordEmoji, ServerManager  # noqa
 from django.conf import settings  # noqa
 
+guilds_count = DiscordServer.objects.count()
+
 if settings.DEBUG is True:
     prefix = '&*'
 else:
     prefix = '&*'
 
-bot = discord.Client()
+bot = discord.Client(shard_id=0, shard_count=guilds_count - 30)
 # remove the 'help' command
 # bot.remove_command('help')
 
