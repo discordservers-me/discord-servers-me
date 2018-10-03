@@ -1,7 +1,6 @@
-# import discord
+import discord
 from pytz import timezone
 from django.utils import timezone as django_timezone
-from bot.bot import CoolBot
 import asyncio
 import os
 import django
@@ -11,13 +10,13 @@ from web.apps.servers.models import DiscordServer, DiscordEmoji, ServerManager  
 from django.conf import settings  # noqa
 
 if settings.DEBUG is True:
-    prefix = '.'
+    prefix = '&*'
 else:
-    prefix = 'r!'
+    prefix = '&*'
 
-bot = CoolBot(command_prefix=prefix, description='CoolBot is here for command!')
+bot = discord.Client()
 # remove the 'help' command
-bot.remove_command('help')
+# bot.remove_command('help')
 
 # # Initialize extension (command) packages
 # initial_extensions = (
@@ -180,13 +179,13 @@ def update_or_create_server(guild):
                     server=server_obj
                 )
                 if manager_created:
-                    print(f'Manager added: {member.display_name} (ID: {member.id}).')
+                    print(f'Manager added: {member.display_name} (ID: {member.id} | Server: {server_obj.name}).')
                 manager_ids.append(str(member.id))
 
         db_managers = ServerManager.objects.filter(server=server_obj)
         for db_manager in db_managers:
             if db_manager.manager_id not in manager_ids:
-                print(f'Manager with ID {db_manager.manager_id} deleted.')
+                print(f'Manager with ID {db_manager.manager_id} deleted (Server: {server_obj.name}).')
                 db_manager.delete()
 
     # ONE-TIME RUN, when joining the server
@@ -221,11 +220,13 @@ def update_or_create_server(guild):
 async def bump_premium_servers():
     await bot.wait_until_ready()
     while not bot.is_closed():
-
+        await asyncio.sleep(settings.BUMP_DURATION)
         now = django_timezone.now()
         tier1 = DiscordServer.objects.filter(premium_tier=1).order_by('bumped_at')[:4]
         tier2 = DiscordServer.objects.filter(premium_tier=2).order_by('bumped_at')[:7]
-        for server in (list(tier1) + list(tier2)):
+        servers = (list(tier1) + list(tier2))
+        print(f'Bumping {len(servers)} premium servers...')
+        for server in servers:
             premium_tier = server.check_premium()
             if premium_tier == 0:
                 pass
@@ -233,13 +234,15 @@ async def bump_premium_servers():
                 server.bumped_at = now
                 server.save()
                 print(f'Bumped server: {server.name}')
-        await asyncio.sleep(settings.BUMP_DURATION)
+        print('Bumping Premium Servers Done.')
 
 
 async def check_changed_manager(bot):
     await bot.wait_until_ready()
     while not bot.is_closed():
+        await asyncio.sleep(settings.UPDATE_MANAGERS_DURATION)
         guilds = bot.guilds
+        print(f'Looping through {len(guilds)} guilds to check for changed managers...')
         for guild in guilds:
 
             server_id = str(guild.id)
@@ -249,7 +252,7 @@ async def check_changed_manager(bot):
                 print(f'Server with ID [{server_id}] does not exist in database.')
                 continue
 
-            print(f'Looping through members in guild [{guild.name}]...')
+            # print(f'Looping through members in guild [{guild.name}]...')
 
             manager_ids = []
             for member in guild.members:
@@ -259,23 +262,25 @@ async def check_changed_manager(bot):
                         server=server_obj
                     )
                     if manager_created:
-                        print(f'Manager added: {member.display_name} (ID: {member.id}).')
+                        print(f'Manager added: {member.display_name} (ID: {member.id} | Server: {server_obj.name}).')
                     manager_ids.append(str(member.id))
 
-            print('Looping done.')
+            # print('Looping done.')
 
             db_managers = ServerManager.objects.filter(server=server_obj)
             for db_manager in db_managers:
                 if db_manager.manager_id not in manager_ids:
-                    print(f'Manager with ID {db_manager.manager_id} deleted.')
+                    print(f'Manager with ID {db_manager.manager_id} deleted (Server: {server_obj.name}).')
                     db_manager.delete()
-        await asyncio.sleep(settings.UPDATE_MANAGERS_DURATION)
+        print('Manager Change Done.')
 
 
 async def update_servers_info(bot):
     await bot.wait_until_ready()
     while not bot.is_closed():
+        await asyncio.sleep(settings.UPDATE_SERVERS_INFO)
         guilds = bot.guilds
+        print(f'Updating {len(guilds)} guilds...')
         for guild in guilds:
 
             member_count = guild.member_count
@@ -283,11 +288,7 @@ async def update_servers_info(bot):
             server_name = guild.name
             server_creation_date = guild.created_at.replace(tzinfo=timezone('UTC'))
             icon_url = guild.icon_url
-            # owner_id = str(guild.owner_id)
-            # print(owner_id, type(owner_id))
 
-            # update (if found with server_id) or create the server
-            # into database with the above information
             server_obj, server_created = DiscordServer.objects.update_or_create(
                 server_id=server_id,
                 defaults={
@@ -297,16 +298,19 @@ async def update_servers_info(bot):
                     'member_count': member_count,
                 }
             )
-        await asyncio.sleep(settings.UPDATE_SERVERS_INFO)
+        print(f'Guild Update Done.')
+
 
 if not settings.DEBUG:
     bot.loop.create_task(bump_premium_servers())
     bot.loop.create_task(check_changed_manager(bot))
     bot.loop.create_task(update_servers_info(bot))
-    pass
+    # pass
 
 
 if settings.DEBUG:
     bot.loop.create_task(bump_premium_servers())
+    bot.loop.create_task(check_changed_manager(bot))
+    bot.loop.create_task(update_servers_info(bot))
 
 bot.run(settings.BOT_TOKEN)
