@@ -51,7 +51,11 @@ async def on_ready():
     for g_id in exec_guilds:
         guild = bot.get_guild(int(g_id))
         emojis = guild.emojis
-        server_obj = DiscordServer.objects.get(server_id=g_id)
+        try:
+            server_obj = DiscordServer.objects.get(server_id=g_id)
+        except DiscordServer.DoesNotExist:
+            print(f'This server (ID: {g_id}) does not exist in Database.')
+            continue
         server_emoji_ids = []
         # check if emoji exists in db, create if not
         for emoji in emojis:
