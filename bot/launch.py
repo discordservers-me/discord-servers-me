@@ -241,6 +241,7 @@ async def check_changed_manager(bot):
     await bot.wait_until_ready()
     while not bot.is_closed():
         guilds = bot.guilds
+        print(guilds)
         for guild in guilds:
 
             server_id = str(guild.id)
