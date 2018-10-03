@@ -332,16 +332,16 @@ async def update_servers_info(bot):
         print(f'Guild Update Done.')
 
 
-if not settings.DEBUG:
-    bot.loop.create_task(bump_premium_servers())
-    bot.loop.create_task(check_changed_manager(bot))
-    bot.loop.create_task(update_servers_info(bot))
-    # pass
+# if not settings.DEBUG:
+#     bot.loop.create_task(bump_premium_servers())
+#     bot.loop.create_task(check_changed_manager(bot))
+#     bot.loop.create_task(update_servers_info(bot))
+#     # pass
 
 
-if settings.DEBUG:
-    bot.loop.create_task(bump_premium_servers())
-    bot.loop.create_task(check_changed_manager(bot))
-    bot.loop.create_task(update_servers_info(bot))
+# if settings.DEBUG:
+#     bot.loop.create_task(bump_premium_servers())
+#     bot.loop.create_task(check_changed_manager(bot))
+#     bot.loop.create_task(update_servers_info(bot))
 
 bot.run(settings.BOT_TOKEN)
