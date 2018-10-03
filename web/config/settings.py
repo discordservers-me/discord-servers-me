@@ -1,4 +1,3 @@
-import django_heroku
 import os
 from decouple import config, Csv
 import dj_database_url
