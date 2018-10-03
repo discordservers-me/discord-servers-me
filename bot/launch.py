@@ -19,18 +19,15 @@ bot = CoolBot(command_prefix=prefix, description='CoolBot is here for command!')
 # remove the 'help' command
 bot.remove_command('help')
 
-print(bot)
-# Initialize extension (command) packages
-initial_extensions = (
+# # Initialize extension (command) packages
+# initial_extensions = (
 
-)
-for extension in initial_extensions:
-    try:
-        bot.load_extension(extension)
-    except Exception as e:
-        print(f'Failed to load extension {extension}. Exception: "{e}"')
-
-print(bot)
+# )
+# for extension in initial_extensions:
+#     try:
+#         bot.load_extension(extension)
+#     except Exception as e:
+#         print(f'Failed to load extension {extension}. Exception: "{e}"')
 
 
 @bot.event
@@ -150,136 +147,136 @@ async def on_ready():
 #         print(f'Updated emoji "{updated_emoji.emoji}" from "{before_update}"')
 
 
-def update_or_create_server(guild):
-    member_count = guild.member_count
-    server_id = str(guild.id)
-    server_name = guild.name
-    server_creation_date = guild.created_at.replace(tzinfo=timezone('UTC'))
-    icon_url = guild.icon_url
-    # owner_id = str(guild.owner_id)
-    # print(owner_id, type(owner_id))
+# def update_or_create_server(guild):
+#     member_count = guild.member_count
+#     server_id = str(guild.id)
+#     server_name = guild.name
+#     server_creation_date = guild.created_at.replace(tzinfo=timezone('UTC'))
+#     icon_url = guild.icon_url
+#     # owner_id = str(guild.owner_id)
+#     # print(owner_id, type(owner_id))
 
-    # update (if found with server_id) or create the server
-    # into database with the above information
-    server_obj, server_created = DiscordServer.objects.update_or_create(
-        server_id=server_id,
-        defaults={
-            'name': server_name,
-            'creation_date': server_creation_date,
-            'icon_url': icon_url,
-            'member_count': member_count,
-        }
-    )
+#     # update (if found with server_id) or create the server
+#     # into database with the above information
+#     server_obj, server_created = DiscordServer.objects.update_or_create(
+#         server_id=server_id,
+#         defaults={
+#             'name': server_name,
+#             'creation_date': server_creation_date,
+#             'icon_url': icon_url,
+#             'member_count': member_count,
+#         }
+#     )
 
-    # ONE-TIME RUN, when joining the server
-    # updating the server managers will be done in a scheduled task
-    # to avoid consuming resources
-    if server_created:
-        manager_ids = []
-        for member in guild.members:
-            if member.guild_permissions.manage_guild and not member.bot:
-                manager, manager_created = ServerManager.objects.get_or_create(
-                    manager_id=member.id,
-                    server=server_obj
-                )
-                if manager_created:
-                    print(f'Manager added: {member.display_name} (ID: {member.id}).')
-                manager_ids.append(str(member.id))
+#     # ONE-TIME RUN, when joining the server
+#     # updating the server managers will be done in a scheduled task
+#     # to avoid consuming resources
+#     if server_created:
+#         manager_ids = []
+#         for member in guild.members:
+#             if member.guild_permissions.manage_guild and not member.bot:
+#                 manager, manager_created = ServerManager.objects.get_or_create(
+#                     manager_id=member.id,
+#                     server=server_obj
+#                 )
+#                 if manager_created:
+#                     print(f'Manager added: {member.display_name} (ID: {member.id}).')
+#                 manager_ids.append(str(member.id))
 
-        db_managers = ServerManager.objects.filter(server=server_obj)
-        for db_manager in db_managers:
-            if db_manager.manager_id not in manager_ids:
-                print(f'Manager with ID {db_manager.manager_id} deleted.')
-                db_manager.delete()
+#         db_managers = ServerManager.objects.filter(server=server_obj)
+#         for db_manager in db_managers:
+#             if db_manager.manager_id not in manager_ids:
+#                 print(f'Manager with ID {db_manager.manager_id} deleted.')
+#                 db_manager.delete()
 
-    # ONE-TIME RUN, when joining the server
-    if server_created:
-        emojis = guild.emojis
-        server_emoji_ids = []
-        # check if emoji exists in db, create if not
-        for emoji in emojis:
-            emoji_id = str(emoji.id)
-            server_emoji, emoji_created = DiscordEmoji.objects.update_or_create(
-                server=server_obj,
-                emoji_id=emoji_id,
-                defaults={
-                    'name': emoji.name,
-                    'url': emoji.url,
-                    'require_colons': emoji.require_colons,
-                    'animated': emoji.animated
-                }
-            )
-            if emoji_created:
-                print(f'Emoji {server_emoji.name} stored.')
-            server_emoji_ids.append(emoji_id)
+#     # ONE-TIME RUN, when joining the server
+#     if server_created:
+#         emojis = guild.emojis
+#         server_emoji_ids = []
+#         # check if emoji exists in db, create if not
+#         for emoji in emojis:
+#             emoji_id = str(emoji.id)
+#             server_emoji, emoji_created = DiscordEmoji.objects.update_or_create(
+#                 server=server_obj,
+#                 emoji_id=emoji_id,
+#                 defaults={
+#                     'name': emoji.name,
+#                     'url': emoji.url,
+#                     'require_colons': emoji.require_colons,
+#                     'animated': emoji.animated
+#                 }
+#             )
+#             if emoji_created:
+#                 print(f'Emoji {server_emoji.name} stored.')
+#             server_emoji_ids.append(emoji_id)
 
-        # then check if emojis in db exist in server emoji list, delete if not
-        db_emojis = DiscordEmoji.objects.filter(server__server_id=server_id)
-        for db_emoji in db_emojis:
-            if db_emoji.emoji_id not in server_emoji_ids:
-                print(f'Emoji ({db_emoji.name}) deleted.')
-                db_emoji.delete()
-
-
-async def bump_premium_servers():
-    await bot.wait_until_ready()
-    while not bot.is_closed():
-
-        now = django_timezone.now()
-        tier1 = DiscordServer.objects.filter(premium_tier=1).order_by('bumped_at')[:4]
-        tier2 = DiscordServer.objects.filter(premium_tier=2).order_by('bumped_at')[:7]
-        for server in (list(tier1) + list(tier2)):
-            premium_tier = server.check_premium()
-            if premium_tier == 0:
-                pass
-            else:
-                server.bumped_at = now
-                server.save()
-                print(f'Bumped server: {server.name}')
-        await asyncio.sleep(settings.BUMP_DURATION)
+#         # then check if emojis in db exist in server emoji list, delete if not
+#         db_emojis = DiscordEmoji.objects.filter(server__server_id=server_id)
+#         for db_emoji in db_emojis:
+#             if db_emoji.emoji_id not in server_emoji_ids:
+#                 print(f'Emoji ({db_emoji.name}) deleted.')
+#                 db_emoji.delete()
 
 
-async def check_changed_manager(bot):
-    await bot.wait_until_ready()
-    while not bot.is_closed():
-        guilds = bot.guilds
-        print(guilds)
-        for guild in guilds:
+# async def bump_premium_servers():
+#     await bot.wait_until_ready()
+#     while not bot.is_closed():
 
-            server_id = str(guild.id)
-            try:
-                server_obj = DiscordServer.objects.get(server_id=server_id)
-            except DiscordServer.DoesNotExist:
-                print(f'Server with ID [{server_id}] does not exist in database.')
-                continue
-
-            manager_ids = []
-            print(guild.name)
-            for member in guild.members:
-                if member.guild_permissions.manage_guild and not member.bot:
-                    manager, manager_created = ServerManager.objects.get_or_create(
-                        manager_id=member.id,
-                        server=server_obj
-                    )
-                    if manager_created:
-                        print(f'Manager added: {member.display_name} (ID: {member.id}).')
-                    manager_ids.append(str(member.id))
-
-            db_managers = ServerManager.objects.filter(server=server_obj)
-            for db_manager in db_managers:
-                if db_manager.manager_id not in manager_ids:
-                    print(f'Manager with ID {db_manager.manager_id} deleted.')
-                    db_manager.delete()
-        await asyncio.sleep(settings.UPDATE_MANAGERS_DURATION)
+#         now = django_timezone.now()
+#         tier1 = DiscordServer.objects.filter(premium_tier=1).order_by('bumped_at')[:4]
+#         tier2 = DiscordServer.objects.filter(premium_tier=2).order_by('bumped_at')[:7]
+#         for server in (list(tier1) + list(tier2)):
+#             premium_tier = server.check_premium()
+#             if premium_tier == 0:
+#                 pass
+#             else:
+#                 server.bumped_at = now
+#                 server.save()
+#                 print(f'Bumped server: {server.name}')
+#         await asyncio.sleep(settings.BUMP_DURATION)
 
 
-if not settings.DEBUG:
-    # bot.loop.create_task(bump_premium_servers())
-    # bot.loop.create_task(check_changed_manager(bot))
-    pass
+# async def check_changed_manager(bot):
+#     await bot.wait_until_ready()
+#     while not bot.is_closed():
+#         guilds = bot.guilds
+#         print(guilds)
+#         for guild in guilds:
+
+#             server_id = str(guild.id)
+#             try:
+#                 server_obj = DiscordServer.objects.get(server_id=server_id)
+#             except DiscordServer.DoesNotExist:
+#                 print(f'Server with ID [{server_id}] does not exist in database.')
+#                 continue
+
+#             manager_ids = []
+#             print(guild.name)
+#             for member in guild.members:
+#                 if member.guild_permissions.manage_guild and not member.bot:
+#                     manager, manager_created = ServerManager.objects.get_or_create(
+#                         manager_id=member.id,
+#                         server=server_obj
+#                     )
+#                     if manager_created:
+#                         print(f'Manager added: {member.display_name} (ID: {member.id}).')
+#                     manager_ids.append(str(member.id))
+
+#             db_managers = ServerManager.objects.filter(server=server_obj)
+#             for db_manager in db_managers:
+#                 if db_manager.manager_id not in manager_ids:
+#                     print(f'Manager with ID {db_manager.manager_id} deleted.')
+#                     db_manager.delete()
+#         await asyncio.sleep(settings.UPDATE_MANAGERS_DURATION)
 
 
-if settings.DEBUG:
-    bot.loop.create_task(bump_premium_servers())
+# if not settings.DEBUG:
+#     # bot.loop.create_task(bump_premium_servers())
+#     # bot.loop.create_task(check_changed_manager(bot))
+#     pass
+
+
+# if settings.DEBUG:
+#     bot.loop.create_task(bump_premium_servers())
 
 bot.run(settings.BOT_TOKEN)
