@@ -16,19 +16,12 @@ if settings.DEBUG is True:
 else:
     prefix = '&*'
 
-bot = discord.Client()
-# remove the 'help' command
-# bot.remove_command('help')
+bot = discord.AutoShardedClient(shard_ids=[0, 1, 2, 3, 4], shard_count=5)
 
-# # Initialize extension (command) packages
-# initial_extensions = (
 
-# )
-# for extension in initial_extensions:
-#     try:
-#         bot.load_extension(extension)
-#     except Exception as e:
-#         print(f'Failed to load extension {extension}. Exception: "{e}"')
+@bot.event
+async def on_shard_ready(shard_id):
+    print(f'Shard {shard_id} loaded.')
 
 
 @bot.event
