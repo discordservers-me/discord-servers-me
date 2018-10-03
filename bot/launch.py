@@ -29,40 +29,40 @@ async def on_ready():
     print('------')
     print(f'Logged in as: {bot.user.name} (ID: {bot.user.id})')
     print('------')
-    exec_guilds = ['287295168053510145', '491296531513868304', '484568851963576320', '495415063591518238', '488026470183206942', '396070717025943562', '489119700366655488', '414061238440427531', '496705067555094558', '495967011067789312',
-                   '447211140083089418', '488027329009025025', '471433697548304405', '244193575074660353', '488369913971343416', '352661965807681537', '495704661022474240', '460386326521577483', '495446155518541834', '493955231424446484', '493492672217219094',
-                   '494997999299330058', '403691615115411479', '495442859332468747', '432531048270659584', '469628190483283988', '495083249408671754', '469630074061062154', '495717622097117214', '446141543666024449', '484569825205551115',
-                   '468234677795160069', '485527631752855553', '495248223217254401', '451371865911328770', '485782160809263124', '480541126470664194', '494809644313739277', '483118377238396929', '495713024271712268', '488501310618861603', '487699416053055489',
-                   '493482359543300106', '453182328181620747', '491345846328360960', '496379601384112143', '495747160361664523', '490940712012218374', '196060689415143424', '457681582220771330', '462458737924374548', '473777143617421312', '402831074239053824',
-                   '479021791877267476', '482715312630923284', '464752109909311499', '395327343067004928', '485688585966583810', '495706971157037059', '491039338659053568', '414516311406804992', '474394946376433672', '492730281430745089']
-    for g_id in exec_guilds:
-        guild = bot.get_guild(g_id)
-        emojis = guild.emojis
-        server_obj = DiscordServer.objects.get(server_id=g_id)
-        server_emoji_ids = []
-        # check if emoji exists in db, create if not
-        for emoji in emojis:
-            emoji_id = str(emoji.id)
-            server_emoji_ids.append(emoji_id)
-            server_emoji, emoji_created = DiscordEmoji.objects.update_or_create(
-                server=server_obj,
-                emoji_id=emoji_id,
-                defaults={
-                    'name': emoji.name,
-                    'url': emoji.url,
-                    'require_colons': emoji.require_colons,
-                    'animated': emoji.animated
-                }
-            )
-            if emoji_created:
-                print(f'Emoji {server_emoji.name} stored.')
+    # exec_guilds = ['287295168053510145', '491296531513868304', '484568851963576320', '495415063591518238', '488026470183206942', '396070717025943562', '489119700366655488', '414061238440427531', '496705067555094558', '495967011067789312',
+    #                '447211140083089418', '488027329009025025', '471433697548304405', '244193575074660353', '488369913971343416', '352661965807681537', '495704661022474240', '460386326521577483', '495446155518541834', '493955231424446484', '493492672217219094',
+    #                '494997999299330058', '403691615115411479', '495442859332468747', '432531048270659584', '469628190483283988', '495083249408671754', '469630074061062154', '495717622097117214', '446141543666024449', '484569825205551115',
+    #                '468234677795160069', '485527631752855553', '495248223217254401', '451371865911328770', '485782160809263124', '480541126470664194', '494809644313739277', '483118377238396929', '495713024271712268', '488501310618861603', '487699416053055489',
+    #                '493482359543300106', '453182328181620747', '491345846328360960', '496379601384112143', '495747160361664523', '490940712012218374', '196060689415143424', '457681582220771330', '462458737924374548', '473777143617421312', '402831074239053824',
+    #                '479021791877267476', '482715312630923284', '464752109909311499', '395327343067004928', '485688585966583810', '495706971157037059', '491039338659053568', '414516311406804992', '474394946376433672', '492730281430745089']
+    # for g_id in exec_guilds:
+    #     guild = bot.get_guild(g_id)
+    #     emojis = guild.emojis
+    #     server_obj = DiscordServer.objects.get(server_id=g_id)
+    #     server_emoji_ids = []
+    #     # check if emoji exists in db, create if not
+    #     for emoji in emojis:
+    #         emoji_id = str(emoji.id)
+    #         server_emoji_ids.append(emoji_id)
+    #         server_emoji, emoji_created = DiscordEmoji.objects.update_or_create(
+    #             server=server_obj,
+    #             emoji_id=emoji_id,
+    #             defaults={
+    #                 'name': emoji.name,
+    #                 'url': emoji.url,
+    #                 'require_colons': emoji.require_colons,
+    #                 'animated': emoji.animated
+    #             }
+    #         )
+    #         if emoji_created:
+    #             print(f'Emoji {server_emoji.name} stored.')
 
-        # then check if emojis in db exist in server emoji list, delete if not
-        db_emojis = DiscordEmoji.objects.filter(server__server_id=g_id)
-        for db_emoji in db_emojis:
-            if db_emoji.emoji_id not in server_emoji_ids:
-                print(f'Emoji ({db_emoji.name}) deleted.')
-                db_emoji.delete()
+    #     # then check if emojis in db exist in server emoji list, delete if not
+    #     db_emojis = DiscordEmoji.objects.filter(server__server_id=g_id)
+    #     for db_emoji in db_emojis:
+    #         if db_emoji.emoji_id not in server_emoji_ids:
+    #             print(f'Emoji ({db_emoji.name}) deleted.')
+    #             db_emoji.delete()
     # if not settings.DEBUG:
     #     # change this for the 'Playing xxx' status
     #     presence = f'Prefix: r!'
