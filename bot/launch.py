@@ -226,6 +226,7 @@ async def bump_premium_servers():
         now = django_timezone.now()
         tier1 = DiscordServer.objects.filter(premium_tier=1).order_by('bumped_at')[:4]
         tier2 = DiscordServer.objects.filter(premium_tier=2).order_by('bumped_at')[:7]
+        print(tier1, tier2)
         for server in (list(tier1) + list(tier2)):
             premium_tier = server.check_premium()
             if premium_tier == 0:
