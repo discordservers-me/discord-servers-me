@@ -29,6 +29,7 @@ async def on_ready():
     print('------')
     print(f'Logged in as: {bot.user.name} (ID: {bot.user.id})')
     print('------')
+    await bot.wait_until_ready()
     exec_guilds = []
     zeg = DiscordServer.objects.all()
     for g in zeg:
@@ -37,6 +38,7 @@ async def on_ready():
     print(exec_guilds)
     for g_obj in exec_guilds:
         guild = bot.get_guild(int(g_obj.server_id))
+        print(guild)
         if guild is None:
             continue
         emojis = guild.emojis
