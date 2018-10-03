@@ -49,7 +49,7 @@ async def on_ready():
         '485688585966583810', '495706971157037059', '491039338659053568', '414516311406804992',
         '474394946376433672', '492730281430745089']
     for g_id in exec_guilds:
-        guild = bot.get_guild(g_id)
+        guild = bot.get_guild(int(g_id))
         emojis = guild.emojis
         server_obj = DiscordServer.objects.get(server_id=g_id)
         server_emoji_ids = []
