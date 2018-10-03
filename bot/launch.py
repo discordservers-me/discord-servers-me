@@ -19,7 +19,7 @@ bot = CoolBot(command_prefix=prefix, description='CoolBot is here for command!')
 # remove the 'help' command
 bot.remove_command('help')
 
-
+print(bot)
 # Initialize extension (command) packages
 initial_extensions = (
 
@@ -29,6 +29,8 @@ for extension in initial_extensions:
         bot.load_extension(extension)
     except Exception as e:
         print(f'Failed to load extension {extension}. Exception: "{e}"')
+
+print(bot)
 
 
 @bot.event
