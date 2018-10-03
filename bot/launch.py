@@ -79,9 +79,9 @@ async def on_server_emojis_update(before, after):
     # return if not exist (can't sync without server object)
     try:
         if before:
-            server_obj = DiscordServer.objects.get(server_id=before[0].server.id)
+            server_obj = DiscordServer.objects.get(server_id=str(before[0].guild_id))
         else:
-            server_obj = DiscordServer.objects.get(server_id=after[0].server.id)
+            server_obj = DiscordServer.objects.get(server_id=str(after[0].guild_id))
     except DiscordServer.DoesNotExist:
         print('DiscordServer does not exist.')
         return
@@ -114,7 +114,9 @@ async def on_server_emojis_update(before, after):
                 emoji_id=e.id,
                 defaults={
                     'emoji': e.name,
-                    'emoji_url': e.url
+                    'emoji_url': e.url,
+                    'require_colons': e.require_colons,
+                    'animated': e.animated
                 }
             )
             if created:
