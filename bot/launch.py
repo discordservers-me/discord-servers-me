@@ -272,8 +272,9 @@ async def check_changed_manager(bot):
 
 
 if not settings.DEBUG:
-    bot.loop.create_task(bump_premium_servers())
+    # bot.loop.create_task(bump_premium_servers())
     # bot.loop.create_task(check_changed_manager(bot))
+    pass
 
 
 if settings.DEBUG:
