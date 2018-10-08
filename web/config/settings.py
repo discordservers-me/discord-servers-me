@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'web.apps.users',
     'web.apps.servers',
     'web.apps.partners',
+    'web.apps.about',
 
     'django.contrib.admin',
     'django.contrib.auth',
