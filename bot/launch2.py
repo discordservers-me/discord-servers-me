@@ -8,4 +8,9 @@ from bot.bot import DiscordServersShardedClient  # noqa
 
 bot = DiscordServersShardedClient(shard_ids=list(range(3, 6)), shard_count=6, max_messages=101)
 
+# if not settings.DEBUG:
+#     bot.loop.create_task(tasks.bump_premium_servers(bot))
+#     bot.loop.create_task(tasks.check_changed_manager(bot))
+#     bot.loop.create_task(tasks.update_servers_info(bot))
+
 bot.run(settings.BOT_TOKEN)

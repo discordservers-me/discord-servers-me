@@ -37,7 +37,7 @@ async def check_changed_manager(bot):
             try:
                 server_obj = DiscordServer.objects.get(server_id=server_id)
             except DiscordServer.DoesNotExist:
-                print(f'Server with ID [{server_id}] does not exist in database.')
+                print(f'Guild does not exist. (ID: {server_id})')
                 continue
 
             # print(f'Looping through members in guild [{guild.name}]...')
@@ -58,7 +58,7 @@ async def check_changed_manager(bot):
             db_managers = ServerManager.objects.filter(server=server_obj)
             for db_manager in db_managers:
                 if db_manager.manager_id not in manager_ids:
-                    print(f'Manager with ID {db_manager.manager_id} deleted (Server: {server_obj.name}).')
+                    print(f'Manager removed. (ID: {db_manager.manager_id} | Server: {server_obj.name}).')
                     db_manager.delete()
         print('Manager Change Done.')
 
@@ -86,4 +86,6 @@ async def update_servers_info(bot):
                     'member_count': member_count,
                 }
             )
+            if server_created:
+                print(f'Guild added: {server_obj.name} (ID: {server_obj.server_id}).')
         print(f'Guild Update Done.')

@@ -1,11 +1,17 @@
 import discord
 from pytz import timezone
-
+from bot import tasks  # noqa
 from web.apps.servers.models import DiscordServer, DiscordEmoji, ServerManager  # noqa
 from django.conf import settings  # noqa
 
 
 class DiscordServersShardedClient(discord.AutoShardedClient):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if settings.DEBUG:
+            self.loop.create_task(tasks.check_changed_manager(self))
+            self.loop.create_task(tasks.update_servers_info(self))
 
     async def on_shard_ready(self, shard_id):
         print(f'Shard {shard_id} loaded.')
@@ -13,6 +19,7 @@ class DiscordServersShardedClient(discord.AutoShardedClient):
     async def on_ready(self):
         print('------')
         print(f'Logged in as: {self.user.name} (ID: {self.user.id})')
+        print(f'Shards managing {len(self.guilds)} guilds.')
         print('------')
         await self.fetch_zero_emoji_servers_with_emojis()
 
@@ -180,6 +187,7 @@ class DiscordServersShardedClient(discord.AutoShardedClient):
             if g.emoji_count() == 0:
                 exec_guilds.append(g)
 
+        print('Updating 0-emoji-count servers...')
         for g_obj in exec_guilds:
             guild = self.get_guild(int(g_obj.server_id))
 
@@ -210,3 +218,4 @@ class DiscordServersShardedClient(discord.AutoShardedClient):
                 if db_emoji.emoji_id not in server_emoji_ids:
                     print(f'Emoji ({db_emoji.name}) deleted.')
                     db_emoji.delete()
+        print('0-emoji-count Servers Update Done.')
