@@ -9,9 +9,11 @@ class DiscordServersShardedClient(discord.AutoShardedClient):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if settings.DEBUG:
+        if not settings.DEBUG:
             self.loop.create_task(tasks.check_changed_manager(self))
             self.loop.create_task(tasks.update_servers_info(self))
+        else:
+            pass
 
     async def on_shard_ready(self, shard_id):
         print(f'Shard {shard_id} loaded.')
