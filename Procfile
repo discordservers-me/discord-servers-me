@@ -1,3 +1,3 @@
 web: gunicorn web.config.wsgi
-worker: python3 run.py 1
-worker: python3 run.py 2
+discord-bot-1: python3 run.py 1
+discord-bot-2: python3 run.py 2
