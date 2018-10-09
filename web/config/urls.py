@@ -13,7 +13,7 @@ urlpatterns = [
     path('auth/', include('web.apps.auths.urls')),
     path('giveaway/', include('web.apps.giveaways.urls')),
     path('servers/', include('web.apps.servers.urls')),
-    # path('partners/', include('web.apps.partners.urls')),
+    path('partners/', include('web.apps.partners.urls')),
     path('about/', include('web.apps.about.urls')),
     path('premium/', include('web.apps.premiums.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
