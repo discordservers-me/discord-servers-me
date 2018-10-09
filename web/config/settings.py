@@ -16,10 +16,17 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.postgres',
+    'django_summernote',
     'material',
     'paypal.standard.ipn',
-    'django_summernote',
 
     'web.apps.auths',
     'web.apps.core',
@@ -29,15 +36,6 @@ INSTALLED_APPS = [
     'web.apps.servers',
     'web.apps.partners',
     'web.apps.about',
-
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    # 'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
