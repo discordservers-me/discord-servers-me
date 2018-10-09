@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class PartnersInformation(models.Model):
+class PartnerInformation(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=5000, blank=True)
     url = models.CharField(max_length=256)

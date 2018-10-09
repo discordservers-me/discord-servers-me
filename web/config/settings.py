@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'web.apps.premiums.apps.PremiumsConfig',
     'web.apps.users',
     'web.apps.servers',
-    'web.apps.partners',
+    'web.apps.partner',
     'web.apps.about',
 ]
 
