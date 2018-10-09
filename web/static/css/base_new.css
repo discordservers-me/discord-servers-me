@@ -287,6 +287,7 @@
 }
 
 .single-partner{
+    min-height: 269px;
     margin: 2rem 1rem;
     padding: 1rem 1rem 1.5rem;
     color: #fff !important;
@@ -311,6 +312,9 @@
 }
 .partner-des{
 
+}
+.page-footer{
+    padding-bottom: 20px;
 }
 #partners .partner-link{
     margin-top: 10px;
