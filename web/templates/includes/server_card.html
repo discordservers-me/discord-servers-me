@@ -10,9 +10,9 @@
 					{% if server.premium_tier %}
 						<a href="{% url 'premium:detail' %}" >
 							<div class="server-premium-badge tooltipped cyan btn-small waves-effect waves-light" data-position="right" data-tooltip="Get Premium">
-								<i class="material-icons" style="margin-right: 5px;">local_play</i>
+								<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
 								{% if server.premium_tier == 2 %}
-									<i class="material-icons" style="margin-right: 5px;">local_play</i>
+									<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
 								{% endif %}
 							</div>
 						</a>
