@@ -19,7 +19,6 @@ urlpatterns = [
     path('premium/', include('web.apps.premiums.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml')),
     path(settings.DISCORD_TAIL_URL, RedirectView.as_view(url=settings.DISCORD_INVITE_LINK), name='discord_server')
 
 ]
