@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 from web.apps.core.views import HomeView
 from django.contrib.sitemaps.views import sitemap
 from . import settings
@@ -19,11 +19,9 @@ urlpatterns = [
     path('premium/', include('web.apps.premiums.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml')),
     path(settings.DISCORD_TAIL_URL, RedirectView.as_view(url=settings.DISCORD_INVITE_LINK), name='discord_server')
 
 ]
-
-path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-     name='django.contrib.sitemaps.views.sitemap')
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
