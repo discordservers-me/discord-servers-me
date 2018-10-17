@@ -335,5 +335,8 @@
         clear: both;
         display: block;
     }
+    footer span.right a{
+        width: 100%;
+    }
 }
 /* Partners page CSS End */
