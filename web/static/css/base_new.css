@@ -328,5 +328,12 @@
 .bottom-partner-link a{
 
 }
-
+@media (max-width: 850px){
+    footer span.right{
+        float: none !important;
+        margin-top: 0 !important;
+        clear: both;
+        display: block;
+    }
+}
 /* Partners page CSS End */
