@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				{% if not server.shown or not server.invite_link %}
-					<a href="{% url 'server:update' server.server_id %}">
+					<a target="_blank" href="{% url 'server:update' server.server_id %}">
 						<div style="z-index: 2;" class="red darken-4 grey-text text-lighten-4 server-invisible-alert center">
 							Server not shown publicly. <br> Click here to edit.
 						</div>
