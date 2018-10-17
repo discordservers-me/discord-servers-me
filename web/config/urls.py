@@ -3,8 +3,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.views.generic import RedirectView, TemplateView
 from web.apps.core.views import HomeView
-from django.contrib.sitemaps.views import sitemap
 from . import settings
+from .sitemap import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -19,8 +24,10 @@ urlpatterns = [
     path('premium/', include('web.apps.premiums.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path(settings.DISCORD_TAIL_URL, RedirectView.as_view(url=settings.DISCORD_INVITE_LINK), name='discord_server')
+    path(settings.DISCORD_TAIL_URL, RedirectView.as_view(url=settings.DISCORD_INVITE_LINK), name='discord_server'),
+    path('sitemap.xml', web.apps.sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", context_type="text/plain"))
 
 ]
-
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
