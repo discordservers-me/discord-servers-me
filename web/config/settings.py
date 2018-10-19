@@ -168,4 +168,3 @@ DISCORD_INVITE_LINK = config('DISCORD_INVITE_LINK', default='https://discord.gg/
 
 # Website Metas
 META_DESCRIPTION = config('META_DESCRIPTION', default="Oh this is some meta tag!")
-META_TITLE = config('META_TITLE', default="Oh this is some meta tag!")
