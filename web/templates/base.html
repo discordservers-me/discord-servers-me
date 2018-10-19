@@ -1,7 +1,11 @@
+{% load static meta_description %}
+{% load static meta_title %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="title" content="{% block meta_title %}Discord Servers - A List of the Best Discord Servers{% endblock meta_title %}">
+	<meta name="description" content="{% block meta_description %}Find servers that you're interested in. The biggest discord server list to join and meet new friends. Search for the best discord servers communities or advertise your discord server here. Anime, gaming, technology, and many other categories are available to browse!{% endblock meta_description %}">
 	<title>{% block title %}Discord Servers{% endblock title %}</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
