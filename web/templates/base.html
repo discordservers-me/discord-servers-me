@@ -1,9 +1,11 @@
 {% load static meta_description %}
+{% load static meta_title %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{% block meta_description %}Find Discord Servers to Join, or list your server here to Gain Members. We offer in-depth guides for the best experience!{% endblock meta_description %}">
+	<meta name="title" content="{% block meta_title %}Discord Servers - A List of the Best Discord Servers{% endblock meta_title %}">
 	<title>{% block title %}Discord Servers{% endblock title %}</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -17,7 +19,7 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-126525321-1');
 	</script>
-	
+
 	<style>
 		html {
 			height: 100%;
@@ -29,32 +31,32 @@
 		#userinfo-dropdown {
 			top: 100% !important;
 		}
-	
+
 		@media only screen and (min-width: 993px) {
 			.container {
 				width: 90% !important;
 			}
 		}
-	
+
 		@media only screen and (max-width: 600px) {
 			nav .brand-logo {
 				padding-left: 160px !important;
 				left: 30%;
 			}
-	
+
 			nav .brand-logo img {
 				height: 56px;
 			}
 		}
-			
+
 		.active-navitem {
 			background: #e0e0e0;
-	
+
 		}
 		.active-navitem > a {
 			color: black;
 		}
-	
+
 		.nav-wrapper ul > li {
 			min-width: 70px;
 			max-height: 64px;
@@ -77,7 +79,7 @@
 					<a href="#!" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						{% with request.resolver_match as url_part %}
-							
+
 							{% if url_part.url_name == 'home' %}
 								<li class="active-navitem tooltipped" data-tooltip="Home">
 									<a href="#!"><i class="fas fa-home"></i></a>
@@ -87,7 +89,7 @@
 									<a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
 								</li>
 							{% endif %}
-							
+
 							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
 								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
 									<a href="#!"><i class="fas fa-signal-alt"></i></a>
@@ -97,7 +99,7 @@
 									<a href="{% url 'server:list_top_100' %}"><i class="fas fa-signal-alt"></i></a>
 								</li>
 							{% endif %}
-							
+
 							{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
 								<li class="active-navitem tooltipped" data-tooltip="Premium">
 									<a href="#!"><i class="fas fa-gem"></i></a>
@@ -107,7 +109,7 @@
 									<a href="{% url 'premium:detail' %}"><i class="fas fa-gem"></i></a>
 								</li>
 							{% endif %}
-							
+
 							{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
 								<li class="active-navitem tooltipped" data-tooltip="Giveaways">
 									<a href="#!"><i class="fas fa-gift"></i></a>
@@ -119,7 +121,7 @@
 							{% endif %}
 
 
-							
+
 							{% if not request.user.is_authenticated %}
 								{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
 									<li class="active-navitem">
@@ -139,7 +141,7 @@
 									<img class="circle responsive-img hoverable" style="margin-top: 4px; max-width: 55px; max-height: 55px;" src="{{ request.user.avatar_url}}" alt="{{ request.user.username }}">
 								</a>
 							</li>
-							
+
 						{% endif %}
 					</ul>
 				</div>
@@ -157,25 +159,25 @@
 		</div>
 		<ul class="sidenav" id="mobile-sidenav">
 			{% with request.resolver_match as url_part %}
-				
+
 				{% if url_part.url_name == 'home' %}
 					<li class="active"><a href="#!">HOME</a></li>
 				{% else %}
 					<li class="hoverable" ><a href="{% url 'home' %}">HOME</a></li>
 				{% endif %}
-				
+
 				{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
 					<li class="active"><a href="#!">TOP 100 SERVERS</a></li>
 				{% else %}
 					<li class="hoverable"><a href="{% url 'server:list_top_100' %}">TOP 100 SERVERS</a></li>
 				{% endif %}
-				
+
 				{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
 					<li class="active"><a href="#!">PREMIUM</a></li>
 				{% else %}
 					<li class="hoverable"><a href="{% url 'premium:detail' %}">PREMIUM</a></li>
 				{% endif %}
-				
+
 				{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
 					<li class="active"><a href="#!">GIVEAWAYS</a></li>
 				{% else %}
@@ -183,7 +185,7 @@
 				{% endif %}
 
 
-				
+
 				{% if not request.user.is_authenticated %}
 					{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
 						<li class="active"><a href="#!">LOGIN</a></li>
@@ -205,10 +207,10 @@
 				{# <li><a class="grey-text text-darken-4" href="{% url 'user:password_change' %}">Change Password</a></li> #}
 				<li><a class="grey-text text-darken-4" href="{% url 'auth:logout' %}">Log Out</a></li>
 			{% endif %}
-			
+
 		</ul>
 		<div class="container" style="min-height: calc(100% - 130px); padding-bottom: 70px; margin-bottom: -70px;">
-			
+
 			{% if messages %}
 				<div class="messages teal">
 					{% for message in messages %}
@@ -218,13 +220,13 @@
 								<div class="grey-text text-darken-4">{{ message }}</div>
 							</div>
 						{% endif %}
-						
+
 					{% endfor %}
 				</div>
 			{% endif %}
 			<div class="content" style="padding: 3rem 0;">
 				{% block content %}
-					
+
 				{% endblock content %}
 			</div>
 		</div>
@@ -237,16 +239,16 @@
 						<span style="margin-right: 5px;">Do you need Help?</span>
 						<a class="blue-text text-darken-2 right hoverable" href="{% url 'discord_server' %}" target="_blank">Join our Support Server and ask us there!</a>
 					</span>
-					
+
 				</div>
 			</div>
 		</footer>
-		
+
 	{% endblock body %}
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	
-	
+
+
 	<script>
 		$(document).ready(function(){
 			$('select').formSelect();

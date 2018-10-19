@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block content %}
 	<div class="" style="">
-		<h5>Search for a Discord Server</h5>
+		<h1>Search for a Discord Server</h1>
 		<nav>
 			<div class="nav-wrapper">
 				<form method="get" action="{% url 'server:search' %}">
@@ -32,5 +32,5 @@
     <div class="center bottom-partner-link">
         <a href="{% url 'partners:partners_list' %}" class="btn-small waves-effect waves-light indigo center">PARTNERS</a>
     </div>
-	
+
 {% endblock content %}
