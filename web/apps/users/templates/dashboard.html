@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load humanize static %}
 {% block meta_description %}
-Add a discord server to our massive list. Get discord members for free!
+Add your discord server to our massive server list. Easily gain discord server members for free.
 {% endblock meta_description %}
 {% block title %}
-	Dashboard
+	Add Your Server to our Discord Server List
 {% endblock title %}
 {% block content %}
 	<div class="grey darken-2 row" style="padding: 1rem 0;">
@@ -35,10 +35,10 @@ Add a discord server to our massive list. Get discord members for free!
 				</div>
 			</div>
 			<span id="guide-toggle" class="btn waves-effect waves-light indigo">Too long, short version please</span>
-			
-			
+
+
 		</div>
-		
+
 	</div>
 	<div id="server-list">
 		<div class="row">
@@ -54,7 +54,7 @@ Add a discord server to our massive list. Get discord members for free!
 			{% include 'includes/paginator.html' %}
 		</div>
 	{% endif %}
-	
+
 {% endblock content %}
 {% block javascript %}
 	<script src="{% static 'js/csrf_token_retriever.js' %}"></script>
@@ -91,7 +91,7 @@ Add a discord server to our massive list. Get discord members for free!
 						$(notification).delay(3000);
 						$(notification).fadeOut();
 					}
-					
+
 				},
 			})
 		})
