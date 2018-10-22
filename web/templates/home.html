@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% block content %}
+
 	<div class="" style="">
 		<h5>Search for a Discord Server</h5>
 		<nav>
@@ -21,7 +22,6 @@
 			<a href="#!" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">No tags created <i class="material-icons left">close</i></a>
 		{% endfor %}
 	</div>
-
 	<div id="server-list">
 		<h4 class="center" style="margin-bottom: 2rem;"><strong>FEATURED SERVERS</strong></h4>
 		<p class="center home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
@@ -34,5 +34,5 @@
     <div class="center bottom-partner-link">
         <a href="{% url 'partners:partners_list' %}" class="btn-small waves-effect waves-light indigo center">PARTNERS</a>
     </div>
-	
+
 {% endblock content %}

@@ -1,21 +1,17 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block meta_description %}
-	The top one hundred discord servers. This page lists the biggest servers on the platform by member count.
+	A compiled list of the top 100 public discord servers. Find discord servers with your interest. Check out communities you're interested in and join to chat with other members.
 {% endblock meta_description %}
 
 {% block title %}
-	Top Servers
-	{% if request.GET.page %}
-		| Page  {{ request.GET.page }}
-	{% endif %}
+	Top 100 Public Discord Servers - List of the Biggest Discord Servers
 {% endblock title %}
 
 {% block content %}
 	<div id="server-list">
 		<h4 class="center" style="margin: 0 0 1rem 0;"><strong>Top 100 Servers by Member Count</strong></h4>
 		<div class="row" style="margin-bottom: 0;">
-
 			<div class="col s12 center" style="padding: 0.25rem 0;">
 				{% include 'includes/paginator_dark.html' %}
 			</div>
@@ -26,8 +22,8 @@
 				{% include 'includes/paginator_dark.html' %}
 			</div>
 		</div>
-		
-		
+
+
 	</div>
-	
+
 {% endblock content %}
