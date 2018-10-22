@@ -23,6 +23,7 @@
 	</div>
 	<div id="server-list">
 		<h4 class="center" style="margin-bottom: 2rem;"><strong>FEATURED SERVERS</strong></h4>
+		<p class="center home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
 		<div class="row">
 			{% for server in servers %}
 				{% include 'includes/server_card.html' %}

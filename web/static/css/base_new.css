@@ -340,3 +340,11 @@
     }
 }
 /* Partners page CSS End */
+
+.home-premium{
+    color:white;
+}
+.home-premium a{
+    color: #1976D2;
+    text-decoration: none;
+}
