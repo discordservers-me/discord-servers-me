@@ -28,9 +28,30 @@
 	{% endif %}
 {% endblock meta_description %}
 {% block title %}
-	Tag: {{ tag }}
-	{% if request.GET.page %}
-		| Page  {{ request.GET.page }}
+	{% if {{ tag }} == "Anime" %}
+		Find Anime Discord Servers - List of Anime Discord Servers
+	{% elif {{ tag }} == "Social" %}
+		Social Discord Servers - Public Social Discord Server List
+	{% elif {{ tag }} == "Gaming" %}
+		Gaming Discord Servers - Top Rated Discord Servers for Gaming
+	{% elif {{ tag }} == "Global Emotes" %}
+		Top Global Emote Discord Servers
+	{% elif {{ tag }} == "Memes" %}
+		Find Meme Discord Servers - List of Meme Discord Servers
+	{% elif {{ tag }} == "Music" %}
+		Find Music Discord Servers - List of Music Discord Servers
+	{% elif {{ tag }} == "Community" %}
+		Find Community Discord Servers - List of Community Discord Servers
+	{% elif {{ tag }} == "Economy" %}
+		Best Economy Discord Servers - List of Economy Discord Servers
+	{% elif {{ tag }} == "Technology" %}
+		Best Technology Discord Servers - List of Technology Discord Servers
+	{% elif {{ tag }} == "Art" %}
+		Best Art Discord Servers - List of Art Discord Servers
+	{% elif {{ tag }} == "Learning" %}
+		Best Learning Discord Servers - List of Learning Discord Servers
+	{% elif {{ tag }} == "Support Server" %}
+		Best Support Discord Servers - List of Support Discord Servers
 	{% endif %}
 {% endblock title %}
 {% block content %}
