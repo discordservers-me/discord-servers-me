@@ -1,56 +1,56 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block meta_description %}
-	{% if {{ tag }} == "Anime" %}
+	{% if tag == "Anime" %}
 		Discover a list of the best Anime discord servers. Find Anime discord servers which are tagged with Anime and Manga. Active and friendly communities that bring together anime fans and gamers.
-	{% elif {{ tag }} == "Social" %}
+	{% elif tag == "Social" %}
 		Check out our public social discord server list. Excellent social communities with thousands of users all around the world. Come, join servers and communicate with other members worldwide.
-	{% elif {{ tag }} == "Gaming" %}
+	{% elif tag == "Gaming" %}
 		Browse a list of discord servers based around gaming and join great communities of all ages and different cultured people. These servers strive to provide members with a safe, supportive, and fun gaming environment.
-	{% elif {{ tag }} == "Global Emotes" %}
+	{% elif tag == "Global Emotes" %}
 		Discover a list of the best Global Emote discord servers. Use Discord Emojis without Nitro through these servers.
-	{% elif {{ tag }} == "Memes" %}
+	{% elif tag == "Memes" %}
 		Discover a list of the best and Biggest Meme discord servers. Active and friendly communities that bring together the best memers.
-	{% elif {{ tag }} == "Music" %}
+	{% elif tag == "Music" %}
 		Discover a list of the best Music discord servers. Find hundreds of discord servers which are tagged with Music and choose which ones you want to join.
-	{% elif {{ tag }} == "Community" %}
+	{% elif tag == "Community" %}
 	Discover a list of the best Community discord servers. Find discord servers which are tagged with Community. These servers hold events, giveaways, and so much more.
-	{% elif {{ tag }} == "Economy" %}
+	{% elif tag == "Economy" %}
 	Discover a list of the best Economy discord servers. Find discord servers which are tagged with Economy. Join a servers market and have a good time.
-	{% elif {{ tag }} == "Technology" %}
+	{% elif tag == "Technology" %}
 		Discover a list of the best Technology discord servers. Find discord servers which are centered around different types of technology.
-	{% elif {{ tag }} == "Art" %}
+	{% elif tag == "Art" %}
 		Discover a list of the best Art discord servers. Find an Art Community that you might want to join.
-	{% elif {{ tag }} == "Learning" %}
+	{% elif tag == "Learning" %}
 		Discover a list of the best Learning discord servers. Find discord servers which are tagged with Learning and discover new information.
-	{% elif {{ tag }} == "Support Server" %}
+	{% elif tag == "Support Server" %}
 		Discover a list of the best Support discord servers. Find discord servers which are tagged with Support and get help about a topic.
 	{% endif %}
 {% endblock meta_description %}
 {% block title %}
-	{% if {{ tag }} == "Anime" %}
+	{% if tag == "Anime" %}
 		Find Anime Discord Servers - List of Anime Discord Servers
-	{% elif {{ tag }} == "Social" %}
+	{% elif tag == "Social" %}
 		Social Discord Servers - Public Social Discord Server List
-	{% elif {{ tag }} == "Gaming" %}
+	{% elif tag == "Gaming" %}
 		Gaming Discord Servers - Top Rated Discord Servers for Gaming
-	{% elif {{ tag }} == "Global Emotes" %}
+	{% elif tag == "Global Emotes" %}
 		Top Global Emote Discord Servers
-	{% elif {{ tag }} == "Memes" %}
+	{% elif tag == "Memes" %}
 		Find Meme Discord Servers - List of Meme Discord Servers
-	{% elif {{ tag }} == "Music" %}
+	{% elif tag == "Music" %}
 		Find Music Discord Servers - List of Music Discord Servers
-	{% elif {{ tag }} == "Community" %}
+	{% elif tag == "Community" %}
 		Find Community Discord Servers - List of Community Discord Servers
-	{% elif {{ tag }} == "Economy" %}
+	{% elif tag == "Economy" %}
 		Best Economy Discord Servers - List of Economy Discord Servers
-	{% elif {{ tag }} == "Technology" %}
+	{% elif tag == "Technology" %}
 		Best Technology Discord Servers - List of Technology Discord Servers
-	{% elif {{ tag }} == "Art" %}
+	{% elif tag == "Art" %}
 		Best Art Discord Servers - List of Art Discord Servers
-	{% elif {{ tag }} == "Learning" %}
+	{% elif tag == "Learning" %}
 		Best Learning Discord Servers - List of Learning Discord Servers
-	{% elif {{ tag }} == "Support Server" %}
+	{% elif tag == "Support Server" %}
 		Best Support Discord Servers - List of Support Discord Servers
 	{% endif %}
 {% endblock title %}
