@@ -6,7 +6,7 @@ from django.conf import settings  # noqa
 from bot import tasks  # noqa
 from bot.bot import DiscordServersShardedClient  # noqa
 
-bot = DiscordServersShardedClient(shard_ids=list(range(3, 4)), shard_count=4, max_messages=101)
+bot = DiscordServersShardedClient(shard_ids=list(range(3, 4)), shard_count=5, max_messages=101)
 
 # if not settings.DEBUG:
 #     bot.loop.create_task(tasks.bump_premium_servers(bot))

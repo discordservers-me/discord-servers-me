@@ -15,6 +15,9 @@ if __name__ == "__main__":
         elif bot == '4':
             from bot import launch4 as bot_launch
             bot_launch
+        elif bot == '5':
+            from bot import launch5 as bot_launch
+            bot_launch
         else:
             print('Specify a bot to run (1/2)')
     except IndexError:
