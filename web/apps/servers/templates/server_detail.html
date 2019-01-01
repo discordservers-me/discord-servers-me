@@ -39,7 +39,7 @@
 		<div class="col s12 m7 l4">
 			<div class="">
 				<div class="">
-					<h4 class="name break-word" style="margin:0;">{{ server.name }}</h4>
+					<h1 class="name break-word" style="margin:0; font-size: 40px">{{ server.name }}</h1>
 					<p class="break-word">{{ server.short_description }}</p>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 					<div class="grey-text">None</div>
 				{% endfor %}
 			</div>
-			
+
 			<div class="">
 				<h5>Server Emojis</h5>
 				{% if not static_emojis.exists and not animated_emojis.exists %}
@@ -65,7 +65,7 @@
 					{% endif %}
 					<img class="tooltipped emoji-item" data-position="top" data-tooltip="{{emoji.get_alias}}" src="{{ emoji.url }}">
 				{% endfor %}
-				
+
 				{% for emoji in animated_emojis %}
 					{% if forloop.first %}
 						<p>Animated</p>
@@ -73,7 +73,7 @@
 					<img class="tooltipped emoji-item" data-position="top" data-tooltip="{{emoji.get_alias}}" src="{{ emoji.url }}">
 				{% endfor %}
 			</div>
-			
+
 		</div>
 		<div class="col s12">
 			<div style="">
@@ -83,7 +83,7 @@
 				{% else %}
 					<div class="grey-text">None</div>
 				{% endif %}
-				
+
 			</div>
 		</div>
 	</div>
