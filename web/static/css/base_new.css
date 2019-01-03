@@ -160,8 +160,8 @@
 /* END PREMIUM PAYMENT CSS */
 
 /* PREMIUM CSS */
-.server-card-image.no-highlight {
-    border: 0px solid transparent !important
+.server-card-image.regular-highlight {
+    border: 3px solid !important
 }
 
 .server-card-image.premium-highlight-1 {
