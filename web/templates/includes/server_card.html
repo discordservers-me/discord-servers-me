@@ -17,18 +17,18 @@
 							</div>
 						</a>
 					{% endif %}
-					
+
 				</div>
 				<div class="server-card-info">
 					<div class="server-members-emojis-wrapper">
-						
+
 						<div class="indigo server-members-emojis">
 							{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }} members
 						</div>
 						<div class="indigo server-members-emojis">
 							{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }} emojis
 						</div>
-						
+
 						<div class="bump_notification center teal darken-2" style="position: absolute; top: 50%; left: 0; width: 100%; padding: 1rem 0; display: none;"></div>
 					</div>
 				</div>
@@ -46,14 +46,14 @@
 					</strong>
 					</h6>
 				</div>
-				
+
 				<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
 				{% if show_bump_button and not server.is_bumped %}
 					<span class="bumper server-card-bump-button btn-small grey lighten-5 grey-text text-darken-4" data-sid="{{ server.server_id }}">BUMP</span>
 				{% endif %}
-				
+
 			</div>
-			
+
 			<div class="server-card-tag-wrapper">
 				<div class="inside">
 					{% for tag in server.tags.all %}
@@ -63,7 +63,12 @@
 			</div>
 			<div class="card-action">
 				{% if server.invite_link %}
-					<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light indigo right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% if server.premium_tier == 1 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-tier-1-color right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% elif server.premium_tier == 2 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-tier-2-color right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% elif server.premium_tier == 2 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-tier-3-color right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
 				{% else %}
 					<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
 				{% endif %}
@@ -74,7 +79,7 @@
 				{% if request.user.user_id in server.manager_ids %}
 					<a target="_blank" class="tooltipped btn-small waves-effect waves-light cyan right" style="margin-right:5px;" data-position="bottom" data-tooltip="Edit this server" href="{% url 'server:update' server.server_id %}"><i class="material-icons">edit</i></a>
 				{% endif %}
-				
+
 			</div>
 		</div>
 	</div>
