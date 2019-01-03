@@ -121,6 +121,16 @@ class DiscordServer(models.Model):
         else:
             return 'no-highlight'
 
+    def premium_bg_css(self):
+        if self.premium_highlight == 1:
+            return 'premium-color-1'
+        elif self.premium_highlight == 2:
+            return 'premium-color-2'
+        elif self.premium_highlight == 3:
+            return 'premium-color-3'
+        else:
+            return 'regular-color'
+
     def appear_chance(self):
         if self.premium_tier == 1:
             return 0.3636
