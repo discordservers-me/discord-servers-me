@@ -173,7 +173,7 @@
 }
 
 .server-card-image.premium-highlight-3 {
-    background: #FF3837;
+    background: #ff3837;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -184,15 +184,15 @@
 }
 
 .premium-highlight-1 {
-    border: 2px solid #F6CD00 !important;
+    border: 1px solid #F6CD00 !important;
 }
 
 .premium-highlight-2 {
-    border: 2px solid #DC4AFF !important;
+    border: 1px solid #DC4AFF !important;
 }
 
 .premium-highlight-3 {
-    border: 2px solid #ff3837 !important;
+    border: 1px solid #ff3837 !important;
 }
 
 /* END PREMIUM CSS */
