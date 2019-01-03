@@ -119,7 +119,7 @@ class DiscordServer(models.Model):
         elif self.premium_highlight == 3:
             return 'premium-highlight-3'
         else:
-            return 'no-highlight'
+            return 'regular-highlight'
 
     def premium_bg_css(self):
         if self.premium_highlight == 1:

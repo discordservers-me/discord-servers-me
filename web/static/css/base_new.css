@@ -185,7 +185,7 @@
     -webkit-box-sizing: border-box;
 }
 
-.no-highlight {
+.regular-highlight {
     border: 3px solid transparent !important;
 }
 
