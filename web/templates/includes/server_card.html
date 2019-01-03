@@ -63,7 +63,14 @@
 			</div>
 			<div class="card-action">
 				{% if server.invite_link %}
-					<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light indigo right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% if server.premium_tier == 1 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-color-1 right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% elif server.premium_tier == 2 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-color-2 right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% elif server.premium_tier == 3 %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light premium-color-3 right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					{% else %}
+						<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light indigo right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
 				{% else %}
 					<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
 				{% endif %}
