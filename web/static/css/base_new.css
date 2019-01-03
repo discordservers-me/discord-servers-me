@@ -161,7 +161,10 @@
 
 /* PREMIUM CSS */
 .server-card-image.regular-highlight {
-    border: 3px solid !important
+    background: #676568;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .server-card-image.premium-highlight-1 {
@@ -186,7 +189,7 @@
 }
 
 .regular-highlight {
-    border: 3px solid transparent !important;
+    border: 3px solid #676568 !important;
 }
 
 .premium-highlight-1 {
