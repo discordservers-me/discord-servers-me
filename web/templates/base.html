@@ -35,6 +35,8 @@
 		}
 		body {
 			/*background: white url({% static "img/dust_scratches.png" %});*/
+			color: #e0e0e0;
+			background-color: #141414;
 			height: 100%;
 		}
 		#userinfo-dropdown {
@@ -74,11 +76,11 @@
 	</style>
 	{% block stylesheet %}{% endblock %}
 </head>
-<body class="black darken-3 grey-text text-lighten-2">
+<body class="">
 	{% block body %}
 		<div class="navbar-fixed">
 			<nav>
-				<div class="nav-wrapper nav-bg-color">
+				<div class="nav-wrapper">
 					<a href="{% url 'home' %}">
 						<div class="brand-logo" style="white-space: nowrap;">
 							<img height='64' style="padding: 8px 10px 8px 10px;" src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
@@ -239,7 +241,7 @@
 				{% endblock content %}
 			</div>
 		</div>
-		<footer class="page-footer footer-bg-color">
+		<footer class="page-footer">
 			<div class="footer-copyright grey darken-4">
 				<div class="container">
                     <a href="{% url 'partners:partners_list' %}" class="blue-text text-darken-2 hoverable partner-url">Partners</a><br><a href="{% url 'about:aboutdetail' %}" class="blue-text text-darken-2 hoverable partner-url">About Us</a><br>
