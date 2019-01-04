@@ -373,7 +373,3 @@
     text-decoration: none;
 }
 
-/*To fix the Salmon color on header and footer*/
-.nav-bg-color,.footer-bg-color{
-    background-color:#212022;
-}
