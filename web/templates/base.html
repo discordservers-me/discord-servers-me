@@ -78,7 +78,7 @@
 	{% block body %}
 		<div class="navbar-fixed">
 			<nav>
-				<div class="nav-wrapper">
+				<div class="nav-wrapper nav-bg-color">
 					<a href="{% url 'home' %}">
 						<div class="brand-logo" style="white-space: nowrap;">
 							<img height='64' style="padding: 8px 10px 8px 10px;" src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
@@ -239,7 +239,7 @@
 				{% endblock content %}
 			</div>
 		</div>
-		<footer class="page-footer">
+		<footer class="page-footer footer-bg-color">
 			<div class="footer-copyright grey darken-4">
 				<div class="container">
                     <a href="{% url 'partners:partners_list' %}" class="blue-text text-darken-2 hoverable partner-url">Partners</a><br><a href="{% url 'about:aboutdetail' %}" class="blue-text text-darken-2 hoverable partner-url">About Us</a><br>
