@@ -12,7 +12,7 @@ bot = DiscordServersShardedClient(shard_ids=list(range(0, 3)), shard_count=15, m
 #     bot.loop.create_task(tasks.bump_premium_servers(bot))
 #     bot.loop.create_task(tasks.check_changed_manager(bot))
 #     bot.loop.create_task(tasks.update_servers_info(bot))
-# pass
+# 
 
 
 # if settings.DEBUG:
