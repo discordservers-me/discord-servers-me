@@ -3,20 +3,21 @@
 	<div class="server-card-wrapper">
 		<div class="card hoverable grey darken-4 {{ server.premium_css }}">
 			<div class="card-content server-card white-text">
-				{% if server.premium_tier %}
-					<a href="{% url 'premium:detail' %}" >
-						<div class="{{ server.premium_ribbon_css }}" data-position="right" data-tooltip="Get Premium">
-							<i class="fas fa-star"></i>
-							{% if server.premium_tier == 2 %}
-								<i class="fas fa-star"></i>
-							{% endif %}
-						</div>
-					</a>
-				{% endif %}
 				<div class="server-card-image-wrapper">
 					<a href="{% url 'server:detail' server.server_id %}">
 						<img  class="server-card-image {{ server.premium_css }} circle responsive-img z-depth-3" src="{{ server.icon_128 }}" alt="{{ server.name }}">
 					</a>
+					{% if server.premium_tier %}
+						<a href="{% url 'premium:detail' %}" >
+							<div class="server-premium-badge tooltipped cyan btn-small waves-effect waves-light" data-position="right" data-tooltip="Get Premium">
+								<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
+								{% if server.premium_tier == 2 %}
+									<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
+								{% endif %}
+							</div>
+						</a>
+					{% endif %}
+
 				</div>
 				<div class="server-card-info">
 					<div class="server-members-emojis-wrapper">
