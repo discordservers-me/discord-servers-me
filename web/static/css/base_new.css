@@ -162,41 +162,45 @@
 
 /* PREMIUM CSS */
 
+.fa-star {
+  color: black;
+}
+
 .premium-ribbon-1 {
-  width: 250px;
+  width: 200px;
   position: relative;
   background-color: #F6CD00;
   text-align: center;
-  left: 250px;
+  left: 200px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
 }
 
 .premium-ribbon-2 {
-  width: 250px;
+  width: 200px;
   position: relative;
   background-color: #DC4AFF;
   text-align: center;
-  left: 250px;
+  left: 200px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
 }
 
 .premium-ribbon-3 {
-  width: 250px;
+  width: 200px;
   position: relative;
   background-color: #ff3837;
   text-align: center;
-  left: 250px;
+  left: 200px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
 }
 
 .premium-ribbon-4 {
-  width: 250px;
+  width: 200px;
   position: relative;
   background-color: #676568;
   text-align: center;
