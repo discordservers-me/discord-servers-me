@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: "Lato-black";
-    src: url("../static/fonts/lato/black.ttf");
+    src: url("../fonts/lato/black.ttf");
 }
 
 .materialize-red {
