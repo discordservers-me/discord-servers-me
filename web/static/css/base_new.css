@@ -36,7 +36,6 @@
     min-height: 210px;
     max-height: 210px;
     padding: 1rem !important;
-    overflow: hidden;
 }
 .server-card-image-wrapper {
     position: absolute;
