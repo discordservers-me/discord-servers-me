@@ -11,10 +11,9 @@
 								{% if server.premium_tier == 2 %}
 									<i class="fas fa-star"></i>
 								{% endif %}
-						</div>
-					</a>
-				{% endif %}
-				</div>
+							</div>
+						</a>
+					{% endif %}
 				<div class="server-card-image-wrapper">
 					<a href="{% url 'server:detail' server.server_id %}">
 						<img  class="server-card-image {{ server.premium_css }} circle responsive-img z-depth-3" src="{{ server.icon_128 }}" alt="{{ server.name }}">

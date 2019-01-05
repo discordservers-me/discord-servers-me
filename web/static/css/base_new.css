@@ -167,6 +167,10 @@
   font-size: 10px;
 }
 
+.premium-ribbon-wrapper {
+  width: 80px;
+}
+
 .premium-ribbon-1 {
   width: 80px;
   position: relative;
