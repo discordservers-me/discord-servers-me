@@ -8831,7 +8831,7 @@ body.keyboard-focused .dropdown-content li:focus {
  }
  
  p {
-     font-family: 'Lato', sans-serif
+     font-family: 'Lato-regular';
  }
 
  #main-header {
