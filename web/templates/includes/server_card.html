@@ -14,6 +14,7 @@
 							</div>
 						</a>
 					{% endif %}
+				</div>
 				<div class="server-card-image-wrapper">
 					<a href="{% url 'server:detail' server.server_id %}">
 						<img  class="server-card-image {{ server.premium_css }} circle responsive-img z-depth-3" src="{{ server.icon_128 }}" alt="{{ server.name }}">
