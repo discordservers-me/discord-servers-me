@@ -36,6 +36,7 @@
     min-height: 210px;
     max-height: 210px;
     padding: 1rem !important;
+    overflow: hidden;
 }
 .server-card-image-wrapper {
     position: absolute;
@@ -160,6 +161,51 @@
 /* END PREMIUM PAYMENT CSS */
 
 /* PREMIUM CSS */
+
+.premium-ribbon-1 {
+  width: 200px;
+  background-color: #F6CD00;
+  text-align: center;
+  right: 50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-2 {
+  width: 200px;
+  background-color: #DC4AFF;
+  text-align: center;
+  right: 50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-3 {
+  width: 200px;
+  background-color: #ff3837;
+  text-align: center;
+  right: 50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-4 {
+  width: 200px;
+  background-color: #676568;
+  text-align: center;
+  right: 50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
 .server-card-image.regular-highlight {
     background: #676568;
     box-sizing: border-box;
