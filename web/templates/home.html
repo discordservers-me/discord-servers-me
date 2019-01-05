@@ -25,8 +25,10 @@
 		</div>
 	</div>
 	<div id="server-list">
-		<h1 class="center" style="margin: 1rem auto; font-size:40px">Discord Server List</h1>
-		<p class="center home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
+			<div style="padding: 25px 25px 0 25px;">
+				<h1 style="margin: 1rem auto; font-size:40px">Discord Server List</h1>
+				<p class="home-premium">If you want to be Featured here <a href="/premium/">Buy Premium</a></p>
+			</div>
 		<div class="row">
 			{% for server in servers %}
 				{% include 'includes/server_card.html' %}
