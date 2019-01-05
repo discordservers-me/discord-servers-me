@@ -42,6 +42,7 @@
     position: absolute;
     top: -20px;
     left: -20px;
+    overflow: hidden;
 }
 
 .server-card-bump-button {
@@ -169,8 +170,7 @@
 
 .premium-ribbon-wrapper {
   position: absolute;
-  left: 310px;
-  overflow: hidden;
+  left: 330px;
 }
 
 .premium-ribbon-1 {
