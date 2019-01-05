@@ -139,7 +139,7 @@ class DiscordServer(models.Model):
         elif self.premium_highlight == 3:
             return 'premium-ribbon-3'
         else:
-            return
+            return 'premium-ribbon-4'
 
     def appear_chance(self):
         if self.premium_tier == 1:
