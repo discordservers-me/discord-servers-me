@@ -4,7 +4,7 @@
 	Search: {{ request.GET.term }}
 	{% if request.GET.page %}
 		| Page {{ request.GET.page }}
-	{% endif %} 
+	{% endif %}
 {% endblock title %}
 {% block content %}
 	<div class="" style="">
@@ -23,9 +23,6 @@
 	</div>
 	<div id="server-list">
 		<div class="row" style="margin-bottom: 0;">
-			<div class="col s12 center" style="padding: 0.25rem 0;">
-				{% include 'includes/paginator_dark.html' %}
-			</div>
 			{% for server in servers %}
 				{% include 'includes/server_card.html' %}
 			{% endfor %}
