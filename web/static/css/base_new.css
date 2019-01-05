@@ -169,7 +169,6 @@
 
 .premium-ribbon-1 {
   width: 80px;
-  position: absolute;
   background-color: #F6CD00;
   text-align: center;
   top: -5px;
@@ -181,7 +180,6 @@
 
 .premium-ribbon-2 {
   width: 80px;
-  position: absolute;
   background-color: #DC4AFF;
   text-align: center;
   top: -5px;
@@ -193,7 +191,6 @@
 
 .premium-ribbon-3 {
   width: 80px;
-  position: absolute;
   background-color: #ff3837;
   text-align: center;
   top: -5px;
@@ -205,7 +202,6 @@
 
 .premium-ribbon-4 {
   width: 80px;
-  position: absolute;
   background-color: #676568;
   text-align: center;
   top: -5px;
