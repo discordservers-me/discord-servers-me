@@ -9,10 +9,10 @@
 					</a>
 					{% if server.premium_tier %}
 						<a href="{% url 'premium:detail' %}" >
-							<div class="{{ server.premium_ribbon_css }}" data-position="right" data-tooltip="Get Premium">
-								<i class="fas fa-star"></i>
+							<div class="server-premium-badge tooltipped cyan btn-small waves-effect waves-light" data-position="right" data-tooltip="Get Premium">
+								<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
 								{% if server.premium_tier == 2 %}
-									<i class="fas fa-star"></i>
+									<i class="fas fa-gem" style="margin-right: 3px; margin-left: 3px;"></i>
 								{% endif %}
 							</div>
 						</a>
