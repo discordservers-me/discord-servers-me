@@ -33,7 +33,6 @@
 }
 
 .server-card {
-    position: relative;
     min-height: 210px;
     max-height: 210px;
     padding: 1rem !important;
@@ -168,15 +167,14 @@
   font-size: 10px;
 }
 
-.premium-ribbon-wrapper {
-  position: absolute;
-  left: 330px;
-}
-
 .premium-ribbon-1 {
   width: 80px;
+  position: relative;
+  display: inline-block;
   background-color: #F6CD00;
   text-align: center;
+  top: -5px;
+  left: 295px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -184,8 +182,12 @@
 
 .premium-ribbon-2 {
   width: 80px;
+  position: relative;
+  display: inline-block;
   background-color: #DC4AFF;
   text-align: center;
+  top: -5px;
+  left: 295px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -193,8 +195,12 @@
 
 .premium-ribbon-3 {
   width: 80px;
+  position: relative;
+  display: inline-block;
   background-color: #ff3837;
   text-align: center;
+  top: -5px;
+  left: 295px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -202,8 +208,12 @@
 
 .premium-ribbon-4 {
   width: 80px;
+  position: relative;
+  display: inline-block;
   background-color: #676568;
   text-align: center;
+  top: -5px;
+  left: 295px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
