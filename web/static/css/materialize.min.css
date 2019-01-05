@@ -8834,6 +8834,6 @@ body.keyboard-focused .dropdown-content li:focus {
      font-family: 'Lato', sans-serif
  }
 
- .main-header {
+ #main-header {
     font-family: "Uni Sans-heavy";
  }
