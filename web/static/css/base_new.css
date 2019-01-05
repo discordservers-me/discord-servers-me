@@ -166,7 +166,7 @@
   width: 200px;
   background-color: #F6CD00;
   text-align: center;
-  right: 50px;
+  right: -50px;
   left: auto;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -177,7 +177,7 @@
   width: 200px;
   background-color: #DC4AFF;
   text-align: center;
-  right: 50px;
+  right: -50px;
   left: auto;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -188,7 +188,7 @@
   width: 200px;
   background-color: #ff3837;
   text-align: center;
-  right: 50px;
+  right: -50px;
   left: auto;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -199,15 +199,11 @@
   width: 200px;
   background-color: #676568;
   text-align: center;
-  right: 50px;
+  right: -50px;
   left: auto;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
-}
-
-.fa-star {
-  color: black;
 }
 
 .server-card-image.regular-highlight {
