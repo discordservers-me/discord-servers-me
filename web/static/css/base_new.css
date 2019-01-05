@@ -33,6 +33,7 @@
 }
 
 .server-card {
+    position: relative;
     min-height: 210px;
     max-height: 210px;
     padding: 1rem !important;
@@ -42,7 +43,6 @@
     position: absolute;
     top: -20px;
     left: -20px;
-    overflow: hidden;
 }
 
 .server-card-bump-button {
