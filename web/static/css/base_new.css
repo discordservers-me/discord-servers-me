@@ -170,11 +170,11 @@
   position: relative;
   background-color: #F6CD00;
   text-align: center;
-  top: 10px;
-  left: 280px;
+  left: 270px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
+  overflow: hidden;
 }
 
 .premium-ribbon-2 {
@@ -182,11 +182,11 @@
   position: relative;
   background-color: #DC4AFF;
   text-align: center;
-  left: 280px;
-  top: 10px;
+  left: 270px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
+  overflow: hidden;
 }
 
 .premium-ribbon-3 {
@@ -194,11 +194,11 @@
   position: relative;
   background-color: #ff3837;
   text-align: center;
-  left: 280px;
-  top: 10px;
+  left: 270px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
+  overflow: hidden;
 }
 
 .premium-ribbon-4 {
@@ -206,11 +206,11 @@
   position: relative;
   background-color: #676568;
   text-align: center;
-  left: 280px;
-  top: 10px;
+  left: 270px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
+  overflow: hidden;
 }
 
 .server-card-image.regular-highlight {
