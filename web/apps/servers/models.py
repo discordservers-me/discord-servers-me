@@ -131,6 +131,16 @@ class DiscordServer(models.Model):
         else:
             return 'regular-color'
 
+    def premium_ribbon_css(self):
+        if self.premium_highlight == 1:
+            return 'premium-ribbon-1'
+        elif self.premium_highlight == 2:
+            return 'premium-ribbon-2'
+        elif self.premium_highlight == 3:
+            return 'premium-ribbon-3'
+        else:
+            return
+
     def appear_chance(self):
         if self.premium_tier == 1:
             return 0.3636

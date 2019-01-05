@@ -160,6 +160,43 @@
 /* END PREMIUM PAYMENT CSS */
 
 /* PREMIUM CSS */
+
+.premium-ribbon-1 {
+  width: 200px;
+  background-color: #F6CD00;
+  text-align: center;
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 40px;
+}
+
+.premium-ribbon-2 {
+  width: 200px;
+  background-color: #DC4AFF;
+  text-align: center;
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 40px;
+}
+
+.premium-ribbon-3 {
+  width: 200px;
+  background-color: #ff3837;
+  text-align: center;
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 40px;
+}
+
 .server-card-image.regular-highlight {
     background: #676568;
     box-sizing: border-box;
