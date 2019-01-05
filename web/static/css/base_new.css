@@ -169,7 +169,8 @@
 
 .premium-ribbon-wrapper {
   position: absolute;
-  left: 295px;
+  left: 310px;
+  overflow: hidden;
 }
 
 .premium-ribbon-1 {
