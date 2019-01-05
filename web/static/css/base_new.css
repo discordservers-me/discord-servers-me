@@ -217,7 +217,7 @@
   background-color: #676568;
   text-align: center;
   top: -.6em;
-  left: calc(100% - 40px);
+  left: calc(100% - 2.7em);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
