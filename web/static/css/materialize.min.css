@@ -5,22 +5,22 @@
  */
  @font-face {
      font-family: "Uni Sans-heavy";
-     url:src("https://discordservers.me/static/fonts/unisans/heavy.otf");
+     url:src("../fonts/unisans/heavy.otf");
  }
 
  @font-face {
     font-family: "Lato-regular";
-    url:src("https://discordservers.me/static/fonts/lato/regular.ttf");
+    url:src("../fonts/lato/regular.ttf");
 }
 
 @font-face {
     font-family: "Lato-bold";
-    url:src("https://discordservers.me/static/fonts/lato/bold.ttf");
+    url:src("../fonts/lato/bold.ttf");
 }
 
 @font-face {
     font-family: "Lato-black";
-    url:src("https://discordservers.me/static/fonts/lato/black.ttf");
+    url:src("../static/fonts/lato/black.ttf");
 }
 
 .materialize-red {
