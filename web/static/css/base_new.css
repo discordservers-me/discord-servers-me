@@ -164,7 +164,7 @@
 
 .fa-star {
   color: black;
-  font-size: 5px;
+  font-size: 10px;
 }
 
 .premium-ribbon-1 {
@@ -175,7 +175,7 @@
   left: 300px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  line-height: 10px;
+  line-height: 20px;
 }
 
 .premium-ribbon-2 {
@@ -186,7 +186,7 @@
   left: 300px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  line-height: 10px;
+  line-height: 20px;
 }
 
 .premium-ribbon-3 {
@@ -197,7 +197,7 @@
   left: 300px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  line-height: 10px;
+  line-height: 20px;
 }
 
 .premium-ribbon-4 {
@@ -208,7 +208,7 @@
   left: 300px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  line-height: 10px;
+  line-height: 20px;
 }
 
 .server-card-image.regular-highlight {
