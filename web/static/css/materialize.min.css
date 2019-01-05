@@ -5,22 +5,22 @@
  */
  @font-face {
      font-family: "Uni Sans-heavy";
-     url:src("../fonts/unisans/heavy.otf");
+     src: url("../fonts/unisans/heavy.otf");
  }
 
  @font-face {
     font-family: "Lato-regular";
-    url:src("../fonts/lato/regular.ttf");
+    src: url("../fonts/lato/regular.ttf");
 }
 
 @font-face {
     font-family: "Lato-bold";
-    url:src("../fonts/lato/bold.ttf");
+    src: url("../fonts/lato/bold.ttf");
 }
 
 @font-face {
     font-family: "Lato-black";
-    url:src("../static/fonts/lato/black.ttf");
+    src: url("../static/fonts/lato/black.ttf");
 }
 
 .materialize-red {
