@@ -177,8 +177,8 @@
   display: inline-block;
   background-color: #F6CD00;
   text-align: center;
-  top: -5px;
-  left: 295px;
+  top: -.6em;
+  left: calc(100% - 40px);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -190,8 +190,8 @@
   display: inline-block;
   background-color: #DC4AFF;
   text-align: center;
-  top: -5px;
-  left: 295px;
+  top: -.6em;
+  left: calc(100% - 40px);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -203,8 +203,8 @@
   display: inline-block;
   background-color: #ff3837;
   text-align: center;
-  top: -5px;
-  left: 295px;
+  top: -.6em;
+  left: calc(100% - 40px);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
@@ -216,8 +216,8 @@
   display: inline-block;
   background-color: #676568;
   text-align: center;
-  top: -5px;
-  left: 295px;
+  top: -.6em;
+  left: calc(100% - 40px);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   line-height: 20px;
