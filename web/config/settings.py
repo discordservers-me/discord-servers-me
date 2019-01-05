@@ -164,7 +164,7 @@ PREMIUM_VIDEO = config('PREMIUM_VIDEO')
 
 # Discord redirect
 DISCORD_TAIL_URL = config('DISCORD_TAIL_URL', default='dsl')
-DISCORD_INVITE_LINK = config('DISCORD_INVITE_LINK', default='https://discord.gg/tm6GqP4')
+DISCORD_INVITE_LINK = config('DISCORD_INVITE_LINK', default='https://discord.gg/ZnwusVc')
 
 # Website Metas
 META_DESCRIPTION = config('META_DESCRIPTION', default="Oh this is some meta tag!")
