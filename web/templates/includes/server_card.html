@@ -20,6 +20,13 @@
 						<img  class="server-card-image {{ server.premium_css }} circle responsive-img z-depth-3" src="{{ server.icon_128 }}" alt="{{ server.name }}">
 					</a>
 				</div>
+				<div class="server-card-name">
+					<h6>
+					<strong>
+					<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
+					</strong>
+					</h6>
+				</div>
 				<div class="server-card-info">
 					<div class="server-members-emojis-wrapper">
 
@@ -40,13 +47,7 @@
 						</div>
 					</a>
 				{% endif %}
-				<div class="server-card-name">
-					<h6>
-					<strong>
-					<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
-					</strong>
-					</h6>
-				</div>
+
 
 				<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
 				{% if show_bump_button and not server.is_bumped %}
