@@ -55,6 +55,10 @@
     height: 100px;
 }
 
+.server-card-name {
+  text-align: center;
+}
+
 .server-premium-badge {
     position: absolute !important;
     top: 90px;
@@ -68,12 +72,12 @@
 .server-members-emojis-wrapper{
     margin-left: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 .server-members-emojis {
     font-size: 0.9rem;
-    margin: 0 0 2px 0;
+    margin: 0 2px 2px 0;
     padding: 4px 0;
     text-align: center;
     display: flex;
