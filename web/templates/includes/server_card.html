@@ -21,9 +21,11 @@
 					</a>
 				</div>
 				<div class="server-card-name">
+					<h6>
 					<strong>
 					<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
 					</strong>
+					</h6>
 				</div>
 				<div class="server-card-info">
 					<div class="server-members-emojis-wrapper">

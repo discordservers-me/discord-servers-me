@@ -56,11 +56,13 @@
 }
 
 .server-card-name {
-  font-size: 1em;
   text-align: center;
-  position: relative;
-  top: 1.5em;
-  left: 3em;
+}
+
+.server-premium-badge {
+    position: absolute !important;
+    top: 90px;
+    width: 100%;
 }
 
 .server-card-info {
@@ -75,7 +77,7 @@
 }
 .server-members-emojis {
     font-size: 0.9rem;
-    margin: 0 2px 0 0;
+    margin: 0 2px 2px 0;
     padding: 4px 0;
     text-align: center;
     display: flex;
