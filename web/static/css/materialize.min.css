@@ -6107,11 +6107,13 @@ body.keyboard-focused .dropdown-content li:focus {
  input[type=datetime-local]:not(.browser-default):focus.valid~label,
  input[type=tel]:not(.browser-default):focus.valid~label,
  input[type=number]:not(.browser-default):focus.valid~label,
- input[type=search]:not(.browser-default):focus.valid~label,
  textarea.materialize-textarea:focus.valid~label {
      color: #4CAF50
  }
  
+ input[type=search]:not(.browser-default):focus.valid~label {
+     display: none;
+ }
  input:not([type]):focus.invalid~label,
  input[type=text]:not(.browser-default):focus.invalid~label,
  input[type=password]:not(.browser-default):focus.invalid~label,
