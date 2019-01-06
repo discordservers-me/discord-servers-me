@@ -144,7 +144,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/img/media')
 MEDIA_URL = '/static/img/media/'
 
 # Discord Bot settings
-BOT_TOKEN = config('BOT_TOKEN')
+BOT_TOKEN_NEW = config('BOT_TOKEN_NEW')
 BOT_ID = config('BOT_ID')
 BOT_SECRET = config('BOT_SECRET')
 BUMP_DURATION = config('BUMP_DURATION', default=360, cast=int)

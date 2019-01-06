@@ -13,4 +13,4 @@ bot = DiscordServersShardedClient(shard_ids=list(range(3, 6)), shard_count=15, m
 #     bot.loop.create_task(tasks.check_changed_manager(bot))
 #     bot.loop.create_task(tasks.update_servers_info(bot))
 
-bot.run(settings.BOT_TOKEN)
+bot.run(settings.BOT_TOKEN_NEW)
