@@ -9,7 +9,7 @@
 				<form method="get" action="{% url 'server:search' %}">
 					<div class="input-field grey darken-4">
 						<input class="grey-text text-darken" id="search" type="search" name="term" autocomplete="off" value="{% if request.GET.term %}{{ request.GET.term }}{% endif %}">
-						<label class="label-icon" for="search"><i style="display: inline;" class="material-icons">search</i><h5 style="display: inline; opacity:6;">Search for a Discord Server</h5></label>
+						<label class="label-icon" for="search"><i style="display: inline;" class="material-icons">search</i><h5 style="display: inline;opacity: 0.4;font-family: lato-bold;padding-left: 12px;">Search for a Discord Server</h5></label>
 						<i class="material-icons">close</i>
 					</div>
 				</form>
