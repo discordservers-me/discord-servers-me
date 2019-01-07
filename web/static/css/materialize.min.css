@@ -8838,7 +8838,7 @@ body.keyboard-focused .dropdown-content li:focus {
     font-family: "Uni Sans-heavy";
  }
 
- .search::placeholder {
+ #search::placeholder {
     font-family: lato-bold;
     font-size: 30px;
     opacity: 0.4;
