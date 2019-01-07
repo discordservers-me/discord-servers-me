@@ -6491,7 +6491,7 @@ body.keyboard-focused .dropdown-content li:focus {
  }
  
  .input-field input[type=search]:focus:not(.browser-default) {
-     background-color: #fff;
+     background-color: #ffffff3b;
      border: 0;
      -webkit-box-shadow: none;
      box-shadow: none;
@@ -6504,6 +6504,10 @@ body.keyboard-focused .dropdown-content li:focus {
      color: #444
  }
  
+ .input-field input[type=search]:focus:not(.browser-default)~.search-text {
+     display: none;
+ }
+
  .input-field input[type=search]+.label-icon {
      -webkit-transform: none;
      transform: none;
@@ -8844,7 +8848,3 @@ body.keyboard-focused .dropdown-content li:focus {
     font-family: lato-bold;
     padding-left: 12px;
  }
- 
- .search-text:focus {
-    display: none;
-}
