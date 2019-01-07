@@ -109,11 +109,11 @@
 
 							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
 								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
-									<a href="#!"><i class="far fa-chart-bar"></i></a>
+									<a href="#!"><i class="fas fa-signal-alt-3"></i></a>
 								</li>
 							{% else %}
 								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Top 100 Servers">
-									<a href="{% url 'server:list_top_100' %}"><i class="far fa-chart-bar"></i></a>
+									<a href="{% url 'server:list_top_100' %}"><i class="fas fa-signal-alt-3"></i></a>
 								</li>
 							{% endif %}
 
