@@ -6091,11 +6091,12 @@ body.keyboard-focused .dropdown-content li:focus {
  input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
  input[type=tel]:not(.browser-default):focus:not([readonly])+label,
  input[type=number]:not(.browser-default):focus:not([readonly])+label,
+ /*input[type=search]:not(.browser-default):focus:not([readonly])+label,*/
  textarea.materialize-textarea:focus:not([readonly])+label {
      color: #26a69a
  }
  
- input[type=search]:not(.browser-default):focus:not([readonly])+label+.search-text {
+ .label-icon input[type=search]:focus:not(.browser-default)~.search-text  {
      display: none;
  }
  
