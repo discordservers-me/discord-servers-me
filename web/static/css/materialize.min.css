@@ -8864,6 +8864,11 @@ body.keyboard-focused .dropdown-content li:focus {
     font-size: 24px;
 }
 
+.premium-star:focus {
+    color: #000;
+}
+
 .large.material-icons {
     font-size: 42px;
 }
+
