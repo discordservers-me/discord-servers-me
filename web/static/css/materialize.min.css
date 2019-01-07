@@ -8838,6 +8838,13 @@ body.keyboard-focused .dropdown-content li:focus {
     font-family: "Uni Sans-heavy";
  }
 
+ .search-text {
+    display: inline;
+    opacity: 0.4;
+    font-family: lato-bold;
+    padding-left: 12px;
+ }
+ 
  .search-text:focus {
     display: none;
 }
