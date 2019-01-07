@@ -8850,3 +8850,11 @@ body.keyboard-focused .dropdown-content li:focus {
  #search:focus::-webkit-input-placeholder {
      color: transparent;
  }
+
+ #search:focus:-moz-placeholder {
+    color: transparent;
+}
+
+#search:focus:-ms-placeholder {
+    color: transparent;
+}
