@@ -13,7 +13,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('u/', include('web.apps.users.urls')),
     path('auth/', include('web.apps.auths.urls')),
-    path('giveaway/', include('web.apps.giveaways.urls')),
+    #path('giveaway/', include('web.apps.giveaways.urls')),
     path('servers/', include('web.apps.servers.urls')),
     path('partners/', include('web.apps.partner.urls')),
     path('about/', include('web.apps.about.urls')),
