@@ -8847,8 +8847,8 @@ body.keyboard-focused .dropdown-content li:focus {
     position: relative;
  }
 
- input#search:focus:-webkit-input-placeholder,
- input:focus:-moz-placeholder,
- input:focus:-ms-placeholder {
+ #search:focus:-webkit-input-placeholder,
+ #search:focus:-moz-placeholder,
+ #search:focus:-ms-placeholder {
      color: transparent;
  }
