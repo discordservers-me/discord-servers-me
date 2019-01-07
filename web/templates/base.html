@@ -15,6 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{% block meta_description %}We are a gigantic discord server list. Find servers that you're interested in and places to join and meet new friends. Search for the best discord servers communities or advertise your discord server here. Anime, gaming, technology, and many other categories are available to browse!{% endblock meta_description %}">
 	<title>{% block title %}Find Discord Servers - A List of the Best Discord Servers{% endblock title %}</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
@@ -109,11 +110,11 @@
 
 							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
 								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
-									<a href="#!"><i class="fas fa-signal-alt-3"></i></a>
+									<a href="#!"><i class="large material-icons">insert_chart</i></a>
 								</li>
 							{% else %}
 								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Top 100 Servers">
-									<a href="{% url 'server:list_top_100' %}"><i class="fas fa-signal-alt-3"></i></a>
+									<a href="{% url 'server:list_top_100' %}"><i class="large material-icons">insert_chart</i></a>
 								</li>
 							{% endif %}
 

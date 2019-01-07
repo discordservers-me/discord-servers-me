@@ -8864,7 +8864,7 @@ body.keyboard-focused .dropdown-content li:focus {
     font-size: 24px;
 }
 
-.fa-signal-alt-3 {
-    margin-right: -25px;
-    font-size: 28px;
+.large.material-icons {
+    font-size: 42px;
+    margin-right: -15px;
 }
