@@ -8860,12 +8860,7 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .premium-star {
-    color: white;
     font-size: 24px;
-}
-
-.premium-star:focus {
-    color: #000;
 }
 
 .large.material-icons {
