@@ -8858,3 +8858,8 @@ body.keyboard-focused .dropdown-content li:focus {
 #search:focus:-ms-placeholder {
     color: transparent;
 }
+
+.premium-star {
+    color: white;
+    font-size: 24px;
+}
