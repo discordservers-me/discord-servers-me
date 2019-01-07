@@ -6096,7 +6096,7 @@ body.keyboard-focused .dropdown-content li:focus {
      color: #26a69a
  }
  
- .label-icon input[type=search]:focus:not(.browser-default)~.search-text  {
+ .input-field input[type=search]:focus:not(.browser-default)~.search-text  {
      display: none;
  }
  
