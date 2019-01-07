@@ -6503,10 +6503,6 @@ body.keyboard-focused .dropdown-content li:focus {
  .input-field input[type=search]:focus:not(.browser-default)~.material-icons {
      color: #444
  }
- 
- .input-field input[type=search]:focus:not(.browser-default)~.search-text {
-     display: none;
- }
 
  .input-field input[type=search]+.label-icon {
      -webkit-transform: none;
@@ -8842,9 +8838,11 @@ body.keyboard-focused .dropdown-content li:focus {
     font-family: "Uni Sans-heavy";
  }
 
- .search-text {
-    display: inline;
-    opacity: 0.4;
+ .search::placeholder {
     font-family: lato-bold;
-    padding-left: 12px;
+    font-size: 30px;
+    opacity: 0.4;
+    top: 3.8px;
+    left: -5px;
+    position: relative;
  }
