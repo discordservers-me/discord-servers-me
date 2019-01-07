@@ -6096,10 +6096,6 @@ body.keyboard-focused .dropdown-content li:focus {
      color: #26a69a
  }
  
-/*.input-field input[type=search]:focus:not(.browser-default)~.search-text  {
-     display: none;
- }*/
- 
  input:not([type]):focus.valid~label,
  input[type=text]:not(.browser-default):focus.valid~label,
  input[type=password]:not(.browser-default):focus.valid~label,
@@ -8841,3 +8837,7 @@ body.keyboard-focused .dropdown-content li:focus {
  #main-header {
     font-family: "Uni Sans-heavy";
  }
+
+ .search-text:focus {
+    display: none;
+}
