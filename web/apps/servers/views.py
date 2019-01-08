@@ -96,6 +96,9 @@ class ServerTop100ListView(generic.ListView):
                         server_qs = DiscordServer.objects.filter(server_id=sv.server_id)
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
+                        if (premium_server in new_qs) and (new_qs[0] == premium_server):
+                            random_pos = randint(1, server_count)
+                            new_qs.remove(premium_server)
                         if premium_server not in new_qs:
                             random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
@@ -153,6 +156,9 @@ class ServerTagListView(generic.ListView):
                         server_qs = DiscordServer.objects.filter(server_id=sv.server_id)
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
+                        if (premium_server in new_qs) and (new_qs[0] == premium_server):
+                            random_pos = randint(1, server_count)
+                            new_qs.remove(premium_server)
                         if premium_server not in new_qs:
                             random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
@@ -212,6 +218,9 @@ class ServerSearchListView(generic.ListView):
                         server_qs = DiscordServer.objects.filter(server_id=sv.server_id)
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
+                        if (premium_server in new_qs) and (new_qs[0] == premium_server):
+                            random_pos = randint(1, server_count)
+                            new_qs.remove(premium_server)
                         if premium_server not in new_qs:
                             random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
