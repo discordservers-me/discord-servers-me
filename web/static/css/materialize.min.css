@@ -8867,3 +8867,8 @@ body.keyboard-focused .dropdown-content li:focus {
     font-size: 42px;
 }
 
+@media only screen and (max-width: 980px) {
+    #search::placeholder {
+        font-size: 1.2em;
+    }
+ }
