@@ -51,8 +51,8 @@
 }
 .server-card-image-wrapper {
     position: absolute;
-    top: -20px;
-    left: -20px;
+    top: -3px;
+    left: -3px;
 }
 
 .server-card-bump-button {
