@@ -97,7 +97,7 @@ class ServerTop100ListView(generic.ListView):
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
                         if premium_server not in new_qs:
-                            random_pos = randint(0, server_count)
+                            random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
                         context['servers'] = new_qs
                     break
@@ -154,7 +154,7 @@ class ServerTagListView(generic.ListView):
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
                         if premium_server not in new_qs:
-                            random_pos = randint(0, server_count)
+                            random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
                         context['servers'] = new_qs
                     break
@@ -213,7 +213,7 @@ class ServerSearchListView(generic.ListView):
                         new_qs = list(context['servers'])
                         premium_server = list(server_qs)[0]
                         if premium_server not in new_qs:
-                            random_pos = randint(0, server_count)
+                            random_pos = randint(1, server_count)
                             new_qs.insert(random_pos, list(server_qs)[0])
                         context['servers'] = new_qs
                     break
