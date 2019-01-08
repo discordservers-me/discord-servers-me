@@ -24,10 +24,6 @@ class DiscordServersShardedClient(discord.AutoShardedClient):
         print(f'Shards managing {len(self.guilds)} guilds.')
         print('------')
         await self.fetch_zero_emoji_servers_with_emojis()
-        server_obj = DiscordServer.objects.get(server_id=460700099446571019)
-        server_obj.delete()
-        server_obj = DiscordServer.objects.get(server_id=454147793418977280)
-        server_obj.delete()
 
     async def on_guild_join(self, guild):
         self.update_or_create_server(guild)
