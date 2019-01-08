@@ -10,8 +10,10 @@
 
 {% block content %}
 	<div id="server-list">
+		<div class="mobile-center">
 		<h1 style="margin: 0; font-size: 40px; padding: 25px 25px 0 25px;">Top 100 Biggest Discord Servers</h1>
 		<p style="padding: 0 25px 0 30px" class="home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
+		</div>
 		<div class="row" style="margin: 0 auto;">
 
 			{% for server in servers %}

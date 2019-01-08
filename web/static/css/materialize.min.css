@@ -8886,3 +8886,9 @@ body.keyboard-focused .dropdown-content li:focus {
         font-size: 1.8em;
     }
  }
+
+ @media only screen and (max-width: 992px) {
+    .mobile-center {
+        text-align: center;
+    }
+ }
