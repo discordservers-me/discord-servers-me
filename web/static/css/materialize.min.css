@@ -4783,10 +4783,14 @@ small {
 }
 
 .card .card-action {
+    width: 95%;
     background-color: inherit;
-    border-top: 1px solid rgba(160, 160, 160, .2);
+    border-top: .5px solid #333233;
     position: relative;
-    padding: 16px 24px
+    padding: 16px 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 .card .card-action:last-child {

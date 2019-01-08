@@ -21,36 +21,33 @@
 					</a>
 				</div>
 				<div class="server-card-info">
+						{% if not server.shown or not server.invite_link %}
+						<a target="_blank" href="{% url 'server:update' server.server_id %}">
+							<div style="z-index: 2;" class="red darken-4 grey-text text-lighten-4 server-invisible-alert center">
+								Server not shown publicly. <br> Click here to edit.
+							</div>
+						</a>
+					{% endif %}
+					<div class="server-card-name">
+						<h6>
+						<strong>
+						<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
+						</strong>
+						</h6>
+					</div>
 					<div class="server-members-emojis-wrapper">
 
 						<div class="server-members-emojis">
-								<i class="fas fa-users"></i>
-
-							{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }}
+						{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }} members
 						</div>
 						<div class="server-members-emojis">
-								<i class="fas fa-grin-alt"></i>
-								
-							{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }}
+						{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }} emotes
 						</div>
 
 						<div class="bump_notification center teal darken-2" style="position: absolute; top: 50%; left: 0; width: 100%; padding: 1rem 0; display: none;"></div>
 					</div>
 				</div>
-				{% if not server.shown or not server.invite_link %}
-					<a target="_blank" href="{% url 'server:update' server.server_id %}">
-						<div style="z-index: 2;" class="red darken-4 grey-text text-lighten-4 server-invisible-alert center">
-							Server not shown publicly. <br> Click here to edit.
-						</div>
-					</a>
-				{% endif %}
-				<div class="server-card-name">
-					<h6>
-					<strong>
-					<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
-					</strong>
-					</h6>
-				</div>
+				
 
 				<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
 				{% if show_bump_button and not server.is_bumped %}
