@@ -23,11 +23,15 @@
 				<div class="server-card-info">
 					<div class="server-members-emojis-wrapper">
 
-						<div class="indigo server-members-emojis">
-							{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }} members
+						<div class="server-members-emojis">
+								<i class="fas fa-users"></i>
+
+							{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }}
 						</div>
-						<div class="indigo server-members-emojis">
-							{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }} emojis
+						<div class="server-members-emojis">
+								<i class="fas fa-grin-alt"></i>
+								
+							{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }}
 						</div>
 
 						<div class="bump_notification center teal darken-2" style="position: absolute; top: 50%; left: 0; width: 100%; padding: 1rem 0; display: none;"></div>

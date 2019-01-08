@@ -8867,6 +8867,14 @@ body.keyboard-focused .dropdown-content li:focus {
     font-size: 42px;
 }
 
+.fa-users {
+    padding: 5px;
+} 
+
+.fa-grin-alt {
+    padding: 3px 5px 0 0;
+}
+
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
