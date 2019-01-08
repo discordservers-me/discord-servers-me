@@ -20,6 +20,17 @@
     color: red;
 }
 
+#search-nav-bar {
+  width: 2rem !important;
+  padding-left: auto !important;
+  transition: width 0.3s ease-in-out !important;
+  -webkit-transition: width 0.3s ease-in-out !important;
+}
+
+#search-nav-bar:focus {
+  width: 5rem !important;
+}
+
 /* END FORM CSS */
 
 /* SERVER CARD CSS */
