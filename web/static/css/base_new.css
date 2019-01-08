@@ -93,7 +93,7 @@
     position: relative;
     padding-bottom: 10px;
     border-bottom: .2px solid #333233;
-    width: 72%;
+    width: 75%;
 }
 .server-members-emojis {
     font-size: 0.9rem;
@@ -465,3 +465,40 @@
 .nav-bg-color,.footer-bg-color{
     background-color:#212022;
 }
+
+@media only screen and (min-width: 1200px) and (max-width: 1250px) {
+    .server-members-emojis-wrapper {
+        width: 70%;
+    }
+ }
+
+ @media only screen and (min-width: 1150px) and (max-width: 1199px) {
+    .server-members-emojis-wrapper {
+        width: 81%;
+    }
+ }
+
+ @media only screen and (min-width: 1100px) and (max-width: 1149px) {
+    .server-members-emojis-wrapper {
+        width: 80%;
+    }
+ }
+
+ @media only screen and (min-width: 1050px) and (max-width: 1099px) {
+    .server-members-emojis-wrapper {
+        width: 79%;
+    }
+ }
+
+ @media only screen and (min-width: 993px) and (max-width: 1049px) {
+    .server-members-emojis-wrapper {
+        width: 77.5%;
+    }
+ }
+
+ @media only screen and (max-width: 993px) {
+    .server-members-emojis-wrapper {
+        width: 82%;
+        padding-bottom: 16px;
+    }
+ }
