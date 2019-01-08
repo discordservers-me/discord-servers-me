@@ -8840,7 +8840,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
  #search::placeholder {
     font-family: lato-bold;
-    font-size: 30px;
+    font-size: 180%;
     opacity: 0.4;
     top: 3.8px;
     left: -5px;
