@@ -10,10 +10,10 @@
 
 {% block content %}
 	<div id="server-list">
-		<h1 class="center" style="margin: 0; font-size: 40px; padding: auto auto 0 auto;">Top 100 Biggest Discord Servers</h1>
+		<h1 style="margin: 0; font-size: 40px; padding: 25px 25px 0 25px;">Top 100 Biggest Discord Servers</h1>
 		<div class="row" style="margin: 0 auto;">
 
-			<p class="center home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
+			<p style="padding: 0 25px 0 30px" class="home-premium">If you want to be Featured here <a href="{% url 'premium:detail' %}">Buy Premium</a></p>
 
 			{% for server in servers %}
 				{% include 'includes/server_card.html' %}
