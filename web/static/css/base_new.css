@@ -466,7 +466,19 @@
     background-color:#212022;
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1250px) {
+@media only screen and (min-width: 1300px) and (max-width: 1369px) {
+    .server-members-emojis-wrapper {
+        width: 74%;
+    }
+ }
+
+@media only screen and (min-width: 1250px) and (max-width: 1299px) {
+    .server-members-emojis-wrapper {
+        width: 71.5%;
+    }
+ }
+
+@media only screen and (min-width: 1200px) and (max-width: 1249px) {
     .server-members-emojis-wrapper {
         width: 70%;
     }
