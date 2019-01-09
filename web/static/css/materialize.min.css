@@ -8846,7 +8846,7 @@ body.keyboard-focused .dropdown-content li:focus {
     font-family: lato-bold;
     font-size: 2vw;
     opacity: 0.4;
-    top: 3.8px;
+    top: 5px;
     left: -5px;
     position: relative;
  }
