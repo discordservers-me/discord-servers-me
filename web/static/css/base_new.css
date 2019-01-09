@@ -93,7 +93,7 @@
     position: relative;
     padding-bottom: 10px;
     border-bottom: .2px solid #333233;
-    width: 75%;
+    width: calc(100% - 82px);
 }
 .server-members-emojis {
     font-size: 0.9rem;
@@ -470,7 +470,7 @@ i.fal.fa-info-circle {
     font-size: 20px;
 }
 
-@media only screen and (min-width: 1300px) and (max-width: 1369px) {
+/*@media only screen and (min-width: 1300px) and (max-width: 1369px) {
     .server-members-emojis-wrapper {
         width: 74%;
     }
@@ -517,4 +517,4 @@ i.fal.fa-info-circle {
         width: 82%;
         padding-bottom: 16px;
     }
- }
+ }*/
