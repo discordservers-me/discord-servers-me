@@ -71,7 +71,7 @@
 				{% endif %}
 				<a class="tooltipped white-text" data-position="bottom" data-tooltip="View Details" href="{% url 'server:detail' server.server_id %}"><i class="fal fa-info-circle"></i></a>
 				{% if server.website %}
-					<a target="_blank" class="tooltipped white-text" data-position="bottom" data-tooltip="Visit the server's website" href="{{ server.website }}" target="_blank"><i class="material-icons">language</i></a>
+					<a target="_blank" class="tooltipped white-text" data-position="bottom" data-tooltip="Visit the server's website" href="{{ server.website }}" target="_blank"><i class="website-icon material-icons">language</i></a>
 				{% endif %}
 				{% if request.user.user_id in server.manager_ids %}
 					<a target="_blank" class="tooltipped btn-small waves-effect waves-light cyan right" style="margin-right:5px;" data-position="bottom" data-tooltip="Edit this server" href="{% url 'server:update' server.server_id %}"><i class="material-icons">edit</i></a>
