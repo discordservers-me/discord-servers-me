@@ -69,7 +69,7 @@
 				{% else %}
 					<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
 				{% endif %}
-				<a class="tooltipped white-text" data-position="bottom" data-tooltip="View Details" href="{% url 'server:detail' server.server_id %}"><i class="material-icons">new_releases</i></a>
+				<a class="tooltipped white-text" data-position="bottom" data-tooltip="View Details" href="{% url 'server:detail' server.server_id %}"><i class="fal fa-info-circle"></i></a>
 				{% if server.website %}
 					<a target="_blank" class="tooltipped white-text" data-position="bottom" data-tooltip="Visit the server's website" href="{{ server.website }}" target="_blank"><i class="material-icons">language</i></a>
 				{% endif %}

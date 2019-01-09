@@ -466,6 +466,10 @@
     background-color:#212022;
 }
 
+i.fal.fa-info-circle {
+    font-size: 20px;
+}
+
 @media only screen and (min-width: 1300px) and (max-width: 1369px) {
     .server-members-emojis-wrapper {
         width: 74%;
