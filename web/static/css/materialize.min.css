@@ -4789,7 +4789,6 @@ small {
     position: relative;
     padding: 16px 24px;
     margin: 10px auto;
-    vertical-align: middle;
 }
 
 .card .card-action:last-child {
