@@ -4611,7 +4611,7 @@ small {
 .card {
     position: relative;
     margin: .5rem 0 1rem 0;
-    background-color: #fff;
+    background-color: #151F16;
     -webkit-transition: -webkit-box-shadow .25s;
     transition: -webkit-box-shadow .25s;
     transition: box-shadow .25s;
