@@ -151,16 +151,6 @@ class DiscordServer(models.Model):
         else:
             return 'regular-font'
 
-    def server_card_highlight(self):
-        if self.premium_highlight == 1:
-            return 'server-card-highlight-1'
-        elif self.premium_highlight == 2:
-            return 'server-card-highlight-2'
-        elif self.premium_highlight == 3:
-            return 'server-card-highlight-3'
-        else:
-            return 'server-card-highlight-4'
-
     def appear_chance(self):
         if self.premium_tier == 1:
             return 0.3636
