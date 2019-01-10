@@ -167,7 +167,7 @@
     left: 15px;
 }
 .server-card-tag {
-    display: inline-block;
+    display: inline;
     font-size: 0.8rem;
 }
 
