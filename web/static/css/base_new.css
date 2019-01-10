@@ -174,7 +174,7 @@
 .server-join-btn {
   height: 36.9px !important;
   width: 115.13px !important;
-  padding-top: 2px
+  padding-top: 2px !important;
 }
 
 .server-invisible-alert {
