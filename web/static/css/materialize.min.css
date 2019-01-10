@@ -4791,6 +4791,7 @@ small {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    vertical-align: middle;
 }
 
 .card .card-action:last-child {
