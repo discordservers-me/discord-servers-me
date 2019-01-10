@@ -37,17 +37,17 @@
 					</div>
 					<div class="server-members-emojis-wrapper">
 
-						<div class="server-members-emojis">
+						<div class="server-members-emojis {{ server.premium-font-css }}">
 						{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }} members
 						</div>
-						<div class="server-members-emojis">
+						<div class="server-members-emojis {{ server.premium-font-css }}">
 						{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }} emotes
 						</div>
 
 						<div class="bump_notification center teal darken-2" style="position: absolute; top: 50%; left: 0; width: 100%; padding: 1rem 0; display: none;"></div>
 					</div>
 				</div>
-				
+
 
 				<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
 				{% if show_bump_button and not server.is_bumped %}
