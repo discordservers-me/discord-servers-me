@@ -484,13 +484,14 @@
 
 .fa-info-circle {
     font-size: 24px;
+    margin-top: 16px;
     }
 
 .website-icon {
     position: absolute;
     font-size: 27px;
     margin-left: -10px;
-    margin-top: -2px;
+    margin-top: 16px;
 }
 
 /*@media only screen and (min-width: 1300px) and (max-width: 1369px) {
