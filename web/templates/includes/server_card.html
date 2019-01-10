@@ -65,7 +65,7 @@
 			</div>
 			<div class="card-action">
 				{% if server.invite_link %}
-					<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small waves-effect waves-light {{ server.premium_bg_css }} right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+					<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small server-join-btn waves-effect waves-light {{ server.premium_bg_css }} right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
 				{% else %}
 					<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
 				{% endif %}
