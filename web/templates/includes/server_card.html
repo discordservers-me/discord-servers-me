@@ -60,7 +60,11 @@
 					<div class="server-card-tag-wrapper">
 						<div class="inside">
 							{% for tag in server.tags.all %}
-								<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag">{{ tag.name }}</div></a>
+								{% if forloop.first %}
+									<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag {{ server.premium_font_css }}">{{ tag.name }}</div></a>
+								{% else %}
+									<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag {{ server.premium_font_css }}">, {{ tag.name }}</div></a>
+								{% endif %}
 							{% endfor %}
 						</div>
 					</div>
