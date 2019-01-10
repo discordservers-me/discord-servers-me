@@ -4787,11 +4787,11 @@ small {
     background-color: inherit;
     border-top: .5px solid #333233;
     position: relative;
-    padding: 16px 24px;
+    padding: auto 24px;
+    vertical-align: middle;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    vertical-align: middle;
 }
 
 .card .card-action:last-child {
@@ -5061,7 +5061,6 @@ small {
     line-height: 36px;
     padding: 0 16px;
     text-transform: uppercase;
-    vertical-align: middle;
     -webkit-tap-highlight-color: transparent
 }
 
@@ -5156,6 +5155,7 @@ small {
     color: #fff;
     background-color: #26a69a;
     text-align: center;
+    vertical-align: center;
     letter-spacing: .5px;
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
@@ -5440,7 +5440,6 @@ button.btn-floating {
     height: 36px;
     width: 114px;
     line-height: 32px;
-    vertical-align: middle;
     font-size: 13px
 }
 
