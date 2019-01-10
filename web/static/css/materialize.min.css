@@ -4787,7 +4787,7 @@ small {
     background-color: inherit;
     border-top: .5px solid #333233;
     position: relative;
-    padding: 16px 24px;
+    padding: 10px 24px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -5437,8 +5437,8 @@ button.btn-floating {
 }
 
 .btn-small {
-    height: 36px;
-    width: 114px;
+    height: 36.9px;
+    width: 115.13px;
     line-height: 32px;
     vertical-align: middle;
     font-size: 13px
