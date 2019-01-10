@@ -168,11 +168,7 @@
 }
 .server-card-tag {
     display: inline-block;
-    padding: 2px 5px;
     font-size: 0.8rem;
-    background-color: #fafafa;
-    color: grey;
-    border-radius: 5px;
 }
 
 .server-join-btn {
