@@ -1,8 +1,8 @@
 {% load humanize %}
 <div class="col s12 m8 l6 xl4 offset-m2">
 	<div class="server-card-wrapper">
-		<div class="card hoverable grey darken-4 {{ server.premium_css }}">
-			<div class="{{ server.server_card_highlight }}">
+		<div class="{{ server.server_card_highlight }}">
+			<div class="card hoverable grey darken-4 {{ server.premium_css }}">
 				<div class="card-content server-card white-text">
 					<div class="premium-ribbon-wrapper">
 						{% if server.premium_tier %}
