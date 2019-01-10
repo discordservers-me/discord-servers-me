@@ -141,6 +141,16 @@ class DiscordServer(models.Model):
         else:
             return 'premium-ribbon-4'
 
+    def premium_font_css(self):
+        if self.premium_highlight == 1:
+            return 'premium-font-1'
+        elif self.premium_highlight == 2:
+            return 'premium-font-2'
+        elif self.premium_highlight == 3:
+            return 'premium-font-3'
+        else:
+            return 'regular-font'
+
     def appear_chance(self):
         if self.premium_tier == 1:
             return 0.3636
