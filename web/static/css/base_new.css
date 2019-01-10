@@ -126,6 +126,11 @@
     border-radius: 5px;
 }
 
+.server-join-btn {
+  height: 36.9px !important;
+  width: 115.13px !important;
+}
+
 .server-invisible-alert {
     position: absolute;
     left: 0;
