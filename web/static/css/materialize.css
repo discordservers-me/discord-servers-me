@@ -5530,9 +5530,9 @@ button.btn-floating {
 
 .btn-small {
   height: 32.4px;
+  width: 70px;
   line-height: 32.4px;
   font-size: 13px;
-  padding: 0 24px !important;
 }
 
 .btn-small i {
