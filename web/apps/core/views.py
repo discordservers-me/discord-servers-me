@@ -14,7 +14,7 @@ class HomeView(TemplateView):
         tier_2_servers = servers.filter(premium_tier=2).order_by('-bumped_at')[:7]
 
         server_qs = list(tier_2_servers) + list(tier_1_servers)
-        tier_0_servers = servers.order_by('-member_count')[:12 - len(server_qs)]
+        tier_0_servers = servers.order_by('-member_count')[:11 - len(server_qs)]
         server_qs += list(tier_0_servers)
         tags = ServerTag.objects.all().order_by('name')
 
