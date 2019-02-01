@@ -3,7 +3,7 @@
 {% block content %}
 
 	<div class="" style="">
-		
+
 		<nav>
 			<div class="nav-wrapper">
 				<form method="get" action="{% url 'server:search' %}">
@@ -31,6 +31,9 @@
 			</div>
 		<div class="row">
 			{% for server in servers %}
+				{% if forloop.counter == 4 %}
+					{% include 'includes/server_card.html' %}
+				{% endif %}
 				{% include 'includes/server_card.html' %}
 			{% endfor %}
 		</div>
