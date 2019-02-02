@@ -24,6 +24,9 @@
 	<div id="server-list">
 		<div class="row" style="margin-bottom: 0;">
 			{% for server in servers %}
+				{% if forloop.counter == 4 %}
+					{% include 'includes/ad_card.html' %}
+				{% endif %}
 				{% include 'includes/server_card.html' %}
 			{% endfor %}
 			<div class="col s12 center" style="padding: 0.25rem 0;">
