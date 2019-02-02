@@ -112,7 +112,7 @@ class ServerTagListView(generic.ListView):
     template_name = 'server_list_tag.html'
     model = DiscordServer
     context_object_name = 'servers'
-    paginate_by = 11
+    paginate_by = 9
     # queryset = DiscordServer.objects.exclude(invite_link='', shown=False)
     # ordering = 'premium_tier', '-member_count'
 
