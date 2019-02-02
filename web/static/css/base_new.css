@@ -207,6 +207,10 @@
 
 /* MISCELLANEOUS */
 
+.ad-card-wrapper {
+  padding: 1rem;
+}
+
 .with-icon {
     display: flex !important;
     vertical-align: middle !important;
