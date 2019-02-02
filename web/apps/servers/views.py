@@ -60,7 +60,7 @@ class ServerTop100ListView(generic.ListView):
     template_name = 'server_list_top_100.html'
     model = DiscordServer
     context_object_name = 'servers'
-    paginate_by = 10
+    paginate_by = 9
     # queryset = DiscordServer.objects.exclude(invite_link='', shown=False)
     # ordering = 'premium_tier', '-member_count'
 
@@ -174,7 +174,7 @@ class ServerTagListView(generic.ListView):
 class ServerSearchListView(generic.ListView):
     template_name = 'server_list_search.html'
     context_object_name = 'servers'
-    paginate_by = 10
+    paginate_by = 9
     vector = SearchVector('name') + SearchVector('short_description') + SearchVector('description')
 
     def get_queryset(self):
