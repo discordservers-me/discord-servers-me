@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}
+	{{ server.name }} | Details
+{% endblock title %}
+{% block content %}
+	<div class="row grey darken-2" style="margin: 2rem 0;padding: 1rem 0;">
+		{% if request.user.user_id in server.manager_ids %}
+			<div class="col s12">
+				<div class="right">
+					<a class="btn-small waves-effect waves-light with-icon" href="{% url 'server:update' server.server_id %}"><i class="material-icons" style="margin-right: 5px;">edit</i>Edit Server Information</a>
+				</div>
+			</div>
+		{% endif %}
+		<div class="col s12 m5 l3" style="margin-bottom: 20px;">
+			<div class="">
+				<div class="center white-text">
+					<img class="z-depth-3" style="margin-bottom: 10px; border: 2px solid transparent; border-radius: 5px; max-height: 100%; max-width: 100%;" src="{{ server.icon_256 }}">
+					<div class="indigo server-members-emojis">
+						<i class="material-icons" style="margin-right: 5px;">group</i>{{ server.member_count|intcomma }} members
+					</div>
+					<div class="indigo server-members-emojis">
+						<i class="material-icons" style="margin-right: 5px;">mood</i>{{ server.emoji_count }} emojis
+					</div>
+					{% if server.invite_link %}
+						<a href="{{server.invite_link}}" target="_blank" class="btn-large with-icon waves-effect waves-light" style="margin-top: 10px; width: 100%;">JOIN SERVER <i class="material-icons" style="margin-left: 5px;">exit_to_app</i></a>
+					{% else %}
+						<div class="btn-large red darken-3 waves-effect waves-light with-icon" style="margin-top: 10px; width: 100%;">NO INVITE LINKS <i class="material-icons" style="margin-left: 5px;">error</i></div>
+						<small class="grey-text">The server won't show up until an Invite Link is provided.</small>
+					{% endif %}
+					{% if server.website %}
+						<div class="center" style="margin-top: 10px;">
+							<a class="btn-small grey darken-3 waves-effect waves-light" href="{{ server.website }}" target="_blank">Visit Website <i class="material-icons right">launch</i></a>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m7 l4">
+			<div class="">
+				<div class="">
+					<h1 class="name break-word" style="margin:0; font-size: 30px">{{ server.name }}</h1>
+					<p class="break-word">{{ server.short_description }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m12 l5">
+			<div class="">
+				<h5>Tags</h5>
+				{% for tag in server.tags.all %}
+					<div class="chip indigo white-text">{{ tag.name }}</div>
+				{% empty %}
+					<div class="grey-text">None</div>
+				{% endfor %}
+			</div>
+
+			<div class="">
+				<h5>Server Emojis</h5>
+				{% if not static_emojis.exists and not animated_emojis.exists %}
+					<div class="grey-text">None</div>
+				{% endif %}
+				{% for emoji in static_emojis %}
+					{% if forloop.first %}
+						<p>Regular</p>
+					{% endif %}
+					<img class="tooltipped emoji-item" data-position="top" data-tooltip="{{emoji.get_alias}}" src="{{ emoji.url }}">
+				{% endfor %}
+
+				{% for emoji in animated_emojis %}
+					{% if forloop.first %}
+						<p>Animated</p>
+					{% endif %}
+					<img class="tooltipped emoji-item" data-position="top" data-tooltip="{{emoji.get_alias}}" src="{{ emoji.url }}">
+				{% endfor %}
+			</div>
+
+		</div>
+		<div class="col s12">
+			<div style="">
+				<h5>Description</h5>
+				{% if server.description %}
+					<p>{{ server.description|linebreaks }}</p>
+				{% else %}
+					<div class="grey-text">None</div>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+{% endblock content %}

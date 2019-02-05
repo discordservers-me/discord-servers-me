@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block meta_description %}
+Find out what Discordservers.me is about, and also what we are doing in the future.
+{% endblock meta_description %}
+{% block title %}
+	About Discordservers.me
+{% endblock title %}
+{% block content %}
+    <div id="partners">
+        <h1 class="center" style="font-size: 40px; margin-top: 0">About Discordservers.me</h1>
+        <div class="row">
+            {% for about in about_infos %}
+            <div class="col s12">
+                <div class="single-partner hoverable">
+                    <div class="partner-des">
+                        <p class="partner-description">{{ about.description|safe }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <div class="center">Now is testing for About</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

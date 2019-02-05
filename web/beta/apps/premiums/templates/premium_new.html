@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block meta_description %}
+Support this website by buying our Premium. This will display you in front of thousands of people. Make your discord server grow quickly and easily.
+{% endblock meta_description %}
+{% block title %}
+	Get Discord Server Members - Discord Marketing for a Cheap Price
+{% endblock title %}
+{% block stylesheet %}
+	<style>
+		.material-tooltip {
+			max-width: 300px;
+		}
+
+		.tier-card-basic {
+			border: #616161 solid 3px;
+		}
+
+		.tier-card-premium-1 {
+			border: #aa00ff solid 3px;
+		}
+
+		.tier-card-premium-1 i {
+			color: #aa00ff;
+		}
+
+		.tier-card-premium-2 {
+			border: #d50000 solid 3px;
+		}
+
+		.tier-card-premium-2 i {
+			color: #d50000;
+		}
+
+		.card-content {
+			min-height: 235px;
+			border-radius: 0 !important;
+		}
+
+		.card-content h4 {
+			margin-top: 0;
+		}
+
+		.card-action {
+			border-radius: 0 !important;
+		}
+
+		.card-action h4 {
+			margin: 0;
+		}
+	</style>
+{% endblock stylesheet %}
+
+{% block content %}
+
+	<div>
+		<h1 class="center" style="margin: 1rem auto; font-size: 40px">Grow your Discord Server</h1>
+		<h6 class="center">We help server owners get hundreds of active members at a lower price than any other discord server list</h6>
+		<h4 class="center"><strong>Tier Comparison</strong></h4>
+
+		<div class="row">
+			<div class="col s12 center" style="margin-bottom: 10px;">Hover or tap on a perk to get More information.</div>
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-basic card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Basic</strong></h4>
+						<ul>
+							{% for feature in tier0_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="#!">
+						<div class="card-action grey darken-2 grey-text text-lighten-3">
+							<h4 class="center"><strong>STAY BASIC</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-premium-1 card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Premium Tier 1</strong></h4>
+						<ul>
+							{% for feature in tier1_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="{% url 'premium:payment' %}">
+						<div class="card-action purple accent-4 grey-text text-lighten-3">
+							<h4 class="center"><strong>BUY FOR $7.5/mo</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col s12 m8 offset-m2 l4">
+				<div class="tier-card-premium-2 card hoverable">
+					<div class="card-content grey darken-3">
+						<h4><strong>Premium Tier 2</strong></h4>
+						<ul>
+							{% for feature in tier2_features %}
+								<li>
+									<i class="material-icons mr5px">check_box</i>
+									<span style="position: absolute;" class="tooltipped" data-position="top" data-tooltip="{{ feature.description }}">{{ feature.short_description }}</span>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<a href="{% url 'premium:payment' %}">
+						<div class="card-action red accent-4 grey-text text-lighten-3">
+							<h4 class="center"><strong>BUY FOR $10/mo</strong></h4>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="center">
+			{# <button class="btn-large indigo waves-effect waves-light modal-trigger" data-target="modal-video"> #}
+			{# Watch Premium Explanation Video #}
+			{# <i class="material-icons right">play_circle_filled</i> #}
+			{# </button> #}
+			<div id="modal-video" class="modal">
+				<div class="modal-content">
+					<div class="video-container">
+						<iframe class="youtube-video" src="{{ premium_explanation_video }}" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock content %}
+{% block javascript %}
+	<script>
+		$(document).ready(function(){
+			$('.modal').modal({
+				'onCloseStart': function(){
+					$('.youtube-video').each(function(index) {
+						$(this).attr('src', $(this).attr('src'));
+						return false;
+					});
+				},
+				'dismissible': false,
+			});
+		});
+	</script>
+{% endblock javascript %}

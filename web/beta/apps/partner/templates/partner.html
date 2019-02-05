@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block meta_description %}
+Check out some of our great partners. They are all discord related projects.
+{% endblock meta_description %}
+{% block title %}
+	Partners of Discordservers.me
+{% endblock title %}
+{% block content %}
+    <div id="partners">
+        <h1 class="center" style="font-size: 40px; margin-top: 0;">Partners</h1>
+        <div class="row">
+            {% for ps in partner_infos %}
+            <div class="col s12 m8 l6 xl4 offset-m2">
+                <div class="single-partner hoverable">
+                    <h5 class="partner-title">{{ ps.title|safe }}</h5>
+                    <div class="partner-des">
+                        <p class="partner-description">{{ ps.description|safe }}</p>
+                    </div>
+                    <a href="{{ ps.url|safe }}" target="_blank" class="partner-link tooltipped btn-small waves-effect waves-light indigo" data-tooltip="Visit Partner Site">View More</a>
+    {#                <div class="card-panel">{{ ps.image|safe }}</div>#}
+                </div>
+
+            </div>
+            {% empty %}
+                <div class="center">Now is testing for Partners</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% load humanize %}
+<div class="col s12 m8 l6 xl4 offset-m2">
+	<div class="server-card-wrapper">
+		<div class="card hoverable {{ server.premium_css }}">
+			<div class="{{ server.server_card_highlight }}">
+				<div class="card-content server-card white-text">
+					<div class="premium-ribbon-wrapper">
+						{% if server.premium_tier %}
+							<a href="{% url 'premium:detail' %}" >
+								<div class="{{ server.premium_ribbon_css }}" data-position="right" data-tooltip="Get Premium">
+									<i class="fas fa-star"></i>
+									{% if server.premium_tier == 2 %}
+										<i class="fas fa-star"></i>
+									{% endif %}
+								</div>
+							</a>
+						{% endif %}
+					</div>
+					<div class="server-card-image-wrapper">
+						<a href="{% url 'server:detail' server.server_id %}">
+							<img  class="server-card-image {{ server.premium_css }} responsive-img z-depth-3" src="{{ server.icon_128 }}" onerror="this.src='/static/media/discord-512.png'">
+						</a>
+					</div>
+					<div class="server-card-info">
+							{% if not server.shown or not server.invite_link %}
+								<a target="_blank" href="{% url 'server:update' server.server_id %}">
+								<div style="z-index: 2;" class="red darken-4 grey-text text-lighten-4 server-invisible-alert center">
+									Server not shown publicly. <br> Click here to edit.
+								</div>
+								</a>
+							{% endif %}
+							<div class="server-card-name">
+								<h6>
+								<strong>
+									<a class="white-text" href="{% url 'server:detail' server.server_id %}">{{ server.name|truncatechars:33 }}</a>
+								</strong>
+								</h6>
+							</div>
+							<div class="server-members-emojis-wrapper">
+
+								<div class="server-members-emojis {{ server.premium_font_css }}">
+									{# <i class="material-icons" style="margin-right: 5px;">group</i> #}{{ server.member_count|intcomma }} members
+								</div>
+								<div class="server-members-emojis {{ server.premium_font_css }}">
+									{# <i class="material-icons" style="margin-right: 5px;">mood</i> #}{{ server.emoji_count }} emotes
+								</div>
+
+								<div class="bump_notification center teal darken-2" style="position: absolute; top: 50%; left: 0; width: 100%; padding: 1rem 0; display: none;"></div>
+							</div>
+						</div>
+
+
+						<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
+						{% if show_bump_button and not server.is_bumped %}
+							<span class="bumper server-card-bump-button btn-small grey lighten-5 grey-text text-darken-4" data-sid="{{ server.server_id }}">BUMP</span>
+						{% endif %}
+
+					</div>
+
+					<div class="server-card-tag-wrapper">
+						<div class="inside">
+							{% for tag in server.tags.all %}
+								{% if forloop.first %}
+									<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag {{ server.premium_font_css }}">{{ tag.name }}</div></a>
+								{% else %}
+									<a href="{% url 'server:list_tag' tag.name %}"><div class="server-card-tag {{ server.premium_font_css }}">, {{ tag.name }}</div></a>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<div class="card-action">
+						{% if server.invite_link %}
+							<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small server-join-btn waves-effect waves-light {{ server.premium_bg_css }} right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
+						{% else %}
+							<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
+						{% endif %}
+						<a class="tooltipped white-text" data-position="bottom" data-tooltip="View Details" href="{% url 'server:detail' server.server_id %}"><i class="fal fa-info-circle {{ server.premium_font_css }}"></i></a>
+						{% if server.website %}
+							<a target="_blank" class="tooltipped white-text" data-position="bottom" data-tooltip="Visit the server's website" href="{{ server.website }}" target="_blank"><i class="website-icon material-icons {{ server.premium_font_css }}">language</i></a>
+						{% endif %}
+						{% if request.user.user_id in server.manager_ids %}
+							<a target="_blank" class="tooltipped btn-small waves-effect waves-light cyan right" style="margin-right:5px;" data-position="bottom" data-tooltip="Edit this server" href="{% url 'server:update' server.server_id %}"><i class="material-icons">edit</i></a>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

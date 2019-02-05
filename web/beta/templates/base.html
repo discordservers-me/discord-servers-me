@@ -1,0 +1,288 @@
+{% load humanize %}
+{% load static meta_description %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{% block meta_description %}We are a gigantic discord server list. Find servers that you're interested in and places to join and meet new friends. Search for the best discord servers communities or advertise your discord server here. Anime, gaming, technology, and many other categories are available to browse!{% endblock meta_description %}">
+	<title>{% block title %}Find Discord Servers - A List of the Best Discord Servers{% endblock title %}</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base_new.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+	<link rel="shortcut icon" type="image/png" href="{% static 'img/dark_logo.png' %}"/>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126525321-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-126525321-1');
+	</script>
+
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			/*background: white url({% static "img/dust_scratches.png" %});*/
+			color: #e0e0e0;
+			background-color: #141414;
+			height: 100%;
+		}
+		#userinfo-dropdown {
+			top: 100% !important;
+		}
+
+		@media only screen and (min-width: 993px) {
+			.container {
+				width: 90% !important;
+			}
+		}
+
+		@media only screen and (max-width: 600px) {
+			nav .brand-logo {
+				padding-left: 160px !important;
+				left: 30%;
+			}
+
+			nav .brand-logo img {
+				height: 56px;
+			}
+		}
+
+		.active-navitem {
+			background: #e0e0e0;
+
+		}
+		.active-navitem > a {
+			color: black;
+		}
+
+		.nav-wrapper ul > li {
+			min-width: 70px;
+			max-height: 64px;
+			text-align: center;
+		}
+
+		.fa-twitter {
+			font-size: 30px;
+			color: #38A1F3;
+		}
+	</style>
+	{% block stylesheet %}{% endblock %}
+</head>
+<body>
+	{% block body %}
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="{% url 'home' %}">
+						<div class="brand-logo" style="white-space: nowrap;">
+							<img height='64' style="padding: .5em;" src="{% static 'img/light_logo.png' %}" alt="Discord Server List">
+							<div class="hide-on-med-and-down" style="display: inline-block; position: absolute;"><strong id="main-header">DISCORD SERVERS</strong></div>
+						</div>
+					</a>
+					<a href="#!" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+
+						<!--<li>
+							<form method="get" action="{% url 'server:search' %}">
+								<div class="input-field grey darken-4">
+									<input class="grey-text text-darken" id="search-nav-bar" type="search" placeholder="Search for a Discord Server" name="term" autocomplete="off" value="{% if request.GET.term %}{{ request.GET.term }}{% endif %}">
+									<label class="label-icon" for="search"><i style="display: inline;" class="material-icons">search</i></label>
+									<i class="material-icons">close</i>
+								</div>
+							</form>
+						</li> -->
+
+						{% with request.resolver_match as url_part %}
+
+							{% if url_part.url_name == 'home' %}
+								<li class="active-navitem tooltipped" data-tooltip="Home">
+									<a href="#!"><i class="fas fa-home"></i></a>
+								</li>
+							{% else %}
+								<li class="tooltipped" data-tooltip="Home">
+									<a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
+								</li>
+							{% endif %}
+
+							{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
+								<li class="active-navitem tooltipped" data-tooltip="Top 100 Servers">
+									<a href="#!"><i class="large material-icons">insert_chart</i></a>
+								</li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Top 100 Servers">
+									<a href="{% url 'server:list_top_100' %}"><i class="large material-icons">insert_chart</i></a>
+								</li>
+							{% endif %}
+
+							{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
+								<li class="active-navitem tooltipped" data-tooltip="Premium">
+									<a href="#!"><i class="fas fa-star premium-star"></i></a>
+								</li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Premium">
+									<a href="{% url 'premium:detail' %}"><i style="color: #fff;" class="menu-star fas fa-star premium-star"></i></a>
+								</li>
+							{% endif %}
+
+							<!--{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
+								<li class="active-navitem tooltipped" data-tooltip="Giveaways">
+									<a href="#!"><i class="fas fa-gift"></i></a>
+								</li>
+							{% else %}
+								<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Giveaways">
+									<a href="{% url 'giveaway:detail' %}"><i class="fas fa-gift"></i></a>
+								</li>
+							{% endif %}-->
+
+
+
+							{% if not request.user.is_authenticated %}
+								{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
+									<li class="active-navitem">
+										<a href="#!"><i class="material-icons tooltipped" data-tooltip="Log In">person</i></a>
+									</li>
+								{% else %}
+									<li class="hoverable waves-effect waves-light tooltipped" data-tooltip="Log In">
+										<a href="{% url 'auth:login' %}"><i class="menu-person material-icons">person</i></a>
+									</li>
+								{% endif %}
+							{% endif %}
+						{% endwith %}
+						<li><a class="btn grey lighten-3 grey-text text-darken-3 pulse-button" href="{% url 'auth:discord' %}">ADD SERVER <i class="material-icons right">add_box</i></a></li>
+						{% if request.user.is_authenticated %}
+							<li>
+								<a class="nav-dropdown-trigger" data-target='userinfo-dropdown' href="#!"style="max-height: 64px;">
+									<img class="circle responsive-img hoverable" style="margin-top: 4px; max-width: 55px; max-height: 55px;" src="{{ request.user.avatar_url}}" alt="{{ request.user.username }}">
+								</a>
+							</li>
+
+						{% endif %}
+					</ul>
+				</div>
+			</nav>
+			{% if request.user.is_authenticated %}
+				<ul id="userinfo-dropdown" class="dropdown-content grey lighten-4">
+					<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Dashboard</a></li>
+					<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Your Servers</a></li>
+					<li class="divider"></li>
+					{# <li><a class="grey-text text-darken-4" href="{% url 'user:password_change' %}">Change Password</a></li> #}
+					<li class="divider"></li>
+					<li><a class="grey-text text-darken-4" href="{% url 'auth:logout' %}">Log Out</a></li>
+				</ul>
+			{% endif %}
+		</div>
+		<ul class="sidenav" id="mobile-sidenav">
+			{% with request.resolver_match as url_part %}
+
+				{% if url_part.url_name == 'home' %}
+					<li class="active"><a href="#!">HOME</a></li>
+				{% else %}
+					<li class="hoverable" ><a href="{% url 'home' %}">HOME</a></li>
+				{% endif %}
+
+				{% if url_part.namespace == 'server' and url_part.url_name == 'list_top_100' %}
+					<li class="active"><a href="#!">TOP 100 SERVERS</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'server:list_top_100' %}">TOP 100 SERVERS</a></li>
+				{% endif %}
+
+				{% if url_part.namespace == 'premium' and url_part.url_name == 'detail' %}
+					<li class="active"><a href="#!">PREMIUM</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'premium:detail' %}">PREMIUM</a></li>
+				{% endif %}
+
+				<!--{% if url_part.namespace == 'giveaway' and url_part.url_name == 'detail' %}
+					<li class="active"><a href="#!">GIVEAWAYS</a></li>
+				{% else %}
+					<li class="hoverable"><a href="{% url 'giveaway:detail' %}">GIVEAWAYS</a></li>
+				{% endif %}-->
+
+
+
+				{% if not request.user.is_authenticated %}
+					{% if url_part.namespace == 'auth' and url_part.url_name == 'login' %}
+						<li class="active"><a href="#!">LOGIN</a></li>
+					{% else %}
+						<li class="hoverable"><a href="{% url 'auth:login' %}">LOGIN</a></li>
+					{% endif %}
+				{% endif %}
+			{% endwith %}
+			<li><a class="waves-effect waves-light btn" href="{% url 'auth:discord' %}">ADD SERVER</a></li>
+			{% if request.user.is_authenticated %}
+				<li class="divider"></li>
+				<li class="center"><div class="chip" style="margin: 20px 0;">
+					<img src="{{ request.user.avatar_url}}" alt="{{ request.user.username }}">
+					{{ request.user.username }}
+				</div></li>
+				<li class="divider" style="margin-top: 0;"></li>
+				<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Dashboard</a></li>
+				<li><a class="grey-text text-darken-4" href="{% url 'user:dashboard' %}">Your Servers</a></li>
+				{# <li><a class="grey-text text-darken-4" href="{% url 'user:password_change' %}">Change Password</a></li> #}
+				<li><a class="grey-text text-darken-4" href="{% url 'auth:logout' %}">Log Out</a></li>
+			{% endif %}
+
+		</ul>
+		<div class="container" style="min-height: calc(100% - 130px); padding-bottom: 70px; margin-bottom: -70px;">
+
+			{% if messages %}
+				<div class="messages teal">
+					{% for message in messages %}
+						{% if 'success' in message.tags %}
+							<div class="green accent-1" style="display: flex; padding: 10px; vertical-align:middle; justify-content:center; align-items:center;">
+								<i class="material-icons small green-text text-accent-3">check</i>
+								<div class="grey-text text-darken-4">{{ message }}</div>
+							</div>
+						{% endif %}
+
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="content" style="padding: 3rem 0;">
+				{% block content %}
+
+				{% endblock content %}
+			</div>
+		</div>
+		<footer class="page-footer">
+			<div class="footer-copyright grey darken-4">
+				<div class="container">
+                    <a href="{% url 'partners:partners_list' %}" class="blue-text text-darken-2 partner-url">Partners</a><br><a href="{% url 'about:aboutdetail' %}" class="blue-text text-darken-2 partner-url">About Us</a><br>
+					© Discordservers.me is not affiliated with Discord
+					<span class="right" style="margin-top: -25px;">
+						<span style="margin-right: 5px;">Need Help?</span>
+						<a class="blue-text text-darken-2 right" href="{% url 'discord_server' %}" target="_blank">Join our Support Server!</a><br>
+						<a href="https://twitter.com/Discordsme" class="blue-text text-darken-2 partner-url" target="_blank"><i class="fab fa-twitter"></i></a>
+					</span>
+
+				</div>
+			</div>
+		</footer>
+
+	{% endblock body %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+	<script>
+		$(document).ready(function(){
+			$('select').formSelect();
+			$('.sidenav').sidenav();
+			$('.tooltipped').tooltip();
+			$(".nav-dropdown-trigger").dropdown({
+				'alignment': 'right',
+				'constrainWidth': false,
+			});
+		});
+	</script>
+	{% block javascript %}{% endblock %}
+</body>
+</html>

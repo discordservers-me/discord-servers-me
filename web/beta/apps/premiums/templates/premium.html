@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+	Premium Tiers Details
+{% endblock title %}
+{% block content %}
+	
+	<div class="center">
+		<h4 style="margin-top: 0;">What you get when purchasing Premium (Tier 1) <small>($7.5/mo)</small></h4>
+		<div class="row" style="margin-top: 2rem;">
+			{% for feature in tier1_features  %}
+				<div class="col s12 m8 offset-m2 l6
+					{% if forloop.last and tier1_odd %}
+						offset-l3
+					{% endif %}">
+					<div class="card-panel hoverable {{ feature.background_color }}" style="min-height: 270px; max-height: 270px;">
+						<div class="tier-badges">
+							<i class="material-icons {{ feature.icon_color }} large">{{ feature.icon }}</i>
+						</div>
+						<h6>
+						<strong>{{ feature.short_description }}</strong>
+						</h6>
+						<p>{{ feature.description }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<a href="{% url 'premium:payment' %}" class="btn-large indigo waves-effect waves-light">Click here to Buy Premium Tiers for your Servers!</a>
+		<h4 style="margin-top: 2rem;">What you get when purchasing Premium (Tier 2) <small>($10/mo)</small></h4>
+		<div class="row" style="margin-top: 2rem;">
+			{% for feature in tier2_features  %}
+				<div class="col s12 m8 offset-m2 l6
+					{% if forloop.last and tier2_odd %}
+						offset-l3
+					{% endif %}">
+					<div class="card-panel hoverable {{ feature.background_color }}" style="min-height: 300px; max-height: 300px;">
+						<div class="tier-badges">
+							<i class="material-icons {{ feature.icon_color }} large">{{ feature.icon }}</i>
+						</div>
+						<h6>
+						<strong>{{ feature.short_description }}</strong>
+						</h6>
+						<p>{{ feature.description }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<a href="{% url 'premium:payment' %}" class="btn-large indigo waves-effect waves-light">Click here to Buy Premium Tiers for your Servers!</a>
+	</div>
+	
+{% endblock content %}

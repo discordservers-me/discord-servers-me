@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block meta_description %}
+Buy the discordservers.me Premium. Gain discord members fast and easily through this advertisement.
+{% endblock meta_description %}
+{% block title %}
+	Purchase a Premium Tier
+{% endblock title %}
+{% block content %}
+	
+	<div class="row grey lighten-2 grey-text text-darken-4">
+		<div class="col s12">
+			<h4>Premium Tier Purchase</h4>
+			<p>Please complete the below steps and hit that PAYPAL CHECKOUT button to complete the order.</p>
+			{% if paypal_test %}
+				<blockquote>
+					<code>
+					Use these Credential to test payment on PayPal: <br>
+					email:    discord_server_list_buyer@gmail.com <br>
+					password: 1234qwer
+					</code>
+				</blockquote>
+			{% endif %}
+		</div>
+		
+		<div class="col s12">
+			<h5 class="">Choose a Server</h5>
+			{% if server_choice.fields.server.choices %}
+				{{ server_choice.as_p }}
+			{% else %}
+				It seems you don't have a server yet, <a href="{% url 'user:dashboard' %}">click here for instruction to add one</a>.
+			{% endif %}
+			
+			<ul id="premium_info" class="teal-text">
+				
+			</ul>
+		</div>
+		<div class="col s12">
+			<h5>Choose a Premium Tier</h5>
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="card-panel grey-text text-darken-4 center tier-items hoverable" data-tier="1">
+						<div class="tier-badges">
+							<i class="material-icons large indigo-text">local_play</i>
+						</div>
+						<h5>PREMIUM TIER 1 <small>($7.5/mo)</small></h5>
+						{# <p>Featured on Homepage</p> #}
+						{# <p>Highlighted Servers (Yellow or Pink)</p> #}
+						{# <p>Appears during Search and Top 100 Servers List</p> #}
+						{# <p>An awesome badge on server listing!</p> #}
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<div class="card-panel grey-text text-darken-4 center tier-items hoverable" data-tier="2">
+						<div class="tier-badges">
+							<i class="material-icons large indigo-text">local_play</i>
+							<i class="material-icons large indigo-text">local_play</i>
+						</div>
+						<h5>PREMIUM TIER 2 <small>($10/mo)</small></h5>
+						{# <p>Featured on <strong>top</strong> & <strong>+75% appear chance</strong> on Homepage</p> #}
+						{# <p>Highlighted Servers (Yellow, Pink, or <strong>Red</strong>)</p> #}
+						{# <p><strong>+75% appear chance</strong> in Search page and Top 100 Servers List</p> #}
+						{# <p><strong>Two awesome badges</strong> on server listing!</p> #}
+						{# <p><strong>Eligible for Tier-Two-Only Giveaways</strong></p> #}
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 center">
+			{{ paypal_form.render }}
+			<small class="grey-text text-darken-2">Includes Checkouts with Paypal Account, and Credit/Debit Cards.</small>
+		</div>
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h5>Please select a Server and Tier before checkout.</h5>
+			</div>
+			<div class="modal-footer">
+				<div class="modal-close waves-effect waves-green btn-flat">OK</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+{% block javascript %}
+	<script>
+		$(document).ready(function(){
+			$('.modal').modal();
+			$.ajax({
+				type: "GET",
+				data: {'sid': $("#id_server").val()},
+				success: function(response){
+					$("#premium_info").html(response.html_result);
+				},
+			})
+		});
+		$(".tier-items").on('click', function(e){
+			$('.tier-items').removeClass('tier-selected grey-text text-darken-4 indigo darken-3');
+			$('.tier-badges i').removeClass('white-text');
+			$('.tier-items').addClass('grey-text text-darken-4 grey');
+			$(this).removeClass('grey-text text-darken-4 grey');
+			$(this).addClass('tier-selected indigo darken-3 white-text');
+			$(this).find('i').addClass('white-text');
+		})
+	
+		$("form#paypal_checkout").submit(function(e){
+			tier = $('.tier-selected').data('tier');
+			sid = $("#id_server").val();
+			if (tier && sid) {
+				custom_val = tier.toString() + '_' + sid.toString();
+				$('input[name=custom]').val(custom_val);
+				if (tier === 1){
+					$('input[name=amount]').val(7.5);
+					$('input[name=item_name]').val('Premium Tier 1');
+				} else if (tier === 2) {
+					$('input[name=amount]').val(10);
+					$('input[name=item_name]').val('Premium Tier 2');
+				}
+				return true;
+			} else {
+				$(".modal").modal('open');
+				return false;
+			}
+			
+		})
+	
+		$("#id_server").on('change', function(e){
+			$.ajax({
+				type: "GET",
+				data: {'sid': $(this).val()},
+				success: function(response){
+					$("#premium_info").html(response.html_result);
+				},
+			})
+		})
+	</script>
+{% endblock javascript %}

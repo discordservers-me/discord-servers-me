@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}
+	Search: {{ request.GET.term }}
+	{% if request.GET.page %}
+		| Page {{ request.GET.page }}
+	{% endif %}
+{% endblock title %}
+{% block content %}
+	<div class="" style="">
+		<nav>
+			<div class="nav-wrapper">
+				<form>
+					<div class="input-field grey darken-4">
+						<input class="grey-text text-darken" id="search" type="search" name="term" autocomplete="off" value="{% if request.GET.term %}{{ request.GET.term }}{% endif %}">
+						<label class="label-icon" for="search"><i class="material-icons">search</i></label>
+						<i class="material-icons">close</i>
+					</div>
+				</form>
+			</div>
+		</nav>
+		<h5 class="grey-text" style="margin-bottom: 0;">Showing search results for: <strong class="grey-text text-lighten-3">{{ request.GET.term }}</strong></h5>
+	</div>
+	<div id="server-list">
+		<div class="row" style="margin-bottom: 0;">
+			{% for server in servers %}
+				{% if forloop.counter == 4 %}
+					{% include 'includes/ad_card.html' %}
+				{% endif %}
+				{% include 'includes/server_card.html' %}
+			{% endfor %}
+			<div class="col s12 center" style="padding: 0.25rem 0;">
+				{% include 'includes/paginator_dark.html' %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}
