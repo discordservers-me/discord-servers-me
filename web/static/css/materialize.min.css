@@ -3635,7 +3635,9 @@ table span.badge {
         left: 8.3333333333%
     }
     .row .col.offset-m2 {
-        margin-left: 16.6666666667%
+        /*margin-left: 16.6666666667%*/
+        margin-left: auto;
+        margin-right: auto;
     }
     .row .col.pull-m2 {
         right: 16.6666666667%
@@ -4609,10 +4611,10 @@ small {
 }
 
 .card {
-    width: 402px;
+    max-width: 402px;
     height: 320px;
     position: relative;
-    margin: .5rem 0 1rem 0;
+    margin: .5rem auto 1rem auto;
     background-color: #151F16;
     -webkit-transition: -webkit-box-shadow .25s;
     transition: -webkit-box-shadow .25s;
