@@ -3553,9 +3553,6 @@ table span.badge {
 }
 
 @media only screen and (min-width:601px) {
-    .row .col {
-        float: unset;
-    }
     .row .col.m1 {
         width: 8.3333333333%;
         margin-left: auto;
@@ -8921,6 +8918,9 @@ body.keyboard-focused .dropdown-content li:focus {
  }
 
  @media only screen and (max-width: 992px) {
+    .row .col {
+        float: unset;
+    }
     .mobile-center {
         text-align: center;
     }
