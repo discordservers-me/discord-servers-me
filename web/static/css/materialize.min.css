@@ -4609,6 +4609,8 @@ small {
 }
 
 .card {
+    width: 402px;
+    height: 320px;
     position: relative;
     margin: .5rem 0 1rem 0;
     background-color: #151F16;
@@ -8886,6 +8888,19 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 .menu-person {
     font-size: 38px !important;
+}
+.explore-tag {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.server-tag-blue {
+    padding: 15px 80px 40px 15px;
+    background: #0000ff1a !important;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin: 3%;
+    width: 30%;
 }
 @media only screen and (max-width: 980px) {
     #search::placeholder {

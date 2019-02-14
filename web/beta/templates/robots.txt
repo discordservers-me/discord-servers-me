@@ -1,6 +1,0 @@
-User-Agent: *
-Disallow: 
-Disallow: /*&page=*
-Disallow: /*?term=*
-
-Sitemap: https://discordservers.me/sitemap.xml

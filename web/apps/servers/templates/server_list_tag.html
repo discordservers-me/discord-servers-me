@@ -87,7 +87,7 @@
 			</div>
 
 		</div>
-		<div class="center">
+		<div class="explore-tag center">
 			<h5>Explore more Tags:</h5>
 			{% for tag in tags  %}
 				<a href="{% url 'server:list_tag' tag.name %}" class="server-tag btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
