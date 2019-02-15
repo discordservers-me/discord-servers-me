@@ -63,7 +63,7 @@ Support this website by buying our Premium. This will display you in front of th
 				<div class="tier-card-basic premium-card hoverable">
 					<div class="card-content server-card-highlight-4">
 						<h4 class="premium-card-title"><strong>Basic</strong></h4>
-						<p class="premium-card-point">Here's what you get:</p>
+						<p class="premium-card-point-1">Here's what you get:</p>
 						<ul class="premium-card-list">
 							{% for feature in tier0_features %}
 								<li>
@@ -72,15 +72,15 @@ Support this website by buying our Premium. This will display you in front of th
 								</li>
 							{% endfor %}
 						</ul>
-						<p class="premium-card-point">Here's what you don't get:</p>
+						<p class="premium-card-point-1">Here's what you don't get:</p>
 						<uL class="premium-card-list">
 							<li>
 								<i class="material-icons mr5px">check_box_outline_blank</i>
-								<span style="position: absolute;" class="tooltipped" data-position="top" data_html="true" data_tooltip="You won’t have a colored highlight. Not having one will decrease your clicks.">A Server Highlight</span>
+								<span style="position: absolute;" class="tooltipped" data-position="top">A Server Highlight</span>
 							</li>
 							<li>
 								<i class="material-icons mr5px">check_box_outline_blank</i>
-								<span style="position: absolute;" class="tooltipped" data-position="top" data_html="true" data_tooltip="You will not be featured on the front page of each listing, you will only be featured when your server has more members/activity than other servers in a category.">Featured on all server listings</span>
+								<span style="position: absolute;" class="tooltipped" data-position="top">Featured on all server listings</span>
 							</li>
 						</uL>
 						<a href="#!">
@@ -96,7 +96,7 @@ Support this website by buying our Premium. This will display you in front of th
 				<div class="tier-card-premium-1 premium-card hoverable">
 					<div class="card-content server-card-highlight-2">
 						<h4 class="premium-card-title"><strong>Premium Tier 1</strong></h4>
-						<p class="premium-card-point">Here's what you get:</p>
+						<p class="premium-card-point-2">Here's what you get:</p>
 						<ul class="premium-card-list">
 							{% for feature in tier1_features %}
 								<li>
@@ -105,15 +105,15 @@ Support this website by buying our Premium. This will display you in front of th
 								</li>
 							{% endfor %}
 						</ul>
-						<p class="premium-card-point">Here's what you don't get:</p>
+						<p class="premium-card-point-2">Here's what you don't get:</p>
 						<uL class="premium-card-list">
 							<li>
 								<i class="material-icons mr5px">check_box_outline_blank</i>
-								<span style="position: absolute;" class="tooltipped" data-position="top" data_html="true" data_tooltip="Your server won't be featured as frequently as Advanced servers, 75% less.">Featured Less</span>
+								<span style="position: absolute;" class="tooltipped" data-position="top">Featured Less</span>
 							</li>
 							<li>
 								<i class="material-icons mr5px">check_box_outline_blank</i>
-								<span style="position: absolute;" class="tooltipped" data-position="top" data_html="true" data_tooltip="Your server won't be able to have a red highlight. Red is the most eye-catching color.">No Red Highlight Option</span>
+								<span style="position: absolute;" class="tooltipped" data-position="top">No Red Highlight Option</span>
 							</li>
 						</uL>
 						<a href="{% url 'premium:payment' %}">
@@ -128,6 +128,7 @@ Support this website by buying our Premium. This will display you in front of th
 				<div class="tier-card-premium-2 premium-card hoverable">
 					<div class="card-content server-card-highlight-1">
 						<h4 class="premium-card-title"><strong>Premium Tier 2</strong></h4>
+						<p class="premium-card-point-3">You get everything:</p>
 						<ul class="premium-card-list">
 							{% for feature in tier2_features %}
 								<li>

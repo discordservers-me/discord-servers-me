@@ -8915,17 +8915,24 @@ body.keyboard-focused .dropdown-content li:focus {
     transition: box-shadow .25s, -webkit-box-shadow .25s;
     border-radius: 2px;
 }
-.premium-card-title {
-    padding: 15px;
-}
-.premium-card-list {
-    padding: 15px !important;
-}
 .card-action {
     padding: 22px;
 }
-.premium-card-point {
+.premium-card-title,
+.premium-card-list {
+    padding: 15px !important;
+}
+.premium-card-point-1 {
     padding-left: 15px;
+    color: #4e4c4e;
+}
+.premium-card-point-2 {
+    padding-left: 15px;
+    color: #aa00ff;
+}
+.premium-card-point-3 {
+    padding-left: 15px;
+    color: #F6CD00;
 }
 @media only screen and (max-width: 980px) {
     #search::placeholder {
