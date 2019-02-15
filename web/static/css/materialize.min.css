@@ -8915,6 +8915,15 @@ body.keyboard-focused .dropdown-content li:focus {
     transition: box-shadow .25s, -webkit-box-shadow .25s;
     border-radius: 2px;
 }
+.premium-card-title {
+    padding: 15px;
+}
+.premium-card-list {
+    padding: 15px;
+}
+.card-action {
+    padding: 22px;
+}
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
