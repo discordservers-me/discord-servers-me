@@ -8904,6 +8904,18 @@ body.keyboard-focused .dropdown-content li:focus {
     margin: 3%;
     width: 30%;
 }
+.premium-card {
+    max-width: 402px;
+    height: 600px;
+    position: relative;
+    margin: .5rem auto 1rem auto;
+    background-color: #151F16;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    border-radius: 2px;
+}
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
