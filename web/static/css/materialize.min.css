@@ -8918,21 +8918,26 @@ body.keyboard-focused .dropdown-content li:focus {
 .card-action {
     padding: 22px;
 }
-.premium-card-title,
-.premium-card-list {
+.premium-card-title {
     padding: 15px !important;
+}
+.premium-card-list {
+padding: 0 0 15px 15px!important;
 }
 .premium-card-point-1 {
     padding-left: 15px;
     color: #4e4c4e;
+    font-weight: 600;
 }
 .premium-card-point-2 {
     padding-left: 15px;
     color: #aa00ff;
+    font-weight: 600;
 }
 .premium-card-point-3 {
     padding-left: 15px;
     color: #F6CD00;
+    font-weight: 600;
 }
 @media only screen and (max-width: 980px) {
     #search::placeholder {
