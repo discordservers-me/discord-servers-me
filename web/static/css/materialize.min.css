@@ -8906,7 +8906,6 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 .premium-card {
     max-width: 402px;
-    height: 600px;
     position: relative;
     margin: .5rem auto 1rem auto;
     background-color: #151F16;
