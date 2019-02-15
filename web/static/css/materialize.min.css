@@ -8919,7 +8919,7 @@ body.keyboard-focused .dropdown-content li:focus {
     padding: 15px;
 }
 .premium-card-list {
-    padding: 15px;
+    padding: 15px !important;
 }
 .card-action {
     padding: 22px;
