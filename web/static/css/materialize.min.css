@@ -8925,7 +8925,7 @@ body.keyboard-focused .dropdown-content li:focus {
     padding: 22px;
 }
 .premium-card-point {
-    padding: 15px;
+    padding-left: 15px;
 }
 @media only screen and (max-width: 980px) {
     #search::placeholder {
