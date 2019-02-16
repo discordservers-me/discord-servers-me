@@ -8939,6 +8939,11 @@ padding: 0 0 15px 15px!important;
     color: #F6CD00;
     font-weight: 600;
 }
+.premium-header {
+    padding: 15px;
+    font-family: "Lato-bold";
+    font-size: 32px;
+}
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
