@@ -6488,7 +6488,7 @@ body.keyboard-focused .dropdown-content li:focus {
  }
 
  .nav-wrapper .input-field input[type=search] {
-     height: inherit;
+     height: 62px;
      padding-left: 4rem;
      width: calc(100% - 4rem);
      border: 0;
