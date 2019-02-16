@@ -22,9 +22,9 @@ def process_payment(sender, **kwargs):
             return
 
         if tier == 1:
-            price = 7.5
+            price = 9.99
         elif tier == 2:
-            price = 10
+            price = 14.99
         else:
             print(f'Custom field tampered (no such tier [{tier}]).')
             return
