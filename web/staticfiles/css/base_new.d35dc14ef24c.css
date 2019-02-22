@@ -1,0 +1,600 @@
+/* Colors */
+
+.new-black {
+  background-color: #141414;
+}
+
+/* SERVER TAG CSS */
+
+.server-tag {
+    margin-bottom: 5px;
+}
+
+/* END SERVER TAG CSS */
+
+
+/* FORM CSS */
+
+.input-field .errors,
+.select-field .errors {
+    color: red;
+}
+/*
+#search-nav-bar {
+  width: 2rem !important;
+  padding-left: auto !important;
+  transition: width 0.3s ease-in-out !important;
+  -webkit-transition: width 0.3s ease-in-out !important;
+}
+
+#search-nav-bar:focus {
+  width: 5rem !important;
+}
+*/
+/* END FORM CSS */
+
+/* SERVER CARD CSS */
+
+.discord-card {
+    min-height: 460px !important;
+}
+
+.server-card-wrapper {
+    margin: 2rem 1rem;
+}
+
+.server-card {
+    min-height: 210px;
+    max-height: 210px;
+    padding: 1rem !important;
+    overflow: hidden;
+}
+
+.server-card-highlight-1 {
+    background-color: rgba(246, 205, 0, 0.05);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-2 {
+    background-color: rgba(220, 74, 255, 0.05);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-3 {
+    background-color: rgba(255, 56, 55, 0.05);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-4 {
+    background-color: rgba(103, 101, 104, 0.05);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-1:hover {
+    background-color: rgba(246,205,0, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-2:hover {
+    background-color: rgba(220, 74, 255, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-3:hover {
+    background-color: rgba(255, 56, 55, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-highlight-4:hover {
+    background-color: rgba(103, 101, 104, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+.server-card-image-wrapper {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+}
+
+.server-card-bump-button {
+    position: absolute !important;
+    top: -10px;
+    right: -10px;
+}
+
+.server-card-image {
+    width: 100px;
+    height: 100px;
+}
+
+.server-premium-badge {
+    position: absolute !important;
+    top: 90px;
+    width: 100%;
+}
+
+.server-card-info {
+    min-height: 80px;
+    margin-top: -8px;
+}
+
+.server-card-name {
+    position: relative;
+    left: 90px;
+    top: -20px;
+}
+
+.server-members-emojis-wrapper{
+    /*margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;*/
+    top: -20px;
+    left: 90px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: .2px solid #333233;
+    width: calc(100% - 82px);
+}
+.server-members-emojis {
+    font-size: 0.9rem;
+    /*margin: 0 0 0 20px;
+    padding: 4px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;*/
+    min-width: 128px;
+}
+
+.server-card-tag-wrapper {
+    padding: 5px 1rem;
+    min-height: 30px;
+    position: relative;
+}
+
+.server-card-tag-wrapper .inside {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+}
+.server-card-tag {
+    display: inline;
+    font-size: 0.8rem;
+}
+
+.server-join-btn {
+  height: 36.9px !important;
+  width: 115.13px !important;
+  padding-top: 2px !important;
+}
+
+.server-invisible-alert {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+/* END SERVER CARD CSS */
+
+/* SERVER DETAIL CSS */
+
+.emoji-item {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.emoji-item:hover {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* END SERVER DETAIL CSS */
+
+/* MISCELLANEOUS */
+
+.ad-card-wrapper {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.with-icon {
+    display: flex !important;
+    vertical-align: middle !important;
+    justify-content: center !important;
+}
+
+.ml5px {
+    margin-left: 5px;
+}
+
+.mr5px {
+    margin-right: 5px;
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+
+/* END MISCELLANEOUS */
+
+/* PREMIUM PAYMENT CSS */
+.tier-items {
+    cursor: pointer;
+    /*min-height: 400px;*/
+}
+
+/* END PREMIUM PAYMENT CSS */
+
+/* PREMIUM CSS */
+
+.fa-star {
+  color: black;
+  font-size: 10px;
+}
+
+.premium-ribbon-wrapper {
+  height: 22px;
+  margin: 0 auto;
+}
+
+.premium-ribbon-1 {
+  width: 80px;
+  position: relative;
+  display: inline-block;
+  background-color: #F6CD00;
+  text-align: center;
+  top: -.6em;
+  left: calc(100% - 40px);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-2 {
+  width: 80px;
+  position: relative;
+  display: inline-block;
+  background-color: #DC4AFF;
+  text-align: center;
+  top: -.6em;
+  left: calc(100% - 40px);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-3 {
+  width: 80px;
+  position: relative;
+  display: inline-block;
+  background-color: #ff3837;
+  text-align: center;
+  top: -.6em;
+  left: calc(100% - 40px);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.premium-ribbon-4 {
+  width: 80px;
+  position: relative;
+  display: inline-block;
+  background-color: #676568;
+  text-align: center;
+  top: -.6em;
+  left: calc(100% - 2.7em);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  line-height: 20px;
+}
+
+.server-card-image.regular-highlight {
+    background: #676568;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.server-card-image.premium-highlight-1 {
+    background: #F6CD00;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.server-card-image.premium-highlight-2  {
+    background: #DC4AFF;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.server-card-image.premium-highlight-3 {
+    background: #ff3837;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.regular-highlight {
+    border: 2px solid #676568 !important;
+}
+
+.premium-highlight-1 {
+    border: 2px solid #F6CD00 !important;
+}
+
+.premium-highlight-2 {
+    border: 2px solid #DC4AFF !important;
+}
+
+.premium-highlight-3 {
+    border: 2px solid #ff3837 !important;
+}
+
+.premium-color-1 {
+    background-color: #F6CD00 !important;
+}
+
+.premium-color-2 {
+    background-color: #DC4AFF !important;
+}
+
+.premium-color-3 {
+    background-color: #ff3837 !important;
+}
+
+.regular-color {
+    background-color: #676568 !important;
+}
+
+.premium-font-1 {
+    color: #F6CD00 !important;
+}
+
+.premium-font-2 {
+    color: #DC4AFF !important;
+}
+
+.premium-font-3 {
+    color: #ff3837 !important;
+}
+
+.regular-font {
+    color: #676568 !important;
+}
+/* END PREMIUM CSS */
+
+/* PUSLE BUTTON */
+
+.pulse-button {
+    overflow: visible !important;
+    position: relative !important;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.pulse-button::before {
+
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    -webkit-animation: custom_pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    -moz-animation: custom_pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    -ms-animation: custom_pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    animation: custom_pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    z-index: -1;
+}
+
+.pulse-button:hover {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    animation: none;
+}
+
+
+@-webkit-keyframes custom_pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(238, 238, 238, 1);
+    }
+    to {
+        box-shadow: 0 0 0 10px rgba(238, 238, 238, 0);
+    }
+}
+
+@-moz-keyframes custom_pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(238, 238, 238, 1);
+    }
+    to {
+        box-shadow: 0 0 0 10px rgba(238, 238, 238, 0);
+    }
+}
+
+@-ms-keyframes custom_pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(238, 238, 238, 1);
+    }
+    to {
+        box-shadow: 0 0 0 10px rgba(238, 238, 238, 0);
+    }
+}
+
+@keyframes custom_pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(238, 238, 238, 1);
+    }
+    to {
+        box-shadow: 0 0 0 10px rgba(238, 238, 238, 0);
+    }
+}
+
+/* END PULSE BUTTON */
+
+/* Partners page CSS */
+#partners{
+
+}
+#partners h4{
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.single-partner{
+    min-height: 269px;
+    margin: 2rem 1rem;
+    padding: 1rem 1rem 1.5rem;
+    color: #fff !important;
+    background-color: #212121 !important;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+#partners .partner-title{
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#partners .partner-description{
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+}
+.partner-des{
+
+}
+.page-footer{
+    padding-bottom: 20px;
+}
+#partners .partner-link{
+    margin-top: 10px;
+}
+.partner-url{
+    margin-bottom: 5px;
+    display: inline-block;
+    /*color: white;*/
+    /*text-decoration: none;*/
+}
+.bottom-partner-link a{
+
+}
+@media (max-width: 850px){
+    footer span.right{
+        float: none !important;
+        margin-top: 0 !important;
+        clear: both;
+        display: block;
+    }
+    footer span.right a{
+        width: 100%;
+    }
+}
+/* Partners page CSS End */
+
+.home-premium{
+    color:white;
+}
+.home-premium a{
+    color: #1976D2;
+    text-decoration: none;
+}
+
+/*To fix the Salmon color on header and footer*/
+.nav-bg-color,.footer-bg-color{
+    background-color:#212022;
+}
+
+.fa-info-circle {
+    font-size: 24px;
+    margin-top: 8px;
+    }
+
+.website-icon {
+    position: absolute;
+    font-size: 27px;
+    margin-left: -10px;
+    margin-top: 7px;
+}
+
+/*@media only screen and (min-width: 1300px) and (max-width: 1369px) {
+    .server-members-emojis-wrapper {
+        width: 74%;
+    }
+ }
+
+@media only screen and (min-width: 1250px) and (max-width: 1299px) {
+    .server-members-emojis-wrapper {
+        width: 71.5%;
+    }
+ }
+
+@media only screen and (min-width: 1200px) and (max-width: 1249px) {
+    .server-members-emojis-wrapper {
+        width: 70%;
+    }
+ }
+
+ @media only screen and (min-width: 1150px) and (max-width: 1199px) {
+    .server-members-emojis-wrapper {
+        width: 81%;
+    }
+ }
+
+ @media only screen and (min-width: 1100px) and (max-width: 1149px) {
+    .server-members-emojis-wrapper {
+        width: 80%;
+    }
+ }
+
+ @media only screen and (min-width: 1050px) and (max-width: 1099px) {
+    .server-members-emojis-wrapper {
+        width: 79%;
+    }
+ }
+
+ @media only screen and (min-width: 993px) and (max-width: 1049px) {
+    .server-members-emojis-wrapper {
+        width: 77.5%;
+    }
+ }
+
+ @media only screen and (max-width: 993px) {
+    .server-members-emojis-wrapper {
+        width: 82%;
+        padding-bottom: 16px;
+    }
+ }*/

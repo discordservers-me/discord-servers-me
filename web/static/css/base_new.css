@@ -551,6 +551,9 @@
     margin-top: 7px;
 }
 
+.home-tag {
+    border-radius: 50px;
+}
 /*@media only screen and (min-width: 1300px) and (max-width: 1369px) {
     .server-members-emojis-wrapper {
         width: 74%;

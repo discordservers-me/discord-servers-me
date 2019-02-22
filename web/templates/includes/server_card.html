@@ -50,7 +50,7 @@
 						</div>
 
 
-						<p class="" style="font-size: 13px;">{{ server.short_description|truncatechars:120 }}</p>
+						<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
 						{% if show_bump_button and not server.is_bumped %}
 							<span class="bumper server-card-bump-button btn-small grey lighten-5 grey-text text-darken-4" data-sid="{{ server.server_id }}">BUMP</span>
 						{% endif %}
