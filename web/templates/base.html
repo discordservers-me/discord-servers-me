@@ -282,6 +282,19 @@
 				'constrainWidth': false,
 			});
 		});
+
+		//server tag collapse
+
+		var tagNames = document.getElementsByClassName("tag-name");
+
+		for (a in tagNames) {
+			if(a.innerText == "LEARNING" || "GIVEAWAY" || "CRYPTO" || "SUPPORT" || "SERVER" || "MUSIC" || "ART" || "APEX" || "LEGENDS" || "MINECRAFT") {
+				a.classList.add("collapse-hide");
+			}else{
+				a.classList.add("collapse-show");
+			}
+		}
+		
 	</script>
 	{% block javascript %}{% endblock %}
 </body>
