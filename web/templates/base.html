@@ -285,16 +285,29 @@
 
 		//server tag collapse
 
-		var tagNames = document.getElementsByClassName("tag-name");
+		var tagNames = document.getElementsByClassName("server-tag");
 
-		for (a in tagNames) {
-			if(a.innerText == "LEARNING" || "GIVEAWAY" || "CRYPTO" || "SUPPORT" || "SERVER" || "MUSIC" || "ART" || "APEX" || "LEGENDS" || "MINECRAFT") {
-				a.classList.add("collapse-hide");
-			}else{
-				a.classList.add("collapse-show");
+        var collapseNames = ["LEARNING", "GIVEAWAY", "CRYPTO", "SUPPORT SERVER", "MUSIC", "ART", "APEX", "LEGENDS", "MINECRAFT"];
+
+		for (a in collapseNames) {
+            for(b in tagNames) {
+			if(tagNames[b].innerText.split("\n")[0] == collapseNames[a]) {
+				tagNames[b].classList.add("collapse-hide");
 			}
 		}
-		
+        }
+        
+		function collapse() {
+         
+			for (a in collapseNames) {
+            for(b in tagNames) {
+			if(tagNames[b].innerText.split("\n")[0] == collapseNames[a]) {
+				tagNames[b].classList.remove("collapse-hide");
+				tagNames[b].classList.add("collapse-show");
+			}
+		}
+        }
+		}
 	</script>
 	{% block javascript %}{% endblock %}
 </body>

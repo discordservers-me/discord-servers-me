@@ -8954,6 +8954,23 @@ padding: 0 0 30px 30px!important;
     border-radius: 50px;
     margin: 5px;
 }
+#collapse-button {
+    width: 200px;
+    padding: 12px;
+    margin: 15px auto;
+    text-align: center;
+    background: #212121;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.collapse-hide {
+    display: none;
+}
+.collapse-show {
+    display: inline-block;
+}
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
