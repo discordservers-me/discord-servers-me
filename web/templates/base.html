@@ -297,17 +297,6 @@
 		}
         }
         
-		function collapse() {
-         
-			for (a in collapseNames) {
-            for(b in tagNames) {
-			if(tagNames[b].innerText.split("\n")[0] == collapseNames[a]) {
-				tagNames[b].classList.remove("collapse-hide");
-				tagNames[b].classList.add("collapse-show");
-			}
-		}
-        }
-		}
 	</script>
 	{% block javascript %}{% endblock %}
 </body>
