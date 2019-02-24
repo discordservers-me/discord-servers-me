@@ -289,17 +289,28 @@
 
         var collapseNames = ["LEARNING", "GIVEAWAY", "CRYPTO", "SUPPORT SERVER", "MUSIC", "ART", "APEX", "LEGENDS", "MINECRAFT"];
 
-		for (a in collapseNames) {
+        var collapseButton = document.getElementById("collapse-button");
+
+		function hideTags() {
+			for (a in collapseNames) {
             for(b in tagNames) {
 			if(tagNames[b].innerText.split("\n")[0] == collapseNames[a]) {
 				tagNames[b].setAttribute("style", "display:none;");
 			}
 		}
         }
+		}
         
 		function collapse() {
-			for(b in tagNames) {
+			if(collapseButton.innerHTML == "<i class="left fas fa-plus"></i>More Tags") {
+				collapseButton.innerHTML = "<i class="left fas fa-minus"></i>Less Tags"
+				for(b in tagNames) {
 			tagNames[b].setAttribute("style", "display:inline-block;");
+			}
+			}
+			elseif(collapseButton.innerHTML == "<i class="left fas fa-minus"></i>Less Tags") {
+				collapseButton.innerHTML = "<i class="left fas fa-plus"></i>More Tags"
+			hideTags();
 			}
 		}
             

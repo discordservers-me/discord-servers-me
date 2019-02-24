@@ -8971,9 +8971,11 @@ padding: 0 0 30px 30px!important;
 .collapse-show {
     display: inline-block;
 }
-.fa-plus {
+.fa-plus,
+.fa-minus {
     padding: 3px;
 }
+
 @media only screen and (max-width: 980px) {
     #search::placeholder {
         font-size: 1.2em;
