@@ -283,39 +283,46 @@
 			});
 		});
 
-		//server tag collapse
-		/*var tagNames = document.getElementsByClassName("collapse");
+		//server tag collaps
+var collapseButton = document.getElementById("collapse-button");
 
-        var collapseNames = ["LEARNING", "GIVEAWAY", "CRYPTO", "SUPPORT SERVER", "MUSIC", "ART", "APEX", "LEGENDS", "MINECRAFT"];
+var serverTags = document.getElementsByClassName("server-tag");
 
-        var collapseButton = document.getElementById("collapse-button");
+ if(screen.width > 992) {
+	var collapseNames = ["LEARNING", "GIVEAWAY", "CRYPTO", "SUPPORT SERVER", "MUSIC", "ART", "APEX", "LEGENDS", "MINECRAFT"];
+ }else{
+	var collapseNames = ["LEARNING", "GIVEAWAY", "CRYPTO", "SUPPORT SERVER", "MUSIC", "ART", "COMMUNITY", "APEX LEGENDS", "MINECRAFT", "REDDIT", "FORTNITE", "ECONOMY"];
+ }
 
-			for (a in collapseNames) {
-            for(b in tagNames) {
-			if(tagNames[b].innerText.split("\n")[0] == collapseNames[a]) {
-				tagNames[b].setAttribute("style", "display:none;");
-			}
-		}
+try {
+    for (a in serverTags) {
+        for (b in collapseNames) {
+            if (serverTags[a].innerText.split("\n")[0] == collapseNames[b]) {
+                serverTags[a].style.display = "none";
+            }
         }
+    }
+} catch (e) {}
 
+function collapse() {
 
-		function showTags() {
-		for(b in tagNames) {
-			tagNames[b].setAttribute("style", "display:inline-block;");
-			}
-		}
+    try {
+        for (c in serverTags) {
 
-		function collapse() {
-			if(collapseButton.innerHTML == '<i class="left fas fa-plus"></i>More Tags') {
-				collapseButton.innerHTML = '<i class="left fas fa-minus"></i>Less Tags';
-                  showTags();
-			}
-			else{
-				collapseButton.innerHTML = '<i class="left fas fa-plus"></i>More Tags';
-			    hideTags();
-			}
-		}*/
-            
+                if (serverTags[c].getAttribute("style") == "display: inline-block;") {
+                    serverTags[c].style.display = "none";
+                } else if (serverTags[c].getAttribute("style") == "display: none;") {
+                    serverTags[c].style.display = "inline-block";
+                }         
+        }
+    } catch (e) {}
+
+    if (collapseButton.innerHTML == '<i class="left fas fa-minus"></i>Less Tags') {
+        collapseButton.innerHTML = '<i class="left fas fa-plus"></i>More Tags';
+    } else {
+        collapseButton.innerHTML = '<i class="left fas fa-minus"></i>Less Tags';
+    }
+}    
 	</script>
 	{% block javascript %}{% endblock %}
 </body>

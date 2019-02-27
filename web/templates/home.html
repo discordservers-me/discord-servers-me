@@ -15,8 +15,8 @@
 				</form>
 			</div>
 		</nav>
-		<h6>Or select a Tag of your interest</h6>
-		<div align="center">
+		<h6 style="color: #676767;">Available Tags</h6>
+		<div>
 		{% for tag in tags  %}
 			<a href="{% url 'server:list_tag' tag.name %}" class="server-tag collapse btn-small waves-effect waves-light grey darken-4 white-text">{{ tag.name }} {% if tag.material_icon %}<i class="material-icons left">{{ tag.material_icon }}</i>{% endif %}</a>
 			{% empty %}
@@ -24,9 +24,9 @@
 		{% endfor %}
 		</div>
 	</div>
-	<!--<div id="collapse-button" onclick="collapse();">
+	<div id="collapse-button" onclick="collapse();">
 		<i class="left fas fa-plus"></i>More Tags   
-			</div>-->
+			</div>
 	<div id="server-list">
 			<div class="mobile-center" style="padding: 25px 25px 0 25px;">
 				<h1 style="margin: 1rem auto; font-size:40px">Discord Server List</h1>
