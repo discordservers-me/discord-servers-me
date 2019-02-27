@@ -50,7 +50,7 @@
 						</div>
 
 
-						<p class="" style="font-size: 0.9rem;">{{ server.short_description|truncatechars:120 }}</p>
+						<p class="server-card-desc">{{ server.short_description|truncatechars:120 }}</p>
 						{% if show_bump_button and not server.is_bumped %}
 							<span class="bumper server-card-bump-button btn-small grey lighten-5 grey-text text-darken-4" data-sid="{{ server.server_id }}">BUMP</span>
 						{% endif %}
@@ -72,7 +72,7 @@
 						{% if server.invite_link %}
 							<a target="_blank" href="{{ server.invite_link }}" class="tooltipped btn-small server-join-btn waves-effect waves-light {{ server.premium_bg_css }} right" data-position="bottom" data-tooltip="Join this server">JOIN</a>
 						{% else %}
-							<span class="tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
+							<span class="server-card-button tooltipped btn-small waves-effect waves-light grey right" data-position="bottom" data-tooltip="This server doesn't have a valid invite link.">JOIN</span>
 						{% endif %}
 						<a class="tooltipped white-text" data-position="bottom" data-tooltip="View Details" href="{% url 'server:detail' server.server_id %}"><i class="fal fa-info-circle {{ server.premium_font_css }}"></i></a>
 						{% if server.website %}

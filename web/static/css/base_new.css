@@ -98,6 +98,38 @@
     height: 100%;
 }
 
+.server-card-highlight-1 .card-action {
+    border-top: .5px solid #F6CD00;
+}
+
+.server-card-highlight-2 .card-action {
+    border-top: .5px solid #DC4AFF;
+}
+
+.server-card-highlight-3 .card-action {
+    border-top: .5px solid #ff3837;
+}
+
+.server-card-highlight-4 .card-action {
+    border-top: .5px solid #676568;
+}
+
+.server-card-highlight-1 .card-content .server-card-info .server-members-emojis-wrapper {
+    border-bottom: .2px solid #F6CD00;
+}
+
+.server-card-highlight-2 .card-content .server-card-info .server-members-emojis-wrapper {
+    border-bottom: .2px solid #DC4AFF;
+}
+
+.server-card-highlight-3 .card-content .server-card-info .server-members-emojis-wrapper {
+    border-bottom: .2px solid #ff3837;
+}
+
+.server-card-highlight-4 .card-content .server-card-info .server-members-emojis-wrapper {
+    border-bottom: .2px solid #676568;
+}
+
 .server-card-image-wrapper {
     position: absolute;
     top: -2px;
@@ -145,8 +177,13 @@
     width: calc(100% - 82px);
 }
 .server-members-emojis {
-    font-size: 0.9rem;
-    /*margin: 0 0 0 20px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 14px;
+    /*font-size: 0.9rem;
+    margin: 0 0 0 20px;
     padding: 4px 0;
     text-align: center;
     display: flex;
@@ -154,7 +191,13 @@
     border-radius: 5px;*/
     min-width: 128px;
 }
-
+.server-card-desc {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+}
 .server-card-tag-wrapper {
     padding: 5px 1rem;
     min-height: 30px;
@@ -167,10 +210,16 @@
     left: 15px;
 }
 .server-card-tag {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 14px;
     display: inline;
-    font-size: 13px;
 }
-
+.server-card-button {
+     color: #000;
+}
 .server-join-btn {
   height: 36.9px !important;
   width: 115.13px !important;
@@ -540,13 +589,13 @@
 }
 
 .fa-info-circle {
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 8px;
     }
 
 .website-icon {
     position: absolute;
-    font-size: 27px;
+    font-size: 20px;
     margin-left: -10px;
     margin-top: 7px;
 }
