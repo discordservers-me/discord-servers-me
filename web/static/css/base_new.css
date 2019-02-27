@@ -217,13 +217,11 @@
     font-size: 14px;
     display: inline;
 }
-.server-card-button {
-     color: #000;
-}
 .server-join-btn {
   height: 36.9px !important;
   width: 115.13px !important;
   padding-top: 2px !important;
+  color: #000 !important;
 }
 
 .server-invisible-alert {
