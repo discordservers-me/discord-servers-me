@@ -8953,17 +8953,25 @@ padding: 0 0 30px 30px!important;
 .server-tag {
     border-radius: 50px;
     margin: 5px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 16px;
+    color: #EEEDEF !important;
+    padding-top: 8px;
 }
 #collapse-button {
-    width: 200px;
-    padding: 12px;
+    width: 150px;
+    padding: 8px;
     margin: 15px auto;
     text-align: center;
     background: #212121;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
+    border: 2px solid rgba(238, 237, 239, 0.3);
 }
 .collapse-hide {
     display: none;
@@ -8973,7 +8981,10 @@ padding: 0 0 30px 30px!important;
 }
 .fa-plus,
 .fa-minus {
-    padding: 3px;
+    margin-right: -15px !important;
+    margin-left: 12px;
+    padding: 2px;
+    font-size: 20px;
 }
 
 @media only screen and (max-width: 980px) {
